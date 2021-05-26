@@ -1,9 +1,10 @@
 import networkx
 import re
+from itertools import permutations
 
 G = networkx.Graph()
 
-result = 0
+result = 9999999999
 
 with open("input.txt", "r") as input:
     for line in input:
@@ -12,8 +13,14 @@ with open("input.txt", "r") as input:
         distance = int(distance)
         G.add_nodes_from((node1, node2))
         G.add_edge(node1, node2, weight=distance)
+    
+    for p in permutations(G.nodes):
+        cumul = 0
+        for (a,b) in zip(p, p[1:]):
+            cumul += G.edges[a,b]["weight"]
+        if cumul < result:
+            result = cumul
 
- 
 
 
 with open("output1.txt", "w") as output:

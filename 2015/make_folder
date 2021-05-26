@@ -1,9 +1,10 @@
 #!/bin/bash
 
-mkdir Day_$1
+daynum=$(printf %02d $1)
+mkdir Day_$daynum
 
 if [ -f input.txt ]; then
-	mv input.txt Day_$1/input.txt
+	mv input.txt Day_$daynum/input.txt
 fi
 
 for i in "1" "2"
@@ -17,5 +18,5 @@ with open("input.txt", "r") as input:
 with open("output'$i'.txt", "w") as output:
     output.write(str(result))
     print(str(result))
-' > ./Day_$1/part$i.py
+' > ./Day_$daynum/part$i.py
 done
