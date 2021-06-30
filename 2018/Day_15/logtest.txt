@@ -1,0 +1,5691 @@
+Units at round 000:
+  <E @ ( 1,  1) - HP: 200>
+  <E @ ( 1,  4) - HP: 200>
+  <G @ ( 1,  5) - HP: 200>
+  <G @ ( 2,  3) - HP: 200>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 200>
+  <E @ ( 5,  3) - HP: 200>
+
+Current Unit: <E @ ( 1,  1) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 2,  3) - HP: 200>
+  <G @ ( 4,  1) - HP: 200>
+  <G @ ( 1,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (2, '( 1,  3)', '( 1,  2)')
+Unit moved to ( 1,  2)
+
+Current Unit: <E @ ( 1,  4) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 200>
+  <G @ ( 2,  3) - HP: 200>
+  <G @ ( 4,  1) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (1, '( 1,  3)', '( 1,  3)')
+  (1, '( 2,  4)', '( 2,  4)')
+Unit did not move
+Targettable Enemies:
+  (200, <G @ ( 1,  5) - HP: 200>)
+Attacking unit <G @ ( 1,  5) - HP: 200>
+Result: <G @ ( 1,  5) - HP: 197>
+
+Current Unit: <G @ ( 1,  5) - HP: 197>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 200>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 200>
+  <E @ ( 5,  3) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (200, <E @ ( 1,  4) - HP: 200>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 200>
+Result: <E @ ( 1,  4) - HP: 197>
+
+Current Unit: <G @ ( 2,  3) - HP: 200>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 5,  3) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (1, '( 1,  3)', '( 1,  3)')
+  (1, '( 1,  3)', '( 1,  3)')
+  (1, '( 2,  4)', '( 2,  4)')
+  (1, '( 2,  4)', '( 2,  4)')
+Unit moved to ( 1,  3)
+Targettable Enemies:
+  (197, <E @ ( 1,  4) - HP: 197>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 197>
+Result: <E @ ( 1,  4) - HP: 194>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 197>
+  <G @ ( 1,  3) - HP: 200>
+  <G @ ( 4,  1) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (197, <G @ ( 1,  5) - HP: 197>)
+Attacking unit <G @ ( 1,  5) - HP: 197>
+Result: <G @ ( 1,  5) - HP: 194>
+
+Current Unit: <E @ ( 3,  1) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 200>
+  <G @ ( 1,  3) - HP: 200>
+  <G @ ( 1,  5) - HP: 194>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+  (2, '( 4,  2)', '( 3,  2)')
+Unit did not move
+Targettable Enemies:
+  (200, <G @ ( 4,  1) - HP: 200>)
+Attacking unit <G @ ( 4,  1) - HP: 200>
+Result: <G @ ( 4,  1) - HP: 197>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 194>
+  <G @ ( 1,  3) - HP: 200>
+  <G @ ( 4,  1) - HP: 197>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 197>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 200>
+  <E @ ( 5,  3) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 194>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (2, '( 3,  2)', '( 4,  2)')
+Unit did not move
+Targettable Enemies:
+  (200, <E @ ( 3,  1) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 200>
+Result: <E @ ( 3,  1) - HP: 197>
+
+Current Unit: <E @ ( 5,  3) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 197>
+  <G @ ( 1,  3) - HP: 200>
+  <G @ ( 1,  5) - HP: 194>
+Distances array (distance, targetTile, firstStep):
+  (2, '( 4,  2)', '( 4,  3)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit moved to ( 4,  3)
+
+
+Units at round 001:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 200>
+  <E @ ( 1,  4) - HP: 194>
+  <G @ ( 1,  5) - HP: 194>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 197>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 197>
+  <E @ ( 4,  3) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 200>
+  <G @ ( 1,  5) - HP: 194>
+  <G @ ( 4,  1) - HP: 197>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (200, <G @ ( 1,  3) - HP: 200>)
+Attacking unit <G @ ( 1,  3) - HP: 200>
+Result: <G @ ( 1,  3) - HP: 197>
+
+Current Unit: <G @ ( 1,  3) - HP: 197>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 194>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 4,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 197>
+  <E @ ( 3,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (194, <E @ ( 1,  4) - HP: 194>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 194>
+Result: <E @ ( 1,  4) - HP: 191>
+
+Current Unit: <E @ ( 1,  4) - HP: 191>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 194>
+  <G @ ( 1,  3) - HP: 197>
+  <G @ ( 4,  1) - HP: 197>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (194, <G @ ( 1,  5) - HP: 194>)
+  (197, <G @ ( 1,  3) - HP: 197>)
+Attacking unit <G @ ( 1,  5) - HP: 194>
+Result: <G @ ( 1,  5) - HP: 191>
+
+Current Unit: <G @ ( 1,  5) - HP: 191>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 191>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 4,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 197>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (191, <E @ ( 1,  4) - HP: 191>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 191>
+Result: <E @ ( 1,  4) - HP: 188>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 191>
+  <G @ ( 1,  3) - HP: 197>
+  <G @ ( 4,  1) - HP: 197>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (191, <G @ ( 1,  5) - HP: 191>)
+Attacking unit <G @ ( 1,  5) - HP: 191>
+Result: <G @ ( 1,  5) - HP: 188>
+
+Current Unit: <E @ ( 3,  1) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 197>
+  <G @ ( 1,  3) - HP: 197>
+  <G @ ( 1,  5) - HP: 188>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+  (2, '( 4,  2)', '( 3,  2)')
+Unit did not move
+Targettable Enemies:
+  (197, <G @ ( 4,  1) - HP: 197>)
+Attacking unit <G @ ( 4,  1) - HP: 197>
+Result: <G @ ( 4,  1) - HP: 194>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 188>
+  <G @ ( 1,  3) - HP: 197>
+  <G @ ( 4,  1) - HP: 194>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 194>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 197>
+  <E @ ( 4,  3) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 188>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (1, '( 4,  2)', '( 4,  2)')
+  (2, '( 3,  2)', '( 4,  2)')
+Unit did not move
+Targettable Enemies:
+  (197, <E @ ( 3,  1) - HP: 197>)
+Attacking unit <E @ ( 3,  1) - HP: 197>
+Result: <E @ ( 3,  1) - HP: 194>
+
+Current Unit: <E @ ( 4,  3) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 194>
+  <G @ ( 1,  3) - HP: 197>
+  <G @ ( 1,  5) - HP: 188>
+Distances array (distance, targetTile, firstStep):
+  (1, '( 4,  2)', '( 4,  2)')
+Unit moved to ( 4,  2)
+Targettable Enemies:
+  (194, <G @ ( 4,  1) - HP: 194>)
+Attacking unit <G @ ( 4,  1) - HP: 194>
+Result: <G @ ( 4,  1) - HP: 191>
+
+
+Units at round 002:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 197>
+  <E @ ( 1,  4) - HP: 188>
+  <G @ ( 1,  5) - HP: 188>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 194>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 191>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 197>
+  <G @ ( 1,  5) - HP: 188>
+  <G @ ( 4,  1) - HP: 191>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (197, <G @ ( 1,  3) - HP: 197>)
+Attacking unit <G @ ( 1,  3) - HP: 197>
+Result: <G @ ( 1,  3) - HP: 194>
+
+Current Unit: <G @ ( 1,  3) - HP: 194>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 188>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 194>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (188, <E @ ( 1,  4) - HP: 188>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 188>
+Result: <E @ ( 1,  4) - HP: 185>
+
+Current Unit: <E @ ( 1,  4) - HP: 185>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 188>
+  <G @ ( 1,  3) - HP: 194>
+  <G @ ( 4,  1) - HP: 191>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (188, <G @ ( 1,  5) - HP: 188>)
+  (194, <G @ ( 1,  3) - HP: 194>)
+Attacking unit <G @ ( 1,  5) - HP: 188>
+Result: <G @ ( 1,  5) - HP: 185>
+
+Current Unit: <G @ ( 1,  5) - HP: 185>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 185>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 194>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (185, <E @ ( 1,  4) - HP: 185>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 185>
+Result: <E @ ( 1,  4) - HP: 182>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 185>
+  <G @ ( 1,  3) - HP: 194>
+  <G @ ( 4,  1) - HP: 191>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (185, <G @ ( 1,  5) - HP: 185>)
+Attacking unit <G @ ( 1,  5) - HP: 185>
+Result: <G @ ( 1,  5) - HP: 182>
+
+Current Unit: <E @ ( 3,  1) - HP: 194>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 191>
+  <G @ ( 1,  3) - HP: 194>
+  <G @ ( 1,  5) - HP: 182>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (191, <G @ ( 4,  1) - HP: 191>)
+Attacking unit <G @ ( 4,  1) - HP: 191>
+Result: <G @ ( 4,  1) - HP: 188>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 182>
+  <G @ ( 1,  3) - HP: 194>
+  <G @ ( 4,  1) - HP: 188>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 188>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 194>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 182>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (194, <E @ ( 3,  1) - HP: 194>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 194>
+Result: <E @ ( 3,  1) - HP: 191>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 188>
+  <G @ ( 1,  3) - HP: 194>
+  <G @ ( 1,  5) - HP: 182>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (188, <G @ ( 4,  1) - HP: 188>)
+Attacking unit <G @ ( 4,  1) - HP: 188>
+Result: <G @ ( 4,  1) - HP: 185>
+
+
+Units at round 003:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 194>
+  <E @ ( 1,  4) - HP: 182>
+  <G @ ( 1,  5) - HP: 182>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 191>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 185>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 194>
+  <G @ ( 1,  5) - HP: 182>
+  <G @ ( 4,  1) - HP: 185>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (194, <G @ ( 1,  3) - HP: 194>)
+Attacking unit <G @ ( 1,  3) - HP: 194>
+Result: <G @ ( 1,  3) - HP: 191>
+
+Current Unit: <G @ ( 1,  3) - HP: 191>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 182>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 191>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (182, <E @ ( 1,  4) - HP: 182>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 182>
+Result: <E @ ( 1,  4) - HP: 179>
+
+Current Unit: <E @ ( 1,  4) - HP: 179>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 182>
+  <G @ ( 1,  3) - HP: 191>
+  <G @ ( 4,  1) - HP: 185>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (182, <G @ ( 1,  5) - HP: 182>)
+  (191, <G @ ( 1,  3) - HP: 191>)
+Attacking unit <G @ ( 1,  5) - HP: 182>
+Result: <G @ ( 1,  5) - HP: 179>
+
+Current Unit: <G @ ( 1,  5) - HP: 179>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 179>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 191>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (179, <E @ ( 1,  4) - HP: 179>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 179>
+Result: <E @ ( 1,  4) - HP: 176>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 179>
+  <G @ ( 1,  3) - HP: 191>
+  <G @ ( 4,  1) - HP: 185>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (179, <G @ ( 1,  5) - HP: 179>)
+Attacking unit <G @ ( 1,  5) - HP: 179>
+Result: <G @ ( 1,  5) - HP: 176>
+
+Current Unit: <E @ ( 3,  1) - HP: 191>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 185>
+  <G @ ( 1,  3) - HP: 191>
+  <G @ ( 1,  5) - HP: 176>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (185, <G @ ( 4,  1) - HP: 185>)
+Attacking unit <G @ ( 4,  1) - HP: 185>
+Result: <G @ ( 4,  1) - HP: 182>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 176>
+  <G @ ( 1,  3) - HP: 191>
+  <G @ ( 4,  1) - HP: 182>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 182>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 191>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 176>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (191, <E @ ( 3,  1) - HP: 191>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 191>
+Result: <E @ ( 3,  1) - HP: 188>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 182>
+  <G @ ( 1,  3) - HP: 191>
+  <G @ ( 1,  5) - HP: 176>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (182, <G @ ( 4,  1) - HP: 182>)
+Attacking unit <G @ ( 4,  1) - HP: 182>
+Result: <G @ ( 4,  1) - HP: 179>
+
+
+Units at round 004:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 191>
+  <E @ ( 1,  4) - HP: 176>
+  <G @ ( 1,  5) - HP: 176>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 188>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 179>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 191>
+  <G @ ( 1,  5) - HP: 176>
+  <G @ ( 4,  1) - HP: 179>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (191, <G @ ( 1,  3) - HP: 191>)
+Attacking unit <G @ ( 1,  3) - HP: 191>
+Result: <G @ ( 1,  3) - HP: 188>
+
+Current Unit: <G @ ( 1,  3) - HP: 188>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 176>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 188>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (176, <E @ ( 1,  4) - HP: 176>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 176>
+Result: <E @ ( 1,  4) - HP: 173>
+
+Current Unit: <E @ ( 1,  4) - HP: 173>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 176>
+  <G @ ( 1,  3) - HP: 188>
+  <G @ ( 4,  1) - HP: 179>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (176, <G @ ( 1,  5) - HP: 176>)
+  (188, <G @ ( 1,  3) - HP: 188>)
+Attacking unit <G @ ( 1,  5) - HP: 176>
+Result: <G @ ( 1,  5) - HP: 173>
+
+Current Unit: <G @ ( 1,  5) - HP: 173>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 173>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 188>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (173, <E @ ( 1,  4) - HP: 173>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 173>
+Result: <E @ ( 1,  4) - HP: 170>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 173>
+  <G @ ( 1,  3) - HP: 188>
+  <G @ ( 4,  1) - HP: 179>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (173, <G @ ( 1,  5) - HP: 173>)
+Attacking unit <G @ ( 1,  5) - HP: 173>
+Result: <G @ ( 1,  5) - HP: 170>
+
+Current Unit: <E @ ( 3,  1) - HP: 188>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 179>
+  <G @ ( 1,  3) - HP: 188>
+  <G @ ( 1,  5) - HP: 170>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (179, <G @ ( 4,  1) - HP: 179>)
+Attacking unit <G @ ( 4,  1) - HP: 179>
+Result: <G @ ( 4,  1) - HP: 176>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 170>
+  <G @ ( 1,  3) - HP: 188>
+  <G @ ( 4,  1) - HP: 176>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 176>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 188>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 170>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (188, <E @ ( 3,  1) - HP: 188>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 188>
+Result: <E @ ( 3,  1) - HP: 185>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 176>
+  <G @ ( 1,  3) - HP: 188>
+  <G @ ( 1,  5) - HP: 170>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (176, <G @ ( 4,  1) - HP: 176>)
+Attacking unit <G @ ( 4,  1) - HP: 176>
+Result: <G @ ( 4,  1) - HP: 173>
+
+
+Units at round 005:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 188>
+  <E @ ( 1,  4) - HP: 170>
+  <G @ ( 1,  5) - HP: 170>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 185>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 173>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 188>
+  <G @ ( 1,  5) - HP: 170>
+  <G @ ( 4,  1) - HP: 173>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (188, <G @ ( 1,  3) - HP: 188>)
+Attacking unit <G @ ( 1,  3) - HP: 188>
+Result: <G @ ( 1,  3) - HP: 185>
+
+Current Unit: <G @ ( 1,  3) - HP: 185>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 170>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 185>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (170, <E @ ( 1,  4) - HP: 170>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 170>
+Result: <E @ ( 1,  4) - HP: 167>
+
+Current Unit: <E @ ( 1,  4) - HP: 167>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 170>
+  <G @ ( 1,  3) - HP: 185>
+  <G @ ( 4,  1) - HP: 173>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (170, <G @ ( 1,  5) - HP: 170>)
+  (185, <G @ ( 1,  3) - HP: 185>)
+Attacking unit <G @ ( 1,  5) - HP: 170>
+Result: <G @ ( 1,  5) - HP: 167>
+
+Current Unit: <G @ ( 1,  5) - HP: 167>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 167>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 185>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (167, <E @ ( 1,  4) - HP: 167>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 167>
+Result: <E @ ( 1,  4) - HP: 164>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 167>
+  <G @ ( 1,  3) - HP: 185>
+  <G @ ( 4,  1) - HP: 173>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (167, <G @ ( 1,  5) - HP: 167>)
+Attacking unit <G @ ( 1,  5) - HP: 167>
+Result: <G @ ( 1,  5) - HP: 164>
+
+Current Unit: <E @ ( 3,  1) - HP: 185>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 173>
+  <G @ ( 1,  3) - HP: 185>
+  <G @ ( 1,  5) - HP: 164>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (173, <G @ ( 4,  1) - HP: 173>)
+Attacking unit <G @ ( 4,  1) - HP: 173>
+Result: <G @ ( 4,  1) - HP: 170>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 164>
+  <G @ ( 1,  3) - HP: 185>
+  <G @ ( 4,  1) - HP: 170>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 170>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 185>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 164>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (185, <E @ ( 3,  1) - HP: 185>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 185>
+Result: <E @ ( 3,  1) - HP: 182>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 170>
+  <G @ ( 1,  3) - HP: 185>
+  <G @ ( 1,  5) - HP: 164>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (170, <G @ ( 4,  1) - HP: 170>)
+Attacking unit <G @ ( 4,  1) - HP: 170>
+Result: <G @ ( 4,  1) - HP: 167>
+
+
+Units at round 006:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 185>
+  <E @ ( 1,  4) - HP: 164>
+  <G @ ( 1,  5) - HP: 164>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 182>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 167>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 185>
+  <G @ ( 1,  5) - HP: 164>
+  <G @ ( 4,  1) - HP: 167>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (185, <G @ ( 1,  3) - HP: 185>)
+Attacking unit <G @ ( 1,  3) - HP: 185>
+Result: <G @ ( 1,  3) - HP: 182>
+
+Current Unit: <G @ ( 1,  3) - HP: 182>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 164>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 182>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (164, <E @ ( 1,  4) - HP: 164>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 164>
+Result: <E @ ( 1,  4) - HP: 161>
+
+Current Unit: <E @ ( 1,  4) - HP: 161>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 164>
+  <G @ ( 1,  3) - HP: 182>
+  <G @ ( 4,  1) - HP: 167>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (164, <G @ ( 1,  5) - HP: 164>)
+  (182, <G @ ( 1,  3) - HP: 182>)
+Attacking unit <G @ ( 1,  5) - HP: 164>
+Result: <G @ ( 1,  5) - HP: 161>
+
+Current Unit: <G @ ( 1,  5) - HP: 161>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 161>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 182>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (161, <E @ ( 1,  4) - HP: 161>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 161>
+Result: <E @ ( 1,  4) - HP: 158>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 161>
+  <G @ ( 1,  3) - HP: 182>
+  <G @ ( 4,  1) - HP: 167>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (161, <G @ ( 1,  5) - HP: 161>)
+Attacking unit <G @ ( 1,  5) - HP: 161>
+Result: <G @ ( 1,  5) - HP: 158>
+
+Current Unit: <E @ ( 3,  1) - HP: 182>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 167>
+  <G @ ( 1,  3) - HP: 182>
+  <G @ ( 1,  5) - HP: 158>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (167, <G @ ( 4,  1) - HP: 167>)
+Attacking unit <G @ ( 4,  1) - HP: 167>
+Result: <G @ ( 4,  1) - HP: 164>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 158>
+  <G @ ( 1,  3) - HP: 182>
+  <G @ ( 4,  1) - HP: 164>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 164>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 182>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 158>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (182, <E @ ( 3,  1) - HP: 182>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 182>
+Result: <E @ ( 3,  1) - HP: 179>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 164>
+  <G @ ( 1,  3) - HP: 182>
+  <G @ ( 1,  5) - HP: 158>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (164, <G @ ( 4,  1) - HP: 164>)
+Attacking unit <G @ ( 4,  1) - HP: 164>
+Result: <G @ ( 4,  1) - HP: 161>
+
+
+Units at round 007:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 182>
+  <E @ ( 1,  4) - HP: 158>
+  <G @ ( 1,  5) - HP: 158>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 179>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 161>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 182>
+  <G @ ( 1,  5) - HP: 158>
+  <G @ ( 4,  1) - HP: 161>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (182, <G @ ( 1,  3) - HP: 182>)
+Attacking unit <G @ ( 1,  3) - HP: 182>
+Result: <G @ ( 1,  3) - HP: 179>
+
+Current Unit: <G @ ( 1,  3) - HP: 179>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 158>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 179>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (158, <E @ ( 1,  4) - HP: 158>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 158>
+Result: <E @ ( 1,  4) - HP: 155>
+
+Current Unit: <E @ ( 1,  4) - HP: 155>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 158>
+  <G @ ( 1,  3) - HP: 179>
+  <G @ ( 4,  1) - HP: 161>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (158, <G @ ( 1,  5) - HP: 158>)
+  (179, <G @ ( 1,  3) - HP: 179>)
+Attacking unit <G @ ( 1,  5) - HP: 158>
+Result: <G @ ( 1,  5) - HP: 155>
+
+Current Unit: <G @ ( 1,  5) - HP: 155>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 155>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 179>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (155, <E @ ( 1,  4) - HP: 155>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 155>
+Result: <E @ ( 1,  4) - HP: 152>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 155>
+  <G @ ( 1,  3) - HP: 179>
+  <G @ ( 4,  1) - HP: 161>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (155, <G @ ( 1,  5) - HP: 155>)
+Attacking unit <G @ ( 1,  5) - HP: 155>
+Result: <G @ ( 1,  5) - HP: 152>
+
+Current Unit: <E @ ( 3,  1) - HP: 179>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 161>
+  <G @ ( 1,  3) - HP: 179>
+  <G @ ( 1,  5) - HP: 152>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (161, <G @ ( 4,  1) - HP: 161>)
+Attacking unit <G @ ( 4,  1) - HP: 161>
+Result: <G @ ( 4,  1) - HP: 158>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 152>
+  <G @ ( 1,  3) - HP: 179>
+  <G @ ( 4,  1) - HP: 158>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 158>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 179>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 152>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (179, <E @ ( 3,  1) - HP: 179>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 179>
+Result: <E @ ( 3,  1) - HP: 176>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 158>
+  <G @ ( 1,  3) - HP: 179>
+  <G @ ( 1,  5) - HP: 152>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (158, <G @ ( 4,  1) - HP: 158>)
+Attacking unit <G @ ( 4,  1) - HP: 158>
+Result: <G @ ( 4,  1) - HP: 155>
+
+
+Units at round 008:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 179>
+  <E @ ( 1,  4) - HP: 152>
+  <G @ ( 1,  5) - HP: 152>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 176>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 155>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 179>
+  <G @ ( 1,  5) - HP: 152>
+  <G @ ( 4,  1) - HP: 155>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (179, <G @ ( 1,  3) - HP: 179>)
+Attacking unit <G @ ( 1,  3) - HP: 179>
+Result: <G @ ( 1,  3) - HP: 176>
+
+Current Unit: <G @ ( 1,  3) - HP: 176>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 152>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 176>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (152, <E @ ( 1,  4) - HP: 152>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 152>
+Result: <E @ ( 1,  4) - HP: 149>
+
+Current Unit: <E @ ( 1,  4) - HP: 149>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 152>
+  <G @ ( 1,  3) - HP: 176>
+  <G @ ( 4,  1) - HP: 155>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (152, <G @ ( 1,  5) - HP: 152>)
+  (176, <G @ ( 1,  3) - HP: 176>)
+Attacking unit <G @ ( 1,  5) - HP: 152>
+Result: <G @ ( 1,  5) - HP: 149>
+
+Current Unit: <G @ ( 1,  5) - HP: 149>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 149>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 176>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (149, <E @ ( 1,  4) - HP: 149>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 149>
+Result: <E @ ( 1,  4) - HP: 146>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 149>
+  <G @ ( 1,  3) - HP: 176>
+  <G @ ( 4,  1) - HP: 155>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (149, <G @ ( 1,  5) - HP: 149>)
+Attacking unit <G @ ( 1,  5) - HP: 149>
+Result: <G @ ( 1,  5) - HP: 146>
+
+Current Unit: <E @ ( 3,  1) - HP: 176>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 155>
+  <G @ ( 1,  3) - HP: 176>
+  <G @ ( 1,  5) - HP: 146>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (155, <G @ ( 4,  1) - HP: 155>)
+Attacking unit <G @ ( 4,  1) - HP: 155>
+Result: <G @ ( 4,  1) - HP: 152>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 146>
+  <G @ ( 1,  3) - HP: 176>
+  <G @ ( 4,  1) - HP: 152>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 152>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 176>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 146>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (176, <E @ ( 3,  1) - HP: 176>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 176>
+Result: <E @ ( 3,  1) - HP: 173>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 152>
+  <G @ ( 1,  3) - HP: 176>
+  <G @ ( 1,  5) - HP: 146>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (152, <G @ ( 4,  1) - HP: 152>)
+Attacking unit <G @ ( 4,  1) - HP: 152>
+Result: <G @ ( 4,  1) - HP: 149>
+
+
+Units at round 009:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 176>
+  <E @ ( 1,  4) - HP: 146>
+  <G @ ( 1,  5) - HP: 146>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 173>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 149>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 176>
+  <G @ ( 1,  5) - HP: 146>
+  <G @ ( 4,  1) - HP: 149>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (176, <G @ ( 1,  3) - HP: 176>)
+Attacking unit <G @ ( 1,  3) - HP: 176>
+Result: <G @ ( 1,  3) - HP: 173>
+
+Current Unit: <G @ ( 1,  3) - HP: 173>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 146>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 173>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (146, <E @ ( 1,  4) - HP: 146>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 146>
+Result: <E @ ( 1,  4) - HP: 143>
+
+Current Unit: <E @ ( 1,  4) - HP: 143>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 146>
+  <G @ ( 1,  3) - HP: 173>
+  <G @ ( 4,  1) - HP: 149>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (146, <G @ ( 1,  5) - HP: 146>)
+  (173, <G @ ( 1,  3) - HP: 173>)
+Attacking unit <G @ ( 1,  5) - HP: 146>
+Result: <G @ ( 1,  5) - HP: 143>
+
+Current Unit: <G @ ( 1,  5) - HP: 143>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 143>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 173>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (143, <E @ ( 1,  4) - HP: 143>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 143>
+Result: <E @ ( 1,  4) - HP: 140>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 143>
+  <G @ ( 1,  3) - HP: 173>
+  <G @ ( 4,  1) - HP: 149>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (143, <G @ ( 1,  5) - HP: 143>)
+Attacking unit <G @ ( 1,  5) - HP: 143>
+Result: <G @ ( 1,  5) - HP: 140>
+
+Current Unit: <E @ ( 3,  1) - HP: 173>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 149>
+  <G @ ( 1,  3) - HP: 173>
+  <G @ ( 1,  5) - HP: 140>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (149, <G @ ( 4,  1) - HP: 149>)
+Attacking unit <G @ ( 4,  1) - HP: 149>
+Result: <G @ ( 4,  1) - HP: 146>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 140>
+  <G @ ( 1,  3) - HP: 173>
+  <G @ ( 4,  1) - HP: 146>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 146>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 173>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 140>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (173, <E @ ( 3,  1) - HP: 173>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 173>
+Result: <E @ ( 3,  1) - HP: 170>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 146>
+  <G @ ( 1,  3) - HP: 173>
+  <G @ ( 1,  5) - HP: 140>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (146, <G @ ( 4,  1) - HP: 146>)
+Attacking unit <G @ ( 4,  1) - HP: 146>
+Result: <G @ ( 4,  1) - HP: 143>
+
+
+Units at round 010:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 173>
+  <E @ ( 1,  4) - HP: 140>
+  <G @ ( 1,  5) - HP: 140>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 170>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 143>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 173>
+  <G @ ( 1,  5) - HP: 140>
+  <G @ ( 4,  1) - HP: 143>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (173, <G @ ( 1,  3) - HP: 173>)
+Attacking unit <G @ ( 1,  3) - HP: 173>
+Result: <G @ ( 1,  3) - HP: 170>
+
+Current Unit: <G @ ( 1,  3) - HP: 170>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 140>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 170>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (140, <E @ ( 1,  4) - HP: 140>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 140>
+Result: <E @ ( 1,  4) - HP: 137>
+
+Current Unit: <E @ ( 1,  4) - HP: 137>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 140>
+  <G @ ( 1,  3) - HP: 170>
+  <G @ ( 4,  1) - HP: 143>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (140, <G @ ( 1,  5) - HP: 140>)
+  (170, <G @ ( 1,  3) - HP: 170>)
+Attacking unit <G @ ( 1,  5) - HP: 140>
+Result: <G @ ( 1,  5) - HP: 137>
+
+Current Unit: <G @ ( 1,  5) - HP: 137>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 137>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 170>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (137, <E @ ( 1,  4) - HP: 137>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 137>
+Result: <E @ ( 1,  4) - HP: 134>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 137>
+  <G @ ( 1,  3) - HP: 170>
+  <G @ ( 4,  1) - HP: 143>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (137, <G @ ( 1,  5) - HP: 137>)
+Attacking unit <G @ ( 1,  5) - HP: 137>
+Result: <G @ ( 1,  5) - HP: 134>
+
+Current Unit: <E @ ( 3,  1) - HP: 170>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 143>
+  <G @ ( 1,  3) - HP: 170>
+  <G @ ( 1,  5) - HP: 134>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (143, <G @ ( 4,  1) - HP: 143>)
+Attacking unit <G @ ( 4,  1) - HP: 143>
+Result: <G @ ( 4,  1) - HP: 140>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 134>
+  <G @ ( 1,  3) - HP: 170>
+  <G @ ( 4,  1) - HP: 140>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 140>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 170>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 134>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (170, <E @ ( 3,  1) - HP: 170>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 170>
+Result: <E @ ( 3,  1) - HP: 167>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 140>
+  <G @ ( 1,  3) - HP: 170>
+  <G @ ( 1,  5) - HP: 134>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (140, <G @ ( 4,  1) - HP: 140>)
+Attacking unit <G @ ( 4,  1) - HP: 140>
+Result: <G @ ( 4,  1) - HP: 137>
+
+
+Units at round 011:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 170>
+  <E @ ( 1,  4) - HP: 134>
+  <G @ ( 1,  5) - HP: 134>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 167>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 137>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 170>
+  <G @ ( 1,  5) - HP: 134>
+  <G @ ( 4,  1) - HP: 137>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (170, <G @ ( 1,  3) - HP: 170>)
+Attacking unit <G @ ( 1,  3) - HP: 170>
+Result: <G @ ( 1,  3) - HP: 167>
+
+Current Unit: <G @ ( 1,  3) - HP: 167>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 134>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 167>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (134, <E @ ( 1,  4) - HP: 134>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 134>
+Result: <E @ ( 1,  4) - HP: 131>
+
+Current Unit: <E @ ( 1,  4) - HP: 131>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 134>
+  <G @ ( 1,  3) - HP: 167>
+  <G @ ( 4,  1) - HP: 137>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (134, <G @ ( 1,  5) - HP: 134>)
+  (167, <G @ ( 1,  3) - HP: 167>)
+Attacking unit <G @ ( 1,  5) - HP: 134>
+Result: <G @ ( 1,  5) - HP: 131>
+
+Current Unit: <G @ ( 1,  5) - HP: 131>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 131>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 167>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (131, <E @ ( 1,  4) - HP: 131>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 131>
+Result: <E @ ( 1,  4) - HP: 128>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 131>
+  <G @ ( 1,  3) - HP: 167>
+  <G @ ( 4,  1) - HP: 137>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (131, <G @ ( 1,  5) - HP: 131>)
+Attacking unit <G @ ( 1,  5) - HP: 131>
+Result: <G @ ( 1,  5) - HP: 128>
+
+Current Unit: <E @ ( 3,  1) - HP: 167>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 137>
+  <G @ ( 1,  3) - HP: 167>
+  <G @ ( 1,  5) - HP: 128>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (137, <G @ ( 4,  1) - HP: 137>)
+Attacking unit <G @ ( 4,  1) - HP: 137>
+Result: <G @ ( 4,  1) - HP: 134>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 128>
+  <G @ ( 1,  3) - HP: 167>
+  <G @ ( 4,  1) - HP: 134>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 134>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 167>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 128>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (167, <E @ ( 3,  1) - HP: 167>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 167>
+Result: <E @ ( 3,  1) - HP: 164>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 134>
+  <G @ ( 1,  3) - HP: 167>
+  <G @ ( 1,  5) - HP: 128>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (134, <G @ ( 4,  1) - HP: 134>)
+Attacking unit <G @ ( 4,  1) - HP: 134>
+Result: <G @ ( 4,  1) - HP: 131>
+
+
+Units at round 012:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 167>
+  <E @ ( 1,  4) - HP: 128>
+  <G @ ( 1,  5) - HP: 128>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 164>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 131>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 167>
+  <G @ ( 1,  5) - HP: 128>
+  <G @ ( 4,  1) - HP: 131>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (167, <G @ ( 1,  3) - HP: 167>)
+Attacking unit <G @ ( 1,  3) - HP: 167>
+Result: <G @ ( 1,  3) - HP: 164>
+
+Current Unit: <G @ ( 1,  3) - HP: 164>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 128>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 164>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (128, <E @ ( 1,  4) - HP: 128>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 128>
+Result: <E @ ( 1,  4) - HP: 125>
+
+Current Unit: <E @ ( 1,  4) - HP: 125>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 128>
+  <G @ ( 1,  3) - HP: 164>
+  <G @ ( 4,  1) - HP: 131>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (128, <G @ ( 1,  5) - HP: 128>)
+  (164, <G @ ( 1,  3) - HP: 164>)
+Attacking unit <G @ ( 1,  5) - HP: 128>
+Result: <G @ ( 1,  5) - HP: 125>
+
+Current Unit: <G @ ( 1,  5) - HP: 125>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 125>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 164>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (125, <E @ ( 1,  4) - HP: 125>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 125>
+Result: <E @ ( 1,  4) - HP: 122>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 125>
+  <G @ ( 1,  3) - HP: 164>
+  <G @ ( 4,  1) - HP: 131>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (125, <G @ ( 1,  5) - HP: 125>)
+Attacking unit <G @ ( 1,  5) - HP: 125>
+Result: <G @ ( 1,  5) - HP: 122>
+
+Current Unit: <E @ ( 3,  1) - HP: 164>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 131>
+  <G @ ( 1,  3) - HP: 164>
+  <G @ ( 1,  5) - HP: 122>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (131, <G @ ( 4,  1) - HP: 131>)
+Attacking unit <G @ ( 4,  1) - HP: 131>
+Result: <G @ ( 4,  1) - HP: 128>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 122>
+  <G @ ( 1,  3) - HP: 164>
+  <G @ ( 4,  1) - HP: 128>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 128>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 164>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 122>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (164, <E @ ( 3,  1) - HP: 164>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 164>
+Result: <E @ ( 3,  1) - HP: 161>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 128>
+  <G @ ( 1,  3) - HP: 164>
+  <G @ ( 1,  5) - HP: 122>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (128, <G @ ( 4,  1) - HP: 128>)
+Attacking unit <G @ ( 4,  1) - HP: 128>
+Result: <G @ ( 4,  1) - HP: 125>
+
+
+Units at round 013:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 164>
+  <E @ ( 1,  4) - HP: 122>
+  <G @ ( 1,  5) - HP: 122>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 161>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 125>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 164>
+  <G @ ( 1,  5) - HP: 122>
+  <G @ ( 4,  1) - HP: 125>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (164, <G @ ( 1,  3) - HP: 164>)
+Attacking unit <G @ ( 1,  3) - HP: 164>
+Result: <G @ ( 1,  3) - HP: 161>
+
+Current Unit: <G @ ( 1,  3) - HP: 161>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 122>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 161>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (122, <E @ ( 1,  4) - HP: 122>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 122>
+Result: <E @ ( 1,  4) - HP: 119>
+
+Current Unit: <E @ ( 1,  4) - HP: 119>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 122>
+  <G @ ( 1,  3) - HP: 161>
+  <G @ ( 4,  1) - HP: 125>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (122, <G @ ( 1,  5) - HP: 122>)
+  (161, <G @ ( 1,  3) - HP: 161>)
+Attacking unit <G @ ( 1,  5) - HP: 122>
+Result: <G @ ( 1,  5) - HP: 119>
+
+Current Unit: <G @ ( 1,  5) - HP: 119>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 119>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 161>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (119, <E @ ( 1,  4) - HP: 119>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 119>
+Result: <E @ ( 1,  4) - HP: 116>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 119>
+  <G @ ( 1,  3) - HP: 161>
+  <G @ ( 4,  1) - HP: 125>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (119, <G @ ( 1,  5) - HP: 119>)
+Attacking unit <G @ ( 1,  5) - HP: 119>
+Result: <G @ ( 1,  5) - HP: 116>
+
+Current Unit: <E @ ( 3,  1) - HP: 161>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 125>
+  <G @ ( 1,  3) - HP: 161>
+  <G @ ( 1,  5) - HP: 116>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (125, <G @ ( 4,  1) - HP: 125>)
+Attacking unit <G @ ( 4,  1) - HP: 125>
+Result: <G @ ( 4,  1) - HP: 122>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 116>
+  <G @ ( 1,  3) - HP: 161>
+  <G @ ( 4,  1) - HP: 122>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 122>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 161>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 116>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (161, <E @ ( 3,  1) - HP: 161>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 161>
+Result: <E @ ( 3,  1) - HP: 158>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 122>
+  <G @ ( 1,  3) - HP: 161>
+  <G @ ( 1,  5) - HP: 116>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (122, <G @ ( 4,  1) - HP: 122>)
+Attacking unit <G @ ( 4,  1) - HP: 122>
+Result: <G @ ( 4,  1) - HP: 119>
+
+
+Units at round 014:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 161>
+  <E @ ( 1,  4) - HP: 116>
+  <G @ ( 1,  5) - HP: 116>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 158>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 119>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 161>
+  <G @ ( 1,  5) - HP: 116>
+  <G @ ( 4,  1) - HP: 119>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (161, <G @ ( 1,  3) - HP: 161>)
+Attacking unit <G @ ( 1,  3) - HP: 161>
+Result: <G @ ( 1,  3) - HP: 158>
+
+Current Unit: <G @ ( 1,  3) - HP: 158>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 116>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 158>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (116, <E @ ( 1,  4) - HP: 116>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 116>
+Result: <E @ ( 1,  4) - HP: 113>
+
+Current Unit: <E @ ( 1,  4) - HP: 113>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 116>
+  <G @ ( 1,  3) - HP: 158>
+  <G @ ( 4,  1) - HP: 119>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (116, <G @ ( 1,  5) - HP: 116>)
+  (158, <G @ ( 1,  3) - HP: 158>)
+Attacking unit <G @ ( 1,  5) - HP: 116>
+Result: <G @ ( 1,  5) - HP: 113>
+
+Current Unit: <G @ ( 1,  5) - HP: 113>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 113>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 158>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (113, <E @ ( 1,  4) - HP: 113>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 113>
+Result: <E @ ( 1,  4) - HP: 110>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 113>
+  <G @ ( 1,  3) - HP: 158>
+  <G @ ( 4,  1) - HP: 119>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (113, <G @ ( 1,  5) - HP: 113>)
+Attacking unit <G @ ( 1,  5) - HP: 113>
+Result: <G @ ( 1,  5) - HP: 110>
+
+Current Unit: <E @ ( 3,  1) - HP: 158>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 119>
+  <G @ ( 1,  3) - HP: 158>
+  <G @ ( 1,  5) - HP: 110>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (119, <G @ ( 4,  1) - HP: 119>)
+Attacking unit <G @ ( 4,  1) - HP: 119>
+Result: <G @ ( 4,  1) - HP: 116>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 110>
+  <G @ ( 1,  3) - HP: 158>
+  <G @ ( 4,  1) - HP: 116>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 116>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 158>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 110>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (158, <E @ ( 3,  1) - HP: 158>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 158>
+Result: <E @ ( 3,  1) - HP: 155>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 116>
+  <G @ ( 1,  3) - HP: 158>
+  <G @ ( 1,  5) - HP: 110>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (116, <G @ ( 4,  1) - HP: 116>)
+Attacking unit <G @ ( 4,  1) - HP: 116>
+Result: <G @ ( 4,  1) - HP: 113>
+
+
+Units at round 015:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 158>
+  <E @ ( 1,  4) - HP: 110>
+  <G @ ( 1,  5) - HP: 110>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 155>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 113>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 158>
+  <G @ ( 1,  5) - HP: 110>
+  <G @ ( 4,  1) - HP: 113>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (158, <G @ ( 1,  3) - HP: 158>)
+Attacking unit <G @ ( 1,  3) - HP: 158>
+Result: <G @ ( 1,  3) - HP: 155>
+
+Current Unit: <G @ ( 1,  3) - HP: 155>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 110>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 155>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (110, <E @ ( 1,  4) - HP: 110>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 110>
+Result: <E @ ( 1,  4) - HP: 107>
+
+Current Unit: <E @ ( 1,  4) - HP: 107>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 110>
+  <G @ ( 1,  3) - HP: 155>
+  <G @ ( 4,  1) - HP: 113>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (110, <G @ ( 1,  5) - HP: 110>)
+  (155, <G @ ( 1,  3) - HP: 155>)
+Attacking unit <G @ ( 1,  5) - HP: 110>
+Result: <G @ ( 1,  5) - HP: 107>
+
+Current Unit: <G @ ( 1,  5) - HP: 107>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 107>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 155>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (107, <E @ ( 1,  4) - HP: 107>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 107>
+Result: <E @ ( 1,  4) - HP: 104>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 107>
+  <G @ ( 1,  3) - HP: 155>
+  <G @ ( 4,  1) - HP: 113>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (107, <G @ ( 1,  5) - HP: 107>)
+Attacking unit <G @ ( 1,  5) - HP: 107>
+Result: <G @ ( 1,  5) - HP: 104>
+
+Current Unit: <E @ ( 3,  1) - HP: 155>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 113>
+  <G @ ( 1,  3) - HP: 155>
+  <G @ ( 1,  5) - HP: 104>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (113, <G @ ( 4,  1) - HP: 113>)
+Attacking unit <G @ ( 4,  1) - HP: 113>
+Result: <G @ ( 4,  1) - HP: 110>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 104>
+  <G @ ( 1,  3) - HP: 155>
+  <G @ ( 4,  1) - HP: 110>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 110>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 155>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 104>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (155, <E @ ( 3,  1) - HP: 155>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 155>
+Result: <E @ ( 3,  1) - HP: 152>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 110>
+  <G @ ( 1,  3) - HP: 155>
+  <G @ ( 1,  5) - HP: 104>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (110, <G @ ( 4,  1) - HP: 110>)
+Attacking unit <G @ ( 4,  1) - HP: 110>
+Result: <G @ ( 4,  1) - HP: 107>
+
+
+Units at round 016:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 155>
+  <E @ ( 1,  4) - HP: 104>
+  <G @ ( 1,  5) - HP: 104>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 152>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 107>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 155>
+  <G @ ( 1,  5) - HP: 104>
+  <G @ ( 4,  1) - HP: 107>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (155, <G @ ( 1,  3) - HP: 155>)
+Attacking unit <G @ ( 1,  3) - HP: 155>
+Result: <G @ ( 1,  3) - HP: 152>
+
+Current Unit: <G @ ( 1,  3) - HP: 152>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 104>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 152>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (104, <E @ ( 1,  4) - HP: 104>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 104>
+Result: <E @ ( 1,  4) - HP: 101>
+
+Current Unit: <E @ ( 1,  4) - HP: 101>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 104>
+  <G @ ( 1,  3) - HP: 152>
+  <G @ ( 4,  1) - HP: 107>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (104, <G @ ( 1,  5) - HP: 104>)
+  (152, <G @ ( 1,  3) - HP: 152>)
+Attacking unit <G @ ( 1,  5) - HP: 104>
+Result: <G @ ( 1,  5) - HP: 101>
+
+Current Unit: <G @ ( 1,  5) - HP: 101>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 101>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 152>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (101, <E @ ( 1,  4) - HP: 101>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 101>
+Result: <E @ ( 1,  4) - HP: 98>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 101>
+  <G @ ( 1,  3) - HP: 152>
+  <G @ ( 4,  1) - HP: 107>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (101, <G @ ( 1,  5) - HP: 101>)
+Attacking unit <G @ ( 1,  5) - HP: 101>
+Result: <G @ ( 1,  5) - HP: 98>
+
+Current Unit: <E @ ( 3,  1) - HP: 152>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 107>
+  <G @ ( 1,  3) - HP: 152>
+  <G @ ( 1,  5) - HP: 98>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (107, <G @ ( 4,  1) - HP: 107>)
+Attacking unit <G @ ( 4,  1) - HP: 107>
+Result: <G @ ( 4,  1) - HP: 104>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 98>
+  <G @ ( 1,  3) - HP: 152>
+  <G @ ( 4,  1) - HP: 104>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 104>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 152>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 98>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (152, <E @ ( 3,  1) - HP: 152>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 152>
+Result: <E @ ( 3,  1) - HP: 149>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 104>
+  <G @ ( 1,  3) - HP: 152>
+  <G @ ( 1,  5) - HP: 98>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (104, <G @ ( 4,  1) - HP: 104>)
+Attacking unit <G @ ( 4,  1) - HP: 104>
+Result: <G @ ( 4,  1) - HP: 101>
+
+
+Units at round 017:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 152>
+  <E @ ( 1,  4) - HP: 98>
+  <G @ ( 1,  5) - HP: 98>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 149>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 101>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 152>
+  <G @ ( 1,  5) - HP: 98>
+  <G @ ( 4,  1) - HP: 101>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (152, <G @ ( 1,  3) - HP: 152>)
+Attacking unit <G @ ( 1,  3) - HP: 152>
+Result: <G @ ( 1,  3) - HP: 149>
+
+Current Unit: <G @ ( 1,  3) - HP: 149>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 98>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 149>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (98, <E @ ( 1,  4) - HP: 98>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 98>
+Result: <E @ ( 1,  4) - HP: 95>
+
+Current Unit: <E @ ( 1,  4) - HP: 95>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 98>
+  <G @ ( 1,  3) - HP: 149>
+  <G @ ( 4,  1) - HP: 101>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (98, <G @ ( 1,  5) - HP: 98>)
+  (149, <G @ ( 1,  3) - HP: 149>)
+Attacking unit <G @ ( 1,  5) - HP: 98>
+Result: <G @ ( 1,  5) - HP: 95>
+
+Current Unit: <G @ ( 1,  5) - HP: 95>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 95>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 149>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (95, <E @ ( 1,  4) - HP: 95>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 95>
+Result: <E @ ( 1,  4) - HP: 92>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 95>
+  <G @ ( 1,  3) - HP: 149>
+  <G @ ( 4,  1) - HP: 101>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (95, <G @ ( 1,  5) - HP: 95>)
+Attacking unit <G @ ( 1,  5) - HP: 95>
+Result: <G @ ( 1,  5) - HP: 92>
+
+Current Unit: <E @ ( 3,  1) - HP: 149>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 101>
+  <G @ ( 1,  3) - HP: 149>
+  <G @ ( 1,  5) - HP: 92>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (101, <G @ ( 4,  1) - HP: 101>)
+Attacking unit <G @ ( 4,  1) - HP: 101>
+Result: <G @ ( 4,  1) - HP: 98>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 92>
+  <G @ ( 1,  3) - HP: 149>
+  <G @ ( 4,  1) - HP: 98>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 98>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 149>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 92>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (149, <E @ ( 3,  1) - HP: 149>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 149>
+Result: <E @ ( 3,  1) - HP: 146>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 98>
+  <G @ ( 1,  3) - HP: 149>
+  <G @ ( 1,  5) - HP: 92>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (98, <G @ ( 4,  1) - HP: 98>)
+Attacking unit <G @ ( 4,  1) - HP: 98>
+Result: <G @ ( 4,  1) - HP: 95>
+
+
+Units at round 018:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 149>
+  <E @ ( 1,  4) - HP: 92>
+  <G @ ( 1,  5) - HP: 92>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 146>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 95>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 149>
+  <G @ ( 1,  5) - HP: 92>
+  <G @ ( 4,  1) - HP: 95>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (149, <G @ ( 1,  3) - HP: 149>)
+Attacking unit <G @ ( 1,  3) - HP: 149>
+Result: <G @ ( 1,  3) - HP: 146>
+
+Current Unit: <G @ ( 1,  3) - HP: 146>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 92>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 146>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (92, <E @ ( 1,  4) - HP: 92>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 92>
+Result: <E @ ( 1,  4) - HP: 89>
+
+Current Unit: <E @ ( 1,  4) - HP: 89>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 92>
+  <G @ ( 1,  3) - HP: 146>
+  <G @ ( 4,  1) - HP: 95>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (92, <G @ ( 1,  5) - HP: 92>)
+  (146, <G @ ( 1,  3) - HP: 146>)
+Attacking unit <G @ ( 1,  5) - HP: 92>
+Result: <G @ ( 1,  5) - HP: 89>
+
+Current Unit: <G @ ( 1,  5) - HP: 89>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 89>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 146>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (89, <E @ ( 1,  4) - HP: 89>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 89>
+Result: <E @ ( 1,  4) - HP: 86>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 89>
+  <G @ ( 1,  3) - HP: 146>
+  <G @ ( 4,  1) - HP: 95>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (89, <G @ ( 1,  5) - HP: 89>)
+Attacking unit <G @ ( 1,  5) - HP: 89>
+Result: <G @ ( 1,  5) - HP: 86>
+
+Current Unit: <E @ ( 3,  1) - HP: 146>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 95>
+  <G @ ( 1,  3) - HP: 146>
+  <G @ ( 1,  5) - HP: 86>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (95, <G @ ( 4,  1) - HP: 95>)
+Attacking unit <G @ ( 4,  1) - HP: 95>
+Result: <G @ ( 4,  1) - HP: 92>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 86>
+  <G @ ( 1,  3) - HP: 146>
+  <G @ ( 4,  1) - HP: 92>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 92>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 146>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 86>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (146, <E @ ( 3,  1) - HP: 146>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 146>
+Result: <E @ ( 3,  1) - HP: 143>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 92>
+  <G @ ( 1,  3) - HP: 146>
+  <G @ ( 1,  5) - HP: 86>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (92, <G @ ( 4,  1) - HP: 92>)
+Attacking unit <G @ ( 4,  1) - HP: 92>
+Result: <G @ ( 4,  1) - HP: 89>
+
+
+Units at round 019:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 146>
+  <E @ ( 1,  4) - HP: 86>
+  <G @ ( 1,  5) - HP: 86>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 143>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 89>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 146>
+  <G @ ( 1,  5) - HP: 86>
+  <G @ ( 4,  1) - HP: 89>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (146, <G @ ( 1,  3) - HP: 146>)
+Attacking unit <G @ ( 1,  3) - HP: 146>
+Result: <G @ ( 1,  3) - HP: 143>
+
+Current Unit: <G @ ( 1,  3) - HP: 143>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 86>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 143>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (86, <E @ ( 1,  4) - HP: 86>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 86>
+Result: <E @ ( 1,  4) - HP: 83>
+
+Current Unit: <E @ ( 1,  4) - HP: 83>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 86>
+  <G @ ( 1,  3) - HP: 143>
+  <G @ ( 4,  1) - HP: 89>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (86, <G @ ( 1,  5) - HP: 86>)
+  (143, <G @ ( 1,  3) - HP: 143>)
+Attacking unit <G @ ( 1,  5) - HP: 86>
+Result: <G @ ( 1,  5) - HP: 83>
+
+Current Unit: <G @ ( 1,  5) - HP: 83>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 83>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 143>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (83, <E @ ( 1,  4) - HP: 83>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 83>
+Result: <E @ ( 1,  4) - HP: 80>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 83>
+  <G @ ( 1,  3) - HP: 143>
+  <G @ ( 4,  1) - HP: 89>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (83, <G @ ( 1,  5) - HP: 83>)
+Attacking unit <G @ ( 1,  5) - HP: 83>
+Result: <G @ ( 1,  5) - HP: 80>
+
+Current Unit: <E @ ( 3,  1) - HP: 143>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 89>
+  <G @ ( 1,  3) - HP: 143>
+  <G @ ( 1,  5) - HP: 80>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (89, <G @ ( 4,  1) - HP: 89>)
+Attacking unit <G @ ( 4,  1) - HP: 89>
+Result: <G @ ( 4,  1) - HP: 86>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 80>
+  <G @ ( 1,  3) - HP: 143>
+  <G @ ( 4,  1) - HP: 86>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 86>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 143>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 80>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (143, <E @ ( 3,  1) - HP: 143>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 143>
+Result: <E @ ( 3,  1) - HP: 140>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 86>
+  <G @ ( 1,  3) - HP: 143>
+  <G @ ( 1,  5) - HP: 80>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (86, <G @ ( 4,  1) - HP: 86>)
+Attacking unit <G @ ( 4,  1) - HP: 86>
+Result: <G @ ( 4,  1) - HP: 83>
+
+
+Units at round 020:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 143>
+  <E @ ( 1,  4) - HP: 80>
+  <G @ ( 1,  5) - HP: 80>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 140>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 83>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 143>
+  <G @ ( 1,  5) - HP: 80>
+  <G @ ( 4,  1) - HP: 83>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (143, <G @ ( 1,  3) - HP: 143>)
+Attacking unit <G @ ( 1,  3) - HP: 143>
+Result: <G @ ( 1,  3) - HP: 140>
+
+Current Unit: <G @ ( 1,  3) - HP: 140>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 80>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 140>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (80, <E @ ( 1,  4) - HP: 80>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 80>
+Result: <E @ ( 1,  4) - HP: 77>
+
+Current Unit: <E @ ( 1,  4) - HP: 77>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 80>
+  <G @ ( 1,  3) - HP: 140>
+  <G @ ( 4,  1) - HP: 83>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (80, <G @ ( 1,  5) - HP: 80>)
+  (140, <G @ ( 1,  3) - HP: 140>)
+Attacking unit <G @ ( 1,  5) - HP: 80>
+Result: <G @ ( 1,  5) - HP: 77>
+
+Current Unit: <G @ ( 1,  5) - HP: 77>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 77>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 140>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (77, <E @ ( 1,  4) - HP: 77>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 77>
+Result: <E @ ( 1,  4) - HP: 74>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 77>
+  <G @ ( 1,  3) - HP: 140>
+  <G @ ( 4,  1) - HP: 83>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (77, <G @ ( 1,  5) - HP: 77>)
+Attacking unit <G @ ( 1,  5) - HP: 77>
+Result: <G @ ( 1,  5) - HP: 74>
+
+Current Unit: <E @ ( 3,  1) - HP: 140>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 83>
+  <G @ ( 1,  3) - HP: 140>
+  <G @ ( 1,  5) - HP: 74>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (83, <G @ ( 4,  1) - HP: 83>)
+Attacking unit <G @ ( 4,  1) - HP: 83>
+Result: <G @ ( 4,  1) - HP: 80>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 74>
+  <G @ ( 1,  3) - HP: 140>
+  <G @ ( 4,  1) - HP: 80>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 80>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 140>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 74>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (140, <E @ ( 3,  1) - HP: 140>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 140>
+Result: <E @ ( 3,  1) - HP: 137>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 80>
+  <G @ ( 1,  3) - HP: 140>
+  <G @ ( 1,  5) - HP: 74>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (80, <G @ ( 4,  1) - HP: 80>)
+Attacking unit <G @ ( 4,  1) - HP: 80>
+Result: <G @ ( 4,  1) - HP: 77>
+
+
+Units at round 021:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 140>
+  <E @ ( 1,  4) - HP: 74>
+  <G @ ( 1,  5) - HP: 74>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 137>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 77>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 140>
+  <G @ ( 1,  5) - HP: 74>
+  <G @ ( 4,  1) - HP: 77>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (140, <G @ ( 1,  3) - HP: 140>)
+Attacking unit <G @ ( 1,  3) - HP: 140>
+Result: <G @ ( 1,  3) - HP: 137>
+
+Current Unit: <G @ ( 1,  3) - HP: 137>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 74>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 137>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (74, <E @ ( 1,  4) - HP: 74>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 74>
+Result: <E @ ( 1,  4) - HP: 71>
+
+Current Unit: <E @ ( 1,  4) - HP: 71>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 74>
+  <G @ ( 1,  3) - HP: 137>
+  <G @ ( 4,  1) - HP: 77>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (74, <G @ ( 1,  5) - HP: 74>)
+  (137, <G @ ( 1,  3) - HP: 137>)
+Attacking unit <G @ ( 1,  5) - HP: 74>
+Result: <G @ ( 1,  5) - HP: 71>
+
+Current Unit: <G @ ( 1,  5) - HP: 71>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 71>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 137>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (71, <E @ ( 1,  4) - HP: 71>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 71>
+Result: <E @ ( 1,  4) - HP: 68>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 71>
+  <G @ ( 1,  3) - HP: 137>
+  <G @ ( 4,  1) - HP: 77>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (71, <G @ ( 1,  5) - HP: 71>)
+Attacking unit <G @ ( 1,  5) - HP: 71>
+Result: <G @ ( 1,  5) - HP: 68>
+
+Current Unit: <E @ ( 3,  1) - HP: 137>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 77>
+  <G @ ( 1,  3) - HP: 137>
+  <G @ ( 1,  5) - HP: 68>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (77, <G @ ( 4,  1) - HP: 77>)
+Attacking unit <G @ ( 4,  1) - HP: 77>
+Result: <G @ ( 4,  1) - HP: 74>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 68>
+  <G @ ( 1,  3) - HP: 137>
+  <G @ ( 4,  1) - HP: 74>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 74>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 137>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 68>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (137, <E @ ( 3,  1) - HP: 137>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 137>
+Result: <E @ ( 3,  1) - HP: 134>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 74>
+  <G @ ( 1,  3) - HP: 137>
+  <G @ ( 1,  5) - HP: 68>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (74, <G @ ( 4,  1) - HP: 74>)
+Attacking unit <G @ ( 4,  1) - HP: 74>
+Result: <G @ ( 4,  1) - HP: 71>
+
+
+Units at round 022:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 137>
+  <E @ ( 1,  4) - HP: 68>
+  <G @ ( 1,  5) - HP: 68>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 134>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 71>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 137>
+  <G @ ( 1,  5) - HP: 68>
+  <G @ ( 4,  1) - HP: 71>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (137, <G @ ( 1,  3) - HP: 137>)
+Attacking unit <G @ ( 1,  3) - HP: 137>
+Result: <G @ ( 1,  3) - HP: 134>
+
+Current Unit: <G @ ( 1,  3) - HP: 134>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 68>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 134>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (68, <E @ ( 1,  4) - HP: 68>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 68>
+Result: <E @ ( 1,  4) - HP: 65>
+
+Current Unit: <E @ ( 1,  4) - HP: 65>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 68>
+  <G @ ( 1,  3) - HP: 134>
+  <G @ ( 4,  1) - HP: 71>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (68, <G @ ( 1,  5) - HP: 68>)
+  (134, <G @ ( 1,  3) - HP: 134>)
+Attacking unit <G @ ( 1,  5) - HP: 68>
+Result: <G @ ( 1,  5) - HP: 65>
+
+Current Unit: <G @ ( 1,  5) - HP: 65>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 65>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 134>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (65, <E @ ( 1,  4) - HP: 65>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 65>
+Result: <E @ ( 1,  4) - HP: 62>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 65>
+  <G @ ( 1,  3) - HP: 134>
+  <G @ ( 4,  1) - HP: 71>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (65, <G @ ( 1,  5) - HP: 65>)
+Attacking unit <G @ ( 1,  5) - HP: 65>
+Result: <G @ ( 1,  5) - HP: 62>
+
+Current Unit: <E @ ( 3,  1) - HP: 134>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 71>
+  <G @ ( 1,  3) - HP: 134>
+  <G @ ( 1,  5) - HP: 62>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (71, <G @ ( 4,  1) - HP: 71>)
+Attacking unit <G @ ( 4,  1) - HP: 71>
+Result: <G @ ( 4,  1) - HP: 68>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 62>
+  <G @ ( 1,  3) - HP: 134>
+  <G @ ( 4,  1) - HP: 68>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 68>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 134>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 62>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (134, <E @ ( 3,  1) - HP: 134>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 134>
+Result: <E @ ( 3,  1) - HP: 131>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 68>
+  <G @ ( 1,  3) - HP: 134>
+  <G @ ( 1,  5) - HP: 62>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (68, <G @ ( 4,  1) - HP: 68>)
+Attacking unit <G @ ( 4,  1) - HP: 68>
+Result: <G @ ( 4,  1) - HP: 65>
+
+
+Units at round 023:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 134>
+  <E @ ( 1,  4) - HP: 62>
+  <G @ ( 1,  5) - HP: 62>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 131>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 65>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 134>
+  <G @ ( 1,  5) - HP: 62>
+  <G @ ( 4,  1) - HP: 65>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (134, <G @ ( 1,  3) - HP: 134>)
+Attacking unit <G @ ( 1,  3) - HP: 134>
+Result: <G @ ( 1,  3) - HP: 131>
+
+Current Unit: <G @ ( 1,  3) - HP: 131>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 62>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 131>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (62, <E @ ( 1,  4) - HP: 62>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 62>
+Result: <E @ ( 1,  4) - HP: 59>
+
+Current Unit: <E @ ( 1,  4) - HP: 59>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 62>
+  <G @ ( 1,  3) - HP: 131>
+  <G @ ( 4,  1) - HP: 65>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (62, <G @ ( 1,  5) - HP: 62>)
+  (131, <G @ ( 1,  3) - HP: 131>)
+Attacking unit <G @ ( 1,  5) - HP: 62>
+Result: <G @ ( 1,  5) - HP: 59>
+
+Current Unit: <G @ ( 1,  5) - HP: 59>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 59>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 131>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (59, <E @ ( 1,  4) - HP: 59>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 59>
+Result: <E @ ( 1,  4) - HP: 56>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 59>
+  <G @ ( 1,  3) - HP: 131>
+  <G @ ( 4,  1) - HP: 65>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (59, <G @ ( 1,  5) - HP: 59>)
+Attacking unit <G @ ( 1,  5) - HP: 59>
+Result: <G @ ( 1,  5) - HP: 56>
+
+Current Unit: <E @ ( 3,  1) - HP: 131>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 65>
+  <G @ ( 1,  3) - HP: 131>
+  <G @ ( 1,  5) - HP: 56>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (65, <G @ ( 4,  1) - HP: 65>)
+Attacking unit <G @ ( 4,  1) - HP: 65>
+Result: <G @ ( 4,  1) - HP: 62>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 56>
+  <G @ ( 1,  3) - HP: 131>
+  <G @ ( 4,  1) - HP: 62>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 62>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 131>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 56>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (131, <E @ ( 3,  1) - HP: 131>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 131>
+Result: <E @ ( 3,  1) - HP: 128>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 62>
+  <G @ ( 1,  3) - HP: 131>
+  <G @ ( 1,  5) - HP: 56>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (62, <G @ ( 4,  1) - HP: 62>)
+Attacking unit <G @ ( 4,  1) - HP: 62>
+Result: <G @ ( 4,  1) - HP: 59>
+
+
+Units at round 024:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 131>
+  <E @ ( 1,  4) - HP: 56>
+  <G @ ( 1,  5) - HP: 56>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 128>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 59>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 131>
+  <G @ ( 1,  5) - HP: 56>
+  <G @ ( 4,  1) - HP: 59>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (131, <G @ ( 1,  3) - HP: 131>)
+Attacking unit <G @ ( 1,  3) - HP: 131>
+Result: <G @ ( 1,  3) - HP: 128>
+
+Current Unit: <G @ ( 1,  3) - HP: 128>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 56>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 128>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (56, <E @ ( 1,  4) - HP: 56>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 56>
+Result: <E @ ( 1,  4) - HP: 53>
+
+Current Unit: <E @ ( 1,  4) - HP: 53>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 56>
+  <G @ ( 1,  3) - HP: 128>
+  <G @ ( 4,  1) - HP: 59>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (56, <G @ ( 1,  5) - HP: 56>)
+  (128, <G @ ( 1,  3) - HP: 128>)
+Attacking unit <G @ ( 1,  5) - HP: 56>
+Result: <G @ ( 1,  5) - HP: 53>
+
+Current Unit: <G @ ( 1,  5) - HP: 53>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 53>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 128>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (53, <E @ ( 1,  4) - HP: 53>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 53>
+Result: <E @ ( 1,  4) - HP: 50>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 53>
+  <G @ ( 1,  3) - HP: 128>
+  <G @ ( 4,  1) - HP: 59>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (53, <G @ ( 1,  5) - HP: 53>)
+Attacking unit <G @ ( 1,  5) - HP: 53>
+Result: <G @ ( 1,  5) - HP: 50>
+
+Current Unit: <E @ ( 3,  1) - HP: 128>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 59>
+  <G @ ( 1,  3) - HP: 128>
+  <G @ ( 1,  5) - HP: 50>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (59, <G @ ( 4,  1) - HP: 59>)
+Attacking unit <G @ ( 4,  1) - HP: 59>
+Result: <G @ ( 4,  1) - HP: 56>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 50>
+  <G @ ( 1,  3) - HP: 128>
+  <G @ ( 4,  1) - HP: 56>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 56>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 128>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 50>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (128, <E @ ( 3,  1) - HP: 128>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 128>
+Result: <E @ ( 3,  1) - HP: 125>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 56>
+  <G @ ( 1,  3) - HP: 128>
+  <G @ ( 1,  5) - HP: 50>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (56, <G @ ( 4,  1) - HP: 56>)
+Attacking unit <G @ ( 4,  1) - HP: 56>
+Result: <G @ ( 4,  1) - HP: 53>
+
+
+Units at round 025:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 128>
+  <E @ ( 1,  4) - HP: 50>
+  <G @ ( 1,  5) - HP: 50>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 125>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 53>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 128>
+  <G @ ( 1,  5) - HP: 50>
+  <G @ ( 4,  1) - HP: 53>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (128, <G @ ( 1,  3) - HP: 128>)
+Attacking unit <G @ ( 1,  3) - HP: 128>
+Result: <G @ ( 1,  3) - HP: 125>
+
+Current Unit: <G @ ( 1,  3) - HP: 125>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 50>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 125>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (50, <E @ ( 1,  4) - HP: 50>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 50>
+Result: <E @ ( 1,  4) - HP: 47>
+
+Current Unit: <E @ ( 1,  4) - HP: 47>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 50>
+  <G @ ( 1,  3) - HP: 125>
+  <G @ ( 4,  1) - HP: 53>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (50, <G @ ( 1,  5) - HP: 50>)
+  (125, <G @ ( 1,  3) - HP: 125>)
+Attacking unit <G @ ( 1,  5) - HP: 50>
+Result: <G @ ( 1,  5) - HP: 47>
+
+Current Unit: <G @ ( 1,  5) - HP: 47>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 47>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 125>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (47, <E @ ( 1,  4) - HP: 47>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 47>
+Result: <E @ ( 1,  4) - HP: 44>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 47>
+  <G @ ( 1,  3) - HP: 125>
+  <G @ ( 4,  1) - HP: 53>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (47, <G @ ( 1,  5) - HP: 47>)
+Attacking unit <G @ ( 1,  5) - HP: 47>
+Result: <G @ ( 1,  5) - HP: 44>
+
+Current Unit: <E @ ( 3,  1) - HP: 125>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 53>
+  <G @ ( 1,  3) - HP: 125>
+  <G @ ( 1,  5) - HP: 44>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (53, <G @ ( 4,  1) - HP: 53>)
+Attacking unit <G @ ( 4,  1) - HP: 53>
+Result: <G @ ( 4,  1) - HP: 50>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 44>
+  <G @ ( 1,  3) - HP: 125>
+  <G @ ( 4,  1) - HP: 50>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 50>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 125>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 44>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (125, <E @ ( 3,  1) - HP: 125>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 125>
+Result: <E @ ( 3,  1) - HP: 122>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 50>
+  <G @ ( 1,  3) - HP: 125>
+  <G @ ( 1,  5) - HP: 44>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (50, <G @ ( 4,  1) - HP: 50>)
+Attacking unit <G @ ( 4,  1) - HP: 50>
+Result: <G @ ( 4,  1) - HP: 47>
+
+
+Units at round 026:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 125>
+  <E @ ( 1,  4) - HP: 44>
+  <G @ ( 1,  5) - HP: 44>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 122>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 47>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 125>
+  <G @ ( 1,  5) - HP: 44>
+  <G @ ( 4,  1) - HP: 47>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (125, <G @ ( 1,  3) - HP: 125>)
+Attacking unit <G @ ( 1,  3) - HP: 125>
+Result: <G @ ( 1,  3) - HP: 122>
+
+Current Unit: <G @ ( 1,  3) - HP: 122>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 44>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 122>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (44, <E @ ( 1,  4) - HP: 44>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 44>
+Result: <E @ ( 1,  4) - HP: 41>
+
+Current Unit: <E @ ( 1,  4) - HP: 41>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 44>
+  <G @ ( 1,  3) - HP: 122>
+  <G @ ( 4,  1) - HP: 47>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (44, <G @ ( 1,  5) - HP: 44>)
+  (122, <G @ ( 1,  3) - HP: 122>)
+Attacking unit <G @ ( 1,  5) - HP: 44>
+Result: <G @ ( 1,  5) - HP: 41>
+
+Current Unit: <G @ ( 1,  5) - HP: 41>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 41>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 122>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (41, <E @ ( 1,  4) - HP: 41>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 41>
+Result: <E @ ( 1,  4) - HP: 38>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 41>
+  <G @ ( 1,  3) - HP: 122>
+  <G @ ( 4,  1) - HP: 47>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (41, <G @ ( 1,  5) - HP: 41>)
+Attacking unit <G @ ( 1,  5) - HP: 41>
+Result: <G @ ( 1,  5) - HP: 38>
+
+Current Unit: <E @ ( 3,  1) - HP: 122>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 47>
+  <G @ ( 1,  3) - HP: 122>
+  <G @ ( 1,  5) - HP: 38>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (47, <G @ ( 4,  1) - HP: 47>)
+Attacking unit <G @ ( 4,  1) - HP: 47>
+Result: <G @ ( 4,  1) - HP: 44>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 38>
+  <G @ ( 1,  3) - HP: 122>
+  <G @ ( 4,  1) - HP: 44>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 44>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 122>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 38>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (122, <E @ ( 3,  1) - HP: 122>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 122>
+Result: <E @ ( 3,  1) - HP: 119>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 44>
+  <G @ ( 1,  3) - HP: 122>
+  <G @ ( 1,  5) - HP: 38>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (44, <G @ ( 4,  1) - HP: 44>)
+Attacking unit <G @ ( 4,  1) - HP: 44>
+Result: <G @ ( 4,  1) - HP: 41>
+
+
+Units at round 027:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 122>
+  <E @ ( 1,  4) - HP: 38>
+  <G @ ( 1,  5) - HP: 38>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 119>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 41>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 122>
+  <G @ ( 1,  5) - HP: 38>
+  <G @ ( 4,  1) - HP: 41>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (122, <G @ ( 1,  3) - HP: 122>)
+Attacking unit <G @ ( 1,  3) - HP: 122>
+Result: <G @ ( 1,  3) - HP: 119>
+
+Current Unit: <G @ ( 1,  3) - HP: 119>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 38>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 119>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (38, <E @ ( 1,  4) - HP: 38>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 38>
+Result: <E @ ( 1,  4) - HP: 35>
+
+Current Unit: <E @ ( 1,  4) - HP: 35>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 38>
+  <G @ ( 1,  3) - HP: 119>
+  <G @ ( 4,  1) - HP: 41>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (38, <G @ ( 1,  5) - HP: 38>)
+  (119, <G @ ( 1,  3) - HP: 119>)
+Attacking unit <G @ ( 1,  5) - HP: 38>
+Result: <G @ ( 1,  5) - HP: 35>
+
+Current Unit: <G @ ( 1,  5) - HP: 35>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 35>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 119>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (35, <E @ ( 1,  4) - HP: 35>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 35>
+Result: <E @ ( 1,  4) - HP: 32>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 35>
+  <G @ ( 1,  3) - HP: 119>
+  <G @ ( 4,  1) - HP: 41>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (35, <G @ ( 1,  5) - HP: 35>)
+Attacking unit <G @ ( 1,  5) - HP: 35>
+Result: <G @ ( 1,  5) - HP: 32>
+
+Current Unit: <E @ ( 3,  1) - HP: 119>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 41>
+  <G @ ( 1,  3) - HP: 119>
+  <G @ ( 1,  5) - HP: 32>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (41, <G @ ( 4,  1) - HP: 41>)
+Attacking unit <G @ ( 4,  1) - HP: 41>
+Result: <G @ ( 4,  1) - HP: 38>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 32>
+  <G @ ( 1,  3) - HP: 119>
+  <G @ ( 4,  1) - HP: 38>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 38>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 119>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 32>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (119, <E @ ( 3,  1) - HP: 119>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 119>
+Result: <E @ ( 3,  1) - HP: 116>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 38>
+  <G @ ( 1,  3) - HP: 119>
+  <G @ ( 1,  5) - HP: 32>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (38, <G @ ( 4,  1) - HP: 38>)
+Attacking unit <G @ ( 4,  1) - HP: 38>
+Result: <G @ ( 4,  1) - HP: 35>
+
+
+Units at round 028:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 119>
+  <E @ ( 1,  4) - HP: 32>
+  <G @ ( 1,  5) - HP: 32>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 116>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 35>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 119>
+  <G @ ( 1,  5) - HP: 32>
+  <G @ ( 4,  1) - HP: 35>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (119, <G @ ( 1,  3) - HP: 119>)
+Attacking unit <G @ ( 1,  3) - HP: 119>
+Result: <G @ ( 1,  3) - HP: 116>
+
+Current Unit: <G @ ( 1,  3) - HP: 116>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 32>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 116>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (32, <E @ ( 1,  4) - HP: 32>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 32>
+Result: <E @ ( 1,  4) - HP: 29>
+
+Current Unit: <E @ ( 1,  4) - HP: 29>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 32>
+  <G @ ( 1,  3) - HP: 116>
+  <G @ ( 4,  1) - HP: 35>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (32, <G @ ( 1,  5) - HP: 32>)
+  (116, <G @ ( 1,  3) - HP: 116>)
+Attacking unit <G @ ( 1,  5) - HP: 32>
+Result: <G @ ( 1,  5) - HP: 29>
+
+Current Unit: <G @ ( 1,  5) - HP: 29>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 29>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 116>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (29, <E @ ( 1,  4) - HP: 29>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 29>
+Result: <E @ ( 1,  4) - HP: 26>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 29>
+  <G @ ( 1,  3) - HP: 116>
+  <G @ ( 4,  1) - HP: 35>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (29, <G @ ( 1,  5) - HP: 29>)
+Attacking unit <G @ ( 1,  5) - HP: 29>
+Result: <G @ ( 1,  5) - HP: 26>
+
+Current Unit: <E @ ( 3,  1) - HP: 116>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 35>
+  <G @ ( 1,  3) - HP: 116>
+  <G @ ( 1,  5) - HP: 26>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (35, <G @ ( 4,  1) - HP: 35>)
+Attacking unit <G @ ( 4,  1) - HP: 35>
+Result: <G @ ( 4,  1) - HP: 32>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 26>
+  <G @ ( 1,  3) - HP: 116>
+  <G @ ( 4,  1) - HP: 32>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 32>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 116>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 26>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (116, <E @ ( 3,  1) - HP: 116>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 116>
+Result: <E @ ( 3,  1) - HP: 113>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 32>
+  <G @ ( 1,  3) - HP: 116>
+  <G @ ( 1,  5) - HP: 26>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (32, <G @ ( 4,  1) - HP: 32>)
+Attacking unit <G @ ( 4,  1) - HP: 32>
+Result: <G @ ( 4,  1) - HP: 29>
+
+
+Units at round 029:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 116>
+  <E @ ( 1,  4) - HP: 26>
+  <G @ ( 1,  5) - HP: 26>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 113>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 29>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 116>
+  <G @ ( 1,  5) - HP: 26>
+  <G @ ( 4,  1) - HP: 29>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (116, <G @ ( 1,  3) - HP: 116>)
+Attacking unit <G @ ( 1,  3) - HP: 116>
+Result: <G @ ( 1,  3) - HP: 113>
+
+Current Unit: <G @ ( 1,  3) - HP: 113>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 26>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 113>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (26, <E @ ( 1,  4) - HP: 26>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 26>
+Result: <E @ ( 1,  4) - HP: 23>
+
+Current Unit: <E @ ( 1,  4) - HP: 23>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 26>
+  <G @ ( 1,  3) - HP: 113>
+  <G @ ( 4,  1) - HP: 29>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (26, <G @ ( 1,  5) - HP: 26>)
+  (113, <G @ ( 1,  3) - HP: 113>)
+Attacking unit <G @ ( 1,  5) - HP: 26>
+Result: <G @ ( 1,  5) - HP: 23>
+
+Current Unit: <G @ ( 1,  5) - HP: 23>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 23>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 113>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (23, <E @ ( 1,  4) - HP: 23>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 23>
+Result: <E @ ( 1,  4) - HP: 20>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 23>
+  <G @ ( 1,  3) - HP: 113>
+  <G @ ( 4,  1) - HP: 29>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (23, <G @ ( 1,  5) - HP: 23>)
+Attacking unit <G @ ( 1,  5) - HP: 23>
+Result: <G @ ( 1,  5) - HP: 20>
+
+Current Unit: <E @ ( 3,  1) - HP: 113>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 29>
+  <G @ ( 1,  3) - HP: 113>
+  <G @ ( 1,  5) - HP: 20>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (29, <G @ ( 4,  1) - HP: 29>)
+Attacking unit <G @ ( 4,  1) - HP: 29>
+Result: <G @ ( 4,  1) - HP: 26>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 20>
+  <G @ ( 1,  3) - HP: 113>
+  <G @ ( 4,  1) - HP: 26>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 26>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 113>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 20>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (113, <E @ ( 3,  1) - HP: 113>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 113>
+Result: <E @ ( 3,  1) - HP: 110>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 26>
+  <G @ ( 1,  3) - HP: 113>
+  <G @ ( 1,  5) - HP: 20>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (26, <G @ ( 4,  1) - HP: 26>)
+Attacking unit <G @ ( 4,  1) - HP: 26>
+Result: <G @ ( 4,  1) - HP: 23>
+
+
+Units at round 030:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 113>
+  <E @ ( 1,  4) - HP: 20>
+  <G @ ( 1,  5) - HP: 20>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 110>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 23>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 113>
+  <G @ ( 1,  5) - HP: 20>
+  <G @ ( 4,  1) - HP: 23>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (113, <G @ ( 1,  3) - HP: 113>)
+Attacking unit <G @ ( 1,  3) - HP: 113>
+Result: <G @ ( 1,  3) - HP: 110>
+
+Current Unit: <G @ ( 1,  3) - HP: 110>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 20>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 110>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (20, <E @ ( 1,  4) - HP: 20>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 20>
+Result: <E @ ( 1,  4) - HP: 17>
+
+Current Unit: <E @ ( 1,  4) - HP: 17>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 20>
+  <G @ ( 1,  3) - HP: 110>
+  <G @ ( 4,  1) - HP: 23>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (20, <G @ ( 1,  5) - HP: 20>)
+  (110, <G @ ( 1,  3) - HP: 110>)
+Attacking unit <G @ ( 1,  5) - HP: 20>
+Result: <G @ ( 1,  5) - HP: 17>
+
+Current Unit: <G @ ( 1,  5) - HP: 17>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 17>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 110>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (17, <E @ ( 1,  4) - HP: 17>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 17>
+Result: <E @ ( 1,  4) - HP: 14>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 17>
+  <G @ ( 1,  3) - HP: 110>
+  <G @ ( 4,  1) - HP: 23>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (17, <G @ ( 1,  5) - HP: 17>)
+Attacking unit <G @ ( 1,  5) - HP: 17>
+Result: <G @ ( 1,  5) - HP: 14>
+
+Current Unit: <E @ ( 3,  1) - HP: 110>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 23>
+  <G @ ( 1,  3) - HP: 110>
+  <G @ ( 1,  5) - HP: 14>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (23, <G @ ( 4,  1) - HP: 23>)
+Attacking unit <G @ ( 4,  1) - HP: 23>
+Result: <G @ ( 4,  1) - HP: 20>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 14>
+  <G @ ( 1,  3) - HP: 110>
+  <G @ ( 4,  1) - HP: 20>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 20>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 110>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 14>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (110, <E @ ( 3,  1) - HP: 110>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 110>
+Result: <E @ ( 3,  1) - HP: 107>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 20>
+  <G @ ( 1,  3) - HP: 110>
+  <G @ ( 1,  5) - HP: 14>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (20, <G @ ( 4,  1) - HP: 20>)
+Attacking unit <G @ ( 4,  1) - HP: 20>
+Result: <G @ ( 4,  1) - HP: 17>
+
+
+Units at round 031:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 110>
+  <E @ ( 1,  4) - HP: 14>
+  <G @ ( 1,  5) - HP: 14>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 107>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 17>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 110>
+  <G @ ( 1,  5) - HP: 14>
+  <G @ ( 4,  1) - HP: 17>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (110, <G @ ( 1,  3) - HP: 110>)
+Attacking unit <G @ ( 1,  3) - HP: 110>
+Result: <G @ ( 1,  3) - HP: 107>
+
+Current Unit: <G @ ( 1,  3) - HP: 107>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 14>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 107>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (14, <E @ ( 1,  4) - HP: 14>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 14>
+Result: <E @ ( 1,  4) - HP: 11>
+
+Current Unit: <E @ ( 1,  4) - HP: 11>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 14>
+  <G @ ( 1,  3) - HP: 107>
+  <G @ ( 4,  1) - HP: 17>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (14, <G @ ( 1,  5) - HP: 14>)
+  (107, <G @ ( 1,  3) - HP: 107>)
+Attacking unit <G @ ( 1,  5) - HP: 14>
+Result: <G @ ( 1,  5) - HP: 11>
+
+Current Unit: <G @ ( 1,  5) - HP: 11>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 11>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 107>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (11, <E @ ( 1,  4) - HP: 11>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 11>
+Result: <E @ ( 1,  4) - HP: 8>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 11>
+  <G @ ( 1,  3) - HP: 107>
+  <G @ ( 4,  1) - HP: 17>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (11, <G @ ( 1,  5) - HP: 11>)
+Attacking unit <G @ ( 1,  5) - HP: 11>
+Result: <G @ ( 1,  5) - HP: 8>
+
+Current Unit: <E @ ( 3,  1) - HP: 107>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 17>
+  <G @ ( 1,  3) - HP: 107>
+  <G @ ( 1,  5) - HP: 8>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (17, <G @ ( 4,  1) - HP: 17>)
+Attacking unit <G @ ( 4,  1) - HP: 17>
+Result: <G @ ( 4,  1) - HP: 14>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 8>
+  <G @ ( 1,  3) - HP: 107>
+  <G @ ( 4,  1) - HP: 14>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 14>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 107>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 8>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (107, <E @ ( 3,  1) - HP: 107>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 107>
+Result: <E @ ( 3,  1) - HP: 104>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 14>
+  <G @ ( 1,  3) - HP: 107>
+  <G @ ( 1,  5) - HP: 8>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (14, <G @ ( 4,  1) - HP: 14>)
+Attacking unit <G @ ( 4,  1) - HP: 14>
+Result: <G @ ( 4,  1) - HP: 11>
+
+
+Units at round 032:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 107>
+  <E @ ( 1,  4) - HP: 8>
+  <G @ ( 1,  5) - HP: 8>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 104>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 11>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 107>
+  <G @ ( 1,  5) - HP: 8>
+  <G @ ( 4,  1) - HP: 11>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (107, <G @ ( 1,  3) - HP: 107>)
+Attacking unit <G @ ( 1,  3) - HP: 107>
+Result: <G @ ( 1,  3) - HP: 104>
+
+Current Unit: <G @ ( 1,  3) - HP: 104>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 8>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 104>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (8, <E @ ( 1,  4) - HP: 8>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 8>
+Result: <E @ ( 1,  4) - HP: 5>
+
+Current Unit: <E @ ( 1,  4) - HP: 5>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 8>
+  <G @ ( 1,  3) - HP: 104>
+  <G @ ( 4,  1) - HP: 11>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (8, <G @ ( 1,  5) - HP: 8>)
+  (104, <G @ ( 1,  3) - HP: 104>)
+Attacking unit <G @ ( 1,  5) - HP: 8>
+Result: <G @ ( 1,  5) - HP: 5>
+
+Current Unit: <G @ ( 1,  5) - HP: 5>
+Enemy List for current unit:
+  <E @ ( 1,  4) - HP: 5>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 104>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (0, '( 1,  5)', '( 1,  5)')
+Unit did not move
+Targettable Enemies:
+  (5, <E @ ( 1,  4) - HP: 5>)
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 5>
+Result: <E @ ( 1,  4) - HP: 2>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 5>
+  <G @ ( 1,  3) - HP: 104>
+  <G @ ( 4,  1) - HP: 11>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+Unit did not move
+Targettable Enemies:
+  (5, <G @ ( 1,  5) - HP: 5>)
+Attacking unit <G @ ( 1,  5) - HP: 5>
+Result: <G @ ( 1,  5) - HP: 2>
+
+Current Unit: <E @ ( 3,  1) - HP: 104>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 11>
+  <G @ ( 1,  3) - HP: 104>
+  <G @ ( 1,  5) - HP: 2>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (11, <G @ ( 4,  1) - HP: 11>)
+Attacking unit <G @ ( 4,  1) - HP: 11>
+Result: <G @ ( 4,  1) - HP: 8>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 2>
+  <G @ ( 1,  3) - HP: 104>
+  <G @ ( 4,  1) - HP: 8>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 8>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 104>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  4) - HP: 2>
+  <E @ ( 2,  5) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (104, <E @ ( 3,  1) - HP: 104>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 104>
+Result: <E @ ( 3,  1) - HP: 101>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 8>
+  <G @ ( 1,  3) - HP: 104>
+  <G @ ( 1,  5) - HP: 2>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (8, <G @ ( 4,  1) - HP: 8>)
+Attacking unit <G @ ( 4,  1) - HP: 8>
+Result: <G @ ( 4,  1) - HP: 5>
+
+
+Units at round 033:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 104>
+  <E @ ( 1,  4) - HP: 2>
+  <G @ ( 1,  5) - HP: 2>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 101>
+  <E @ ( 3,  5) - HP: 200>
+  <G @ ( 4,  1) - HP: 5>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 104>
+  <G @ ( 1,  5) - HP: 2>
+  <G @ ( 4,  1) - HP: 5>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (104, <G @ ( 1,  3) - HP: 104>)
+Attacking unit <G @ ( 1,  3) - HP: 104>
+Result: <G @ ( 1,  3) - HP: 101>
+
+Current Unit: <G @ ( 1,  3) - HP: 101>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 1,  4) - HP: 2>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 101>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (2, <E @ ( 1,  4) - HP: 2>)
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  4) - HP: 2>
+Result: <E X ( 1,  4) - HP: -1>
+
+Current Unit: <G @ ( 1,  5) - HP: 2>
+Enemy List for current unit:
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  1) - HP: 101>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  5)', '( 1,  5)')
+  (2, '( 2,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (200, <E @ ( 2,  5) - HP: 200>)
+Attacking unit <E @ ( 2,  5) - HP: 200>
+Result: <E @ ( 2,  5) - HP: 197>
+
+Current Unit: <E @ ( 2,  5) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  5) - HP: 2>
+  <G @ ( 1,  3) - HP: 101>
+  <G @ ( 4,  1) - HP: 5>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  5)', '( 2,  5)')
+  (2, '( 1,  4)', '( 2,  4)')
+Unit did not move
+Targettable Enemies:
+  (2, <G @ ( 1,  5) - HP: 2>)
+Attacking unit <G @ ( 1,  5) - HP: 2>
+Result: <G X ( 1,  5) - HP: -1>
+
+Current Unit: <E @ ( 3,  1) - HP: 101>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 5>
+  <G @ ( 1,  3) - HP: 101>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 3,  1)', '( 3,  1)')
+Unit did not move
+Targettable Enemies:
+  (5, <G @ ( 4,  1) - HP: 5>)
+Attacking unit <G @ ( 4,  1) - HP: 5>
+Result: <G @ ( 4,  1) - HP: 2>
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 101>
+  <G @ ( 4,  1) - HP: 2>
+No reachable enemies
+Unit did not move
+
+Current Unit: <G @ ( 4,  1) - HP: 2>
+Enemy List for current unit:
+  <E @ ( 3,  1) - HP: 101>
+  <E @ ( 4,  2) - HP: 200>
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 2,  5) - HP: 197>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  1)', '( 4,  1)')
+  (0, '( 4,  1)', '( 4,  1)')
+Unit did not move
+Targettable Enemies:
+  (101, <E @ ( 3,  1) - HP: 101>)
+  (200, <E @ ( 4,  2) - HP: 200>)
+Attacking unit <E @ ( 3,  1) - HP: 101>
+Result: <E @ ( 3,  1) - HP: 98>
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 4,  1) - HP: 2>
+  <G @ ( 1,  3) - HP: 101>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 4,  2)', '( 4,  2)')
+  (2, '( 5,  1)', '( 5,  2)')
+Unit did not move
+Targettable Enemies:
+  (2, <G @ ( 4,  1) - HP: 2>)
+Attacking unit <G @ ( 4,  1) - HP: 2>
+Result: <G X ( 4,  1) - HP: -1>
+
+
+Units at round 034:
+  <E @ ( 1,  2) - HP: 200>
+  <G @ ( 1,  3) - HP: 101>
+  <E @ ( 2,  5) - HP: 197>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 101>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (101, <G @ ( 1,  3) - HP: 101>)
+Attacking unit <G @ ( 1,  3) - HP: 101>
+Result: <G @ ( 1,  3) - HP: 98>
+
+Current Unit: <G @ ( 1,  3) - HP: 98>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 200>
+  <E @ ( 2,  5) - HP: 197>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 3,  5) - HP: 200>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (200, <E @ ( 1,  2) - HP: 200>)
+Attacking unit <E @ ( 1,  2) - HP: 200>
+Result: <E @ ( 1,  2) - HP: 197>
+
+Current Unit: <E @ ( 2,  5) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 98>
+Distances array (distance, targetTile, firstStep):
+  (2, '( 1,  4)', '( 1,  5)')
+  (2, '( 2,  3)', '( 2,  4)')
+Unit moved to ( 1,  5)
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 98>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 3,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 98>
+Distances array (distance, targetTile, firstStep):
+  (3, '( 1,  4)', '( 2,  5)')
+  (3, '( 2,  3)', '( 2,  5)')
+Unit moved to ( 2,  5)
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 98>
+No reachable enemies
+Unit did not move
+
+
+Units at round 035:
+  <E @ ( 1,  2) - HP: 197>
+  <G @ ( 1,  3) - HP: 98>
+  <E @ ( 1,  5) - HP: 197>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 98>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (98, <G @ ( 1,  3) - HP: 98>)
+Attacking unit <G @ ( 1,  3) - HP: 98>
+Result: <G @ ( 1,  3) - HP: 95>
+
+Current Unit: <G @ ( 1,  3) - HP: 95>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 197>
+  <E @ ( 1,  5) - HP: 197>
+  <E @ ( 2,  5) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (1, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (197, <E @ ( 1,  2) - HP: 197>)
+Attacking unit <E @ ( 1,  2) - HP: 197>
+Result: <E @ ( 1,  2) - HP: 194>
+
+Current Unit: <E @ ( 1,  5) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 95>
+Distances array (distance, targetTile, firstStep):
+  (1, '( 1,  4)', '( 1,  4)')
+Unit moved to ( 1,  4)
+Targettable Enemies:
+  (95, <G @ ( 1,  3) - HP: 95>)
+Attacking unit <G @ ( 1,  3) - HP: 95>
+Result: <G @ ( 1,  3) - HP: 92>
+
+Current Unit: <E @ ( 2,  5) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 92>
+Distances array (distance, targetTile, firstStep):
+  (2, '( 2,  3)', '( 2,  4)')
+Unit moved to ( 2,  4)
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 92>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 92>
+No reachable enemies
+Unit did not move
+
+
+Units at round 036:
+  <E @ ( 1,  2) - HP: 194>
+  <G @ ( 1,  3) - HP: 92>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  4) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 194>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 92>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (92, <G @ ( 1,  3) - HP: 92>)
+Attacking unit <G @ ( 1,  3) - HP: 92>
+Result: <G @ ( 1,  3) - HP: 89>
+
+Current Unit: <G @ ( 1,  3) - HP: 89>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 194>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  4) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+  (1, '( 2,  3)', '( 2,  3)')
+Unit did not move
+Targettable Enemies:
+  (194, <E @ ( 1,  2) - HP: 194>)
+  (197, <E @ ( 1,  4) - HP: 197>)
+Attacking unit <E @ ( 1,  2) - HP: 194>
+Result: <E @ ( 1,  2) - HP: 191>
+
+Current Unit: <E @ ( 1,  4) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 89>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (89, <G @ ( 1,  3) - HP: 89>)
+Attacking unit <G @ ( 1,  3) - HP: 89>
+Result: <G @ ( 1,  3) - HP: 86>
+
+Current Unit: <E @ ( 2,  4) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 86>
+Distances array (distance, targetTile, firstStep):
+  (1, '( 2,  3)', '( 2,  3)')
+Unit moved to ( 2,  3)
+Targettable Enemies:
+  (86, <G @ ( 1,  3) - HP: 86>)
+Attacking unit <G @ ( 1,  3) - HP: 86>
+Result: <G @ ( 1,  3) - HP: 83>
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 83>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 83>
+No reachable enemies
+Unit did not move
+
+
+Units at round 037:
+  <E @ ( 1,  2) - HP: 191>
+  <G @ ( 1,  3) - HP: 83>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 191>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 83>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (83, <G @ ( 1,  3) - HP: 83>)
+Attacking unit <G @ ( 1,  3) - HP: 83>
+Result: <G @ ( 1,  3) - HP: 80>
+
+Current Unit: <G @ ( 1,  3) - HP: 80>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 191>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (191, <E @ ( 1,  2) - HP: 191>)
+  (197, <E @ ( 1,  4) - HP: 197>)
+  (200, <E @ ( 2,  3) - HP: 200>)
+Attacking unit <E @ ( 1,  2) - HP: 191>
+Result: <E @ ( 1,  2) - HP: 188>
+
+Current Unit: <E @ ( 1,  4) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 80>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (80, <G @ ( 1,  3) - HP: 80>)
+Attacking unit <G @ ( 1,  3) - HP: 80>
+Result: <G @ ( 1,  3) - HP: 77>
+
+Current Unit: <E @ ( 2,  3) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 77>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  3)', '( 2,  3)')
+Unit did not move
+Targettable Enemies:
+  (77, <G @ ( 1,  3) - HP: 77>)
+Attacking unit <G @ ( 1,  3) - HP: 77>
+Result: <G @ ( 1,  3) - HP: 74>
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 74>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 74>
+No reachable enemies
+Unit did not move
+
+
+Units at round 038:
+  <E @ ( 1,  2) - HP: 188>
+  <G @ ( 1,  3) - HP: 74>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 188>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 74>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (74, <G @ ( 1,  3) - HP: 74>)
+Attacking unit <G @ ( 1,  3) - HP: 74>
+Result: <G @ ( 1,  3) - HP: 71>
+
+Current Unit: <G @ ( 1,  3) - HP: 71>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 188>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (188, <E @ ( 1,  2) - HP: 188>)
+  (197, <E @ ( 1,  4) - HP: 197>)
+  (200, <E @ ( 2,  3) - HP: 200>)
+Attacking unit <E @ ( 1,  2) - HP: 188>
+Result: <E @ ( 1,  2) - HP: 185>
+
+Current Unit: <E @ ( 1,  4) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 71>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (71, <G @ ( 1,  3) - HP: 71>)
+Attacking unit <G @ ( 1,  3) - HP: 71>
+Result: <G @ ( 1,  3) - HP: 68>
+
+Current Unit: <E @ ( 2,  3) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 68>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  3)', '( 2,  3)')
+Unit did not move
+Targettable Enemies:
+  (68, <G @ ( 1,  3) - HP: 68>)
+Attacking unit <G @ ( 1,  3) - HP: 68>
+Result: <G @ ( 1,  3) - HP: 65>
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 65>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 65>
+No reachable enemies
+Unit did not move
+
+
+Units at round 039:
+  <E @ ( 1,  2) - HP: 185>
+  <G @ ( 1,  3) - HP: 65>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 185>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 65>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (65, <G @ ( 1,  3) - HP: 65>)
+Attacking unit <G @ ( 1,  3) - HP: 65>
+Result: <G @ ( 1,  3) - HP: 62>
+
+Current Unit: <G @ ( 1,  3) - HP: 62>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 185>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (185, <E @ ( 1,  2) - HP: 185>)
+  (197, <E @ ( 1,  4) - HP: 197>)
+  (200, <E @ ( 2,  3) - HP: 200>)
+Attacking unit <E @ ( 1,  2) - HP: 185>
+Result: <E @ ( 1,  2) - HP: 182>
+
+Current Unit: <E @ ( 1,  4) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 62>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (62, <G @ ( 1,  3) - HP: 62>)
+Attacking unit <G @ ( 1,  3) - HP: 62>
+Result: <G @ ( 1,  3) - HP: 59>
+
+Current Unit: <E @ ( 2,  3) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 59>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  3)', '( 2,  3)')
+Unit did not move
+Targettable Enemies:
+  (59, <G @ ( 1,  3) - HP: 59>)
+Attacking unit <G @ ( 1,  3) - HP: 59>
+Result: <G @ ( 1,  3) - HP: 56>
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 56>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 56>
+No reachable enemies
+Unit did not move
+
+
+Units at round 040:
+  <E @ ( 1,  2) - HP: 182>
+  <G @ ( 1,  3) - HP: 56>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 182>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 56>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (56, <G @ ( 1,  3) - HP: 56>)
+Attacking unit <G @ ( 1,  3) - HP: 56>
+Result: <G @ ( 1,  3) - HP: 53>
+
+Current Unit: <G @ ( 1,  3) - HP: 53>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 182>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (182, <E @ ( 1,  2) - HP: 182>)
+  (197, <E @ ( 1,  4) - HP: 197>)
+  (200, <E @ ( 2,  3) - HP: 200>)
+Attacking unit <E @ ( 1,  2) - HP: 182>
+Result: <E @ ( 1,  2) - HP: 179>
+
+Current Unit: <E @ ( 1,  4) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 53>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (53, <G @ ( 1,  3) - HP: 53>)
+Attacking unit <G @ ( 1,  3) - HP: 53>
+Result: <G @ ( 1,  3) - HP: 50>
+
+Current Unit: <E @ ( 2,  3) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 50>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  3)', '( 2,  3)')
+Unit did not move
+Targettable Enemies:
+  (50, <G @ ( 1,  3) - HP: 50>)
+Attacking unit <G @ ( 1,  3) - HP: 50>
+Result: <G @ ( 1,  3) - HP: 47>
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 47>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 47>
+No reachable enemies
+Unit did not move
+
+
+Units at round 041:
+  <E @ ( 1,  2) - HP: 179>
+  <G @ ( 1,  3) - HP: 47>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 179>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 47>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (47, <G @ ( 1,  3) - HP: 47>)
+Attacking unit <G @ ( 1,  3) - HP: 47>
+Result: <G @ ( 1,  3) - HP: 44>
+
+Current Unit: <G @ ( 1,  3) - HP: 44>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 179>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (179, <E @ ( 1,  2) - HP: 179>)
+  (197, <E @ ( 1,  4) - HP: 197>)
+  (200, <E @ ( 2,  3) - HP: 200>)
+Attacking unit <E @ ( 1,  2) - HP: 179>
+Result: <E @ ( 1,  2) - HP: 176>
+
+Current Unit: <E @ ( 1,  4) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 44>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (44, <G @ ( 1,  3) - HP: 44>)
+Attacking unit <G @ ( 1,  3) - HP: 44>
+Result: <G @ ( 1,  3) - HP: 41>
+
+Current Unit: <E @ ( 2,  3) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 41>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  3)', '( 2,  3)')
+Unit did not move
+Targettable Enemies:
+  (41, <G @ ( 1,  3) - HP: 41>)
+Attacking unit <G @ ( 1,  3) - HP: 41>
+Result: <G @ ( 1,  3) - HP: 38>
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 38>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 38>
+No reachable enemies
+Unit did not move
+
+
+Units at round 042:
+  <E @ ( 1,  2) - HP: 176>
+  <G @ ( 1,  3) - HP: 38>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 176>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 38>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (38, <G @ ( 1,  3) - HP: 38>)
+Attacking unit <G @ ( 1,  3) - HP: 38>
+Result: <G @ ( 1,  3) - HP: 35>
+
+Current Unit: <G @ ( 1,  3) - HP: 35>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 176>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (176, <E @ ( 1,  2) - HP: 176>)
+  (197, <E @ ( 1,  4) - HP: 197>)
+  (200, <E @ ( 2,  3) - HP: 200>)
+Attacking unit <E @ ( 1,  2) - HP: 176>
+Result: <E @ ( 1,  2) - HP: 173>
+
+Current Unit: <E @ ( 1,  4) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 35>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (35, <G @ ( 1,  3) - HP: 35>)
+Attacking unit <G @ ( 1,  3) - HP: 35>
+Result: <G @ ( 1,  3) - HP: 32>
+
+Current Unit: <E @ ( 2,  3) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 32>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  3)', '( 2,  3)')
+Unit did not move
+Targettable Enemies:
+  (32, <G @ ( 1,  3) - HP: 32>)
+Attacking unit <G @ ( 1,  3) - HP: 32>
+Result: <G @ ( 1,  3) - HP: 29>
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 29>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 29>
+No reachable enemies
+Unit did not move
+
+
+Units at round 043:
+  <E @ ( 1,  2) - HP: 173>
+  <G @ ( 1,  3) - HP: 29>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 173>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 29>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (29, <G @ ( 1,  3) - HP: 29>)
+Attacking unit <G @ ( 1,  3) - HP: 29>
+Result: <G @ ( 1,  3) - HP: 26>
+
+Current Unit: <G @ ( 1,  3) - HP: 26>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 173>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (173, <E @ ( 1,  2) - HP: 173>)
+  (197, <E @ ( 1,  4) - HP: 197>)
+  (200, <E @ ( 2,  3) - HP: 200>)
+Attacking unit <E @ ( 1,  2) - HP: 173>
+Result: <E @ ( 1,  2) - HP: 170>
+
+Current Unit: <E @ ( 1,  4) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 26>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (26, <G @ ( 1,  3) - HP: 26>)
+Attacking unit <G @ ( 1,  3) - HP: 26>
+Result: <G @ ( 1,  3) - HP: 23>
+
+Current Unit: <E @ ( 2,  3) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 23>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  3)', '( 2,  3)')
+Unit did not move
+Targettable Enemies:
+  (23, <G @ ( 1,  3) - HP: 23>)
+Attacking unit <G @ ( 1,  3) - HP: 23>
+Result: <G @ ( 1,  3) - HP: 20>
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 20>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 20>
+No reachable enemies
+Unit did not move
+
+
+Units at round 044:
+  <E @ ( 1,  2) - HP: 170>
+  <G @ ( 1,  3) - HP: 20>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 170>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 20>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (20, <G @ ( 1,  3) - HP: 20>)
+Attacking unit <G @ ( 1,  3) - HP: 20>
+Result: <G @ ( 1,  3) - HP: 17>
+
+Current Unit: <G @ ( 1,  3) - HP: 17>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 170>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (170, <E @ ( 1,  2) - HP: 170>)
+  (197, <E @ ( 1,  4) - HP: 197>)
+  (200, <E @ ( 2,  3) - HP: 200>)
+Attacking unit <E @ ( 1,  2) - HP: 170>
+Result: <E @ ( 1,  2) - HP: 167>
+
+Current Unit: <E @ ( 1,  4) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 17>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (17, <G @ ( 1,  3) - HP: 17>)
+Attacking unit <G @ ( 1,  3) - HP: 17>
+Result: <G @ ( 1,  3) - HP: 14>
+
+Current Unit: <E @ ( 2,  3) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 14>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  3)', '( 2,  3)')
+Unit did not move
+Targettable Enemies:
+  (14, <G @ ( 1,  3) - HP: 14>)
+Attacking unit <G @ ( 1,  3) - HP: 14>
+Result: <G @ ( 1,  3) - HP: 11>
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 11>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 11>
+No reachable enemies
+Unit did not move
+
+
+Units at round 045:
+  <E @ ( 1,  2) - HP: 167>
+  <G @ ( 1,  3) - HP: 11>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 167>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 11>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (11, <G @ ( 1,  3) - HP: 11>)
+Attacking unit <G @ ( 1,  3) - HP: 11>
+Result: <G @ ( 1,  3) - HP: 8>
+
+Current Unit: <G @ ( 1,  3) - HP: 8>
+Enemy List for current unit:
+  <E @ ( 1,  2) - HP: 167>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+  (0, '( 1,  3)', '( 1,  3)')
+Unit did not move
+Targettable Enemies:
+  (167, <E @ ( 1,  2) - HP: 167>)
+  (197, <E @ ( 1,  4) - HP: 197>)
+  (200, <E @ ( 2,  3) - HP: 200>)
+Attacking unit <E @ ( 1,  2) - HP: 167>
+Result: <E @ ( 1,  2) - HP: 164>
+
+Current Unit: <E @ ( 1,  4) - HP: 197>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 8>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  4)', '( 1,  4)')
+Unit did not move
+Targettable Enemies:
+  (8, <G @ ( 1,  3) - HP: 8>)
+Attacking unit <G @ ( 1,  3) - HP: 8>
+Result: <G @ ( 1,  3) - HP: 5>
+
+Current Unit: <E @ ( 2,  3) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 5>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 2,  3)', '( 2,  3)')
+Unit did not move
+Targettable Enemies:
+  (5, <G @ ( 1,  3) - HP: 5>)
+Attacking unit <G @ ( 1,  3) - HP: 5>
+Result: <G @ ( 1,  3) - HP: 2>
+
+Current Unit: <E @ ( 3,  1) - HP: 98>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 2>
+No reachable enemies
+Unit did not move
+
+Current Unit: <E @ ( 4,  2) - HP: 200>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 2>
+No reachable enemies
+Unit did not move
+
+
+Units at round 046:
+  <E @ ( 1,  2) - HP: 164>
+  <G @ ( 1,  3) - HP: 2>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
+
+Current Unit: <E @ ( 1,  2) - HP: 164>
+Enemy List for current unit:
+  <G @ ( 1,  3) - HP: 2>
+Distances array (distance, targetTile, firstStep):
+  (0, '( 1,  2)', '( 1,  2)')
+Unit did not move
+Targettable Enemies:
+  (2, <G @ ( 1,  3) - HP: 2>)
+Attacking unit <G @ ( 1,  3) - HP: 2>
+Result: <G X ( 1,  3) - HP: -1>
+
+Current Unit: <E @ ( 1,  4) - HP: 197>
+Enemy List for current unit:
+
+No enemies, ending
+
+
+Units at round 046:
+  <E @ ( 1,  2) - HP: 164>
+  <E @ ( 1,  4) - HP: 197>
+  <E @ ( 2,  3) - HP: 200>
+  <E @ ( 3,  1) - HP: 98>
+  <E @ ( 4,  2) - HP: 200>
