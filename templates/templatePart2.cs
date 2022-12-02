@@ -6,7 +6,7 @@ namespace AoC {
             var logger = new Logger("Part2", writeToFile: false);
 
             var inputReader = new Input(useExample: false);
-            string inputData = inputReader.Read();
+            var inputData = inputReader.Read();
             string result = "";
 
 
