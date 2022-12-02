@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using static System.Math;
@@ -126,7 +127,7 @@ namespace AoCUtils {
     }
 
     public static class Functions {
-        public static int mod(int a, int m) {
+        public static int Mod(int a, int m) {
             return ((a % m) + m) % m;
         }
     }

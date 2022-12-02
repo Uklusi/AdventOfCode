@@ -1,3 +1,13 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using static System.Math;
+
+using AoCUtils;
+using static AoCUtils.Constants;
+using static AoCUtils.Functions;
+
 namespace AoC {
 
     public class Part2 {
