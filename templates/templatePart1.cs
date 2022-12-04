@@ -16,11 +16,18 @@ namespace AoC {
             var logger = new Logger("Part1", writeToFile: false);
 
             var inputReader = new Input(useExample: false);
-            var inputData = inputReader.Read();
+            var inputData = inputReader.ReadLines();
             string result = "";
+            int resultInt = 0;
+
+            foreach (var line in inputData) {
+                
+                
+
+            }
 
 
-
+            result = resultInt.ToString();
             logger.Close();
             return result;
         }
