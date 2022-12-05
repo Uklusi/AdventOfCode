@@ -45,7 +45,6 @@ namespace AoC {
             var inputReader = new Input(useExample: false);
             var inputData = inputReader.ReadDoubleLines();
             string result = "";
-            int resultInt = 0;
 
 
             List<char>[] stacks = readCrateDisposition(inputData[0]);

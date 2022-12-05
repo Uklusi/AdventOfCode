@@ -52,7 +52,7 @@ namespace AoC {
                 inputFile = "input.txt";
             }
 
-            data = File.ReadAllText(inputFile).Trim();
+            data = File.ReadAllText(inputFile).TrimEnd();
         }
 
         public string Read() {
@@ -86,13 +86,11 @@ namespace AoC {
                 return 1;
             }
             else if (args[0] == "1") {
-                var part1 = new Part1();
-                ret = part1.solve();
+                ret = Part1.solve();
                 File.WriteAllText("output1.txt", ret);
             }
             else if (args[0] == "2") {
-                var part2 = new Part2();
-                ret = part2.solve();
+                ret = Part2.solve();
                 File.WriteAllText("output2.txt", ret);
             }
             else {

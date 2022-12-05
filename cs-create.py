@@ -48,8 +48,7 @@ def main():
 
     if not os.path.isfile(folder_to_create / "Main.cs"):
         shutil.copy(Path("templates/templateMain.cs"), folder_to_create / "Main.cs")
-        shutil.copy(Path("templates/templatePart1.cs"), folder_to_create / "Part1.cs")
-        shutil.copy(Path("templates/templatePart2.cs"), folder_to_create / "Part2.cs")
+        shutil.copy(Path("templates/templateSolver.cs"), folder_to_create / "Solver.cs")
         open(folder_to_create / "example.txt", 'a').close()
         open(folder_to_create / "output1.txt", 'a').close()
         open(folder_to_create / "output2.txt", 'a').close()
