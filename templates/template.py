@@ -1,6 +1,7 @@
 ﻿from AoCUtils import *
 import sys
 import time
+from io import TextIOWrapper
 
 
 def solve_p1(useExample: bool = False) -> str:

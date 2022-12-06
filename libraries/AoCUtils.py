@@ -1,10 +1,8 @@
 from __future__ import annotations
 import hashlib
 from typing import (
-    Hashable, # type: ignore
     Sequence,
     Iterable,
-    Optional,
     Callable,
     Union,
     Literal,
@@ -12,12 +10,10 @@ from typing import (
     NamedTuple,
     NoReturn,
     Any,
-    NewType,
     Self,
     cast,
     overload
 )
-from io import TextIOWrapper
 from copy import copy, deepcopy
 from math import gcd, prod # type: ignore
 from functools import partial, cache # type: ignore
@@ -30,15 +26,11 @@ import numpy as np
 from numpy.typing import NDArray
 
 # Type aliases (for type hinting)
-Numeric = Union[int, float]
-MaybeSlice = Union[slice, int]
-DirectionType = Union[str, int]
-LogFileType = Union[str, TextIOWrapper]
-DoubleSlice = Union[tuple[MaybeSlice, MaybeSlice], MaybeSlice]
+MaybeSlice = slice | int
+DirectionType = str | int
+DoubleSlice = tuple[MaybeSlice, MaybeSlice] | MaybeSlice
 
 T = TypeVar('T')
-NUM = int | float
-NewType = NewType
 
 # Utility functions (debug, logging, prettify, etc...)
 
@@ -59,20 +51,17 @@ def prettify(seq: Iterable[Any]) -> str:
 def prettifyDict(dictionary: dict[Any, Any]) -> str:
     return "\n".join(f"{str(k)}: {str(v)}" for (k, v) in dictionary.items())
 
-def sign(x: Numeric) -> int:
+
+def sign(x: int) -> int:
     return 1 if x > 0 else 0 if x == 0 else -1
 
 
-def rangeFrame(frame: Sequence[Sequence[Any]], x: bool = False, y: bool = False):
-    if x:
-        return range(len(frame[0]))
-    if y:
-        return range(len(frame))
+def rangeFrame(frame: Sequence[Sequence[Any]]):
     return product(range(len(frame[0])), range(len(frame)))
 
 
 # Useful variables
-inf = float("inf")
+inf: int = 2**64
 false = False
 true = True
 # maze characters
@@ -87,10 +76,6 @@ path = "·"
 class XY(NamedTuple):
     x: int
     y: int
-
-class NormalizedVector(NamedTuple):
-    vx: float
-    vy: float
 
 def dirToNum(direction: DirectionType) -> int:
     """
@@ -143,13 +128,9 @@ def dirToArrow(direction: DirectionType) -> str:
     else: # direction == 3:
         return "<"
 
-_PositionVar = TypeVar("_PositionVar", bound="Position")
-
-_PositionGeneric = TypeVar("_PositionGeneric", bound="Position")
-_PositionGeneric2 = TypeVar("_PositionGeneric2", bound="Position")
+_Position = TypeVar("_Position", bound="Position")
 
 _BaseR2Generic = TypeVar('_BaseR2Generic', bound='_BaseR2Class')
-_BaseR2Generic2 = TypeVar('_BaseR2Generic2', bound='_BaseR2Class')
 
 class _BaseR2Class():
     """
@@ -187,10 +168,10 @@ class _BaseR2Class():
         o = (sign * oy, ox)
         return s > o
 
-    def __ge__(self: Self, other: Self) -> Union[bool, NoReturn]:
+    def __ge__(self, other: Self) -> bool | NoReturn:
         try:
             gt = self > other
-        except: # noqa
+        except:
             raise(NotImplementedError)
         return gt or self == other
 
@@ -208,7 +189,7 @@ class _BaseR2Class():
         (x, y) = self.stdcoords()
         return f"{type(self)}(x: {x}, y: {y}) - reverseY: {self.reverseY}"
 
-    def copy(self: _BaseR2Generic) -> _BaseR2Generic:
+    def copy(self) -> Self:
         return copy(self)
 
 
@@ -288,18 +269,12 @@ class Vector(_BaseR2Class):
     def distance(self) -> int:
         return abs(self.vx) + abs(self.vy)
 
-    def length(self) -> float:
-        return ((self.vx) ** 2 + (self.vy) ** 2) ** (1 / 2)
 
-    def direction(self, normalized: bool = False) -> Union[Vector, NormalizedVector]:
+    def direction(self) -> Vector:
         if self == Vector(0, 0):
             return self
-        elif normalized:
-            d = self.length()
-            return NormalizedVector(self.vx / d, self.vy / d)
-        else:
-            d = gcd(self.vx, self.vy)
-            return Vector(self.vx // d, self.vy // d)
+        d = gcd(self.vx, self.vy)
+        return Vector(self.vx // d, self.vy // d)
 
     def directionIndicator(self):
         assert self.distance() == 1
@@ -365,7 +340,7 @@ class Position(_BaseR2Class):
         self.reverseY = reverseY
         self.upVertSign = -1 if reverseY else 1
 
-    def __add__(self: _PositionVar, vector: Vector) -> _PositionVar:
+    def __add__(self, vector: Vector) -> Self:
         return type(self)(
             self.x + vector.vx,
             self.y + vector.vy,
@@ -373,14 +348,14 @@ class Position(_BaseR2Class):
         )
 
     @overload
-    def __sub__(self: _PositionVar, other: Vector) -> _PositionVar:
+    def __sub__(self, other: Vector) -> Self:
         ...
 
     @overload
     def __sub__(self, other: Position) -> Vector:
         ...
 
-    def __sub__(self, other: Union[Vector, _PositionGeneric]):
+    def __sub__(self, other: Union[Vector, Position]):
         if isinstance(other, Vector):
             return self + (-other)
 
@@ -399,10 +374,10 @@ class Position(_BaseR2Class):
         return (self.x, self.y)
 
     def adjacent(
-        self: _PositionVar,
+        self,
         includeCorners: bool = False,
-        include: Sequence[_PositionVar] = []
-    ) -> list[_PositionVar]:
+        include: Sequence[Position] = []
+    ) -> list[Self]:
         if includeCorners:
             initialRet = [self + Vector(i, j) for (i, j) in product([-1, 0, 1], repeat=2) if (i, j) != (0, 0)]
         else:
@@ -410,17 +385,11 @@ class Position(_BaseR2Class):
 
         return (initialRet + [pos for pos in include if pos not in initialRet])
 
-    def distance(self, other: Optional[Position] = None) -> int:
+    def distance(self, other: Position | None = None) -> int:
         if other is None:
             other = Position(0, 0)
         v: Vector = self - other
         return v.distance()
-
-    def length(self, other: Optional[Position] = None) -> float:
-        if other is None:
-            other = Position(0, 0)
-        v: Vector = self - other
-        return v.length()
 
 
 class Agent(Position):
@@ -457,7 +426,7 @@ class Agent(Position):
     def __hash__(self) -> NoReturn: # type: ignore
         raise(NotImplementedError)
 
-    def turn(self, direction: Optional[DirectionType] = 1) -> None:
+    def turn(self, direction: DirectionType | None = 1) -> None:
         if direction is None:
             return
 
@@ -478,7 +447,7 @@ class Agent(Position):
         self.x = target.x
         self.y = target.y
 
-    def move(self, n: int = 1, direction: Optional[DirectionType] = None) -> None:
+    def move(self, n: int = 1, direction: DirectionType | None = None) -> None:
         if direction is None:
             direction = self.direction
 
@@ -488,13 +457,13 @@ class Agent(Position):
         return Position(self.x, self.y, reverseY=self.reverseY)
 
 
-def _inbound(n: int, nmin: Numeric, nmax: Numeric) -> int:
+def _inbound(n: int, nmin: int, nmax: int) -> int:
     """
     Helper function for MapPosition class
     """
     result = n if n < nmax else nmax
     result = result if result > nmin else nmin
-    return cast(int, result)
+    return result
 
 class MapPosition(Position):
     """
@@ -519,11 +488,11 @@ class MapPosition(Position):
         x: int = 0,
         y: int = 0,
         reverseY: bool = True,
-        frame: Optional[Sequence[Sequence[Any]]] = None,
-        xmin: Numeric = -inf,
-        xmax: Numeric = inf,
-        ymin: Numeric = -inf,
-        ymax: Numeric = inf,
+        frame: Sequence[Sequence[Any]] | None = None,
+        xmin: int = -inf,
+        xmax: int = inf,
+        ymin: int = -inf,
+        ymax: int = inf,
         occupied: Callable[[Position], bool] = lambda p: False
     ) -> None:
         super().__init__(
@@ -544,7 +513,7 @@ class MapPosition(Position):
 
         self._occupiedFunction = occupied
 
-    def __add__(self, vector: Vector) -> Self:
+    def __add__(self, vector: Vector) -> MapPosition:
         return MapPosition(
             self.x + vector.vx,
             self.y + vector.vy,
@@ -572,13 +541,12 @@ class MapPosition(Position):
         return self.isInLimits() and self.isEmpty()
 
     def adjacent(
-        self: _PositionVar,
+        self,
         includeCorners: bool = False,
-        include: Sequence[_PositionVar] = []
-    ) -> list[_PositionVar]:
+        include: Sequence[Position] = []
+    ) -> list[Self]:
         ret = super().adjacent(includeCorners=includeCorners, include=include)
-        T1 = type(self)
-        return cast(list[T1], [p for p in ret if cast(MapPosition, p).isValid() or p in include])
+        return cast(list[Self], [p for p in ret if p.isValid() or p in include])
 
 
 class MapAgent(MapPosition, Agent):
@@ -599,11 +567,11 @@ class MapAgent(MapPosition, Agent):
         y: int = 0,
         direction: DirectionType = 0,
         reverseY: bool = True,
-        frame: Optional[Sequence[Sequence[Any]]] = None,
-        xmin: Numeric = -inf,
-        xmax: Numeric = inf,
-        ymin: Numeric = -inf,
-        ymax: Numeric = inf,
+        frame: Sequence[Sequence[Any]] | None = None,
+        xmin: int = -inf,
+        xmax: int = inf,
+        ymin: int = -inf,
+        ymax: int = inf,
         occupied: Callable[[Position], bool] = lambda p: False
     ):
         Agent.__init__(
@@ -643,7 +611,7 @@ class MapAgent(MapPosition, Agent):
     def __hash__(self) -> NoReturn: # type: ignore
         raise(NotImplementedError)
 
-    def move(self, n: int = 1, direction: Optional[DirectionType] = None) -> None:
+    def move(self, n: int = 1, direction: DirectionType | None = None) -> None:
         if direction is None:
             direction = self.direction
         if n != 1:
@@ -722,7 +690,7 @@ class HexGrid(_BaseR2Class):
     def __gt__(self, other: Any) -> NoReturn: # type: ignore
         raise(NotImplementedError)
 
-    def move(self, n: int = 1, direction: Optional[str] = None) -> None:
+    def move(self, n: int = 1, direction: str | None = None) -> None:
         if direction is None:
             raise(Exception("DirectionError: None"))
         for _ in range(n):
@@ -755,7 +723,7 @@ class HexGrid(_BaseR2Class):
     def adjacent(self) -> list[HexGrid]:
         return [self + HexGrid(i, j) for (i, j) in [(1, 0), (0, 1), (1, 1), (-1, 0), (0, -1), (-1, -1)]]
 
-    def distance(self, other: Optional[HexGrid] = None) -> int:
+    def distance(self, other: HexGrid | None = None) -> int:
         if other is None:
             other = HexGrid(0, 0)
         x = self.x - other.x
@@ -775,7 +743,7 @@ class PositionNDim():
     PositionNDim is the translation of Vector and Position in a multidimensional environment.
     If self.numDimensions = 3 or 4 the class has the properties x, y, z (w). These are not to be modified.
     """
-    def __init__(self, coordOrList: Union[int, Iterable[int]], *otherCoords: int) -> None:
+    def __init__(self, coordOrList: int | Iterable[int], *otherCoords: int) -> None:
         if isinstance(coordOrList, int):
             coords = (coordOrList, ) + otherCoords
             self.coordinates = tuple(coords)
@@ -839,17 +807,11 @@ class PositionNDim():
             rotations([-1] + [0] * (self.numDimensions - 1))
         ]
 
-    def distance(self, other: Optional[PositionNDim] = None) -> int:
+    def distance(self, other: PositionNDim | None = None) -> int:
         if other is None:
             other = PositionNDim([0] * self.numDimensions)
         s = self - other
         return sum(map(lambda n: abs(n), s.coordinates))
-
-    def length(self, other: Optional[PositionNDim] = None) -> float:
-        if other is None:
-            other = PositionNDim([0] * self.numDimensions)
-        s = self - other
-        return sum(map(lambda n: n**2, s.coordinates)) ** (1 / 2)
 
 
 class GameOfLife():
@@ -930,7 +892,7 @@ def _sliceToRange(item: slice, minRange: int, maxRange: int, step: int = 1) -> r
     """
     Helper method to transform a slice object into a range object
     """
-    (start, stop, oldStep) = cast(tuple[Optional[int], ...], (item.start, item.stop, item.step))
+    (start, stop, oldStep) = cast(tuple[int | None, ...], (item.start, item.stop, item.step))
     newStep = oldStep or step
     newStart = start or minRange
     newStop = stop or maxRange
@@ -1065,7 +1027,7 @@ class Image():
         i1 = self.flip(copy=True)
         return self.rotations() + i1.rotations()
 
-def imageConcat(imageIter: Iterable[Union[Image, NDArray[np.str_]]], vertical: bool = False) -> Image:
+def imageConcat(imageIter: Iterable[Image | NDArray[np.str_]], vertical: bool = False) -> Image:
     """
     This is an helper function in order to concatenate several images in one passage.
     """
@@ -1102,7 +1064,7 @@ class Map():
     def __init__(
         self,
         visual: Callable[[Position], str] = lambda p: ".",
-        frame: Optional[Sequence[Sequence[Any]]] = None,
+        frame: Sequence[Sequence[Any]] | None = None,
         xmin: int = 0,
         xmax: int = 9,
         ymin: int = 0,
@@ -1180,7 +1142,7 @@ class LinkedList():
         self.next = other
         return other
 
-    def delete(self) -> Optional[LinkedList]:
+    def delete(self) -> LinkedList | None:
         if self.next == self or (self.next is None and self.prev is None):
             del(self)
             return None
@@ -1228,10 +1190,10 @@ def md5(string: str) -> str:
     return hashlib.md5(string.encode()).hexdigest()
 
 def recreatePath(
-    start: _PositionVar,
-    goal: _PositionVar,
-    pathTrace: dict[_PositionVar, _PositionVar]
-) -> list[_PositionVar]:
+    start: _Position,
+    goal: _Position,
+    pathTrace: dict[_Position, _Position]
+) -> list[_Position]:
     """
     Helper function used to determine the path taken by the A* algorithm
     from start to goal. The path is indicated as a series of consecutive positions.
@@ -1249,34 +1211,34 @@ def recreatePath(
 
 @overload
 def aStar(
-    start: _PositionVar,
-    goal: _PositionVar,
-    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
-    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
+    start: _Position,
+    goal: _Position,
+    distanceFunction: Callable[[Position, Position], int] = lambda p, q: p.distance(q), #type:ignore
+    estimateFunction: Callable[[Position, Position], int] = lambda p, q: p.distance(q), #type:ignore
     includeCorners: bool = False,
     returnPath: Literal[False] = False
-) -> NUM:
+) -> int:
     ...
 
 @overload
 def aStar(
-    start: _PositionVar,
-    goal: _PositionVar,
-    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
-    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
+    start: _Position,
+    goal: _Position,
+    distanceFunction: Callable[[Position, Position], int] = lambda p, q: p.distance(q), #type:ignore
+    estimateFunction: Callable[[Position, Position], int] = lambda p, q: p.distance(q), #type:ignore
     includeCorners: bool = False,
     returnPath: Literal[True] = True
-) -> list[_PositionVar]:
+) -> list[_Position]:
     ...
 
 def aStar(
-    start: _PositionVar,
-    goal: _PositionVar,
-    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
-    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
+    start: _Position,
+    goal: _Position,
+    distanceFunction: Callable[[Position, Position], int] = lambda p, q: p.distance(q), #type:ignore
+    estimateFunction: Callable[[Position, Position], int] = lambda p, q: p.distance(q), #type:ignore
     includeCorners: bool = False,
     returnPath: bool = False
-) -> Union[NUM, list[_PositionVar]]:
+) -> Union[int, list[_Position]]:
     """
     A* Traversing algorithm.
 
@@ -1297,9 +1259,9 @@ def aStar(
         start = start.position()
 
     estimate = partial(estimateFunction, goal)
-    openSet: PriorityQueue[tuple[NUM, _PositionVar]] = PriorityQueue()
-    distance: dict[Position, NUM] = {start: 0}
-    pathTrace: dict[_PositionVar, _PositionVar] = {start: start}
+    openSet: PriorityQueue[tuple[int, _Position]] = PriorityQueue()
+    distance: dict[Position, int] = {start: 0}
+    pathTrace: dict[_Position, _Position] = {start: start}
     openSet.put((estimate(start) + distance[start], start))
 
     while not openSet.empty():
@@ -1323,9 +1285,9 @@ def aStar(
         return -1
 
 def dijkstra(
-    start: _PositionGeneric,
-    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
-) -> dict[_PositionGeneric, NUM]:
+    start: _Position,
+    distanceFunction: Callable[[Position, Position], int] = lambda p, q: p.distance(q),
+) -> dict[_Position, int]:
     """
     Dijkstra graph exploration algorithm (on a grid).
     Returns a dictionary with, for each node, the min distance from start
@@ -1339,8 +1301,8 @@ def dijkstra(
     it also assumes that there is a method called distance(otherPosition)
     """
 
-    openSet: PriorityQueue[tuple[NUM, _PositionGeneric]] = PriorityQueue()
-    distance: dict[_PositionGeneric, NUM] = {start: 0}
+    openSet: PriorityQueue[tuple[int, _Position]] = PriorityQueue()
+    distance: dict[_Position, int] = {start: 0}
     openSet.put((distance[start], start))
 
     while not openSet.empty():
