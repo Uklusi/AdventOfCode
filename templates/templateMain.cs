@@ -1,11 +1,13 @@
 ﻿using System;
 using System.IO;
+using System.Diagnostics;
+using System.Linq;
 using System.Collections.Generic;
 
-using AoCUtils;
-using static AoCUtils.Functions;
+using static AoCUtils.Constants;
 
 namespace AoC {
+
     public class Logger {
         StreamWriter? logStream = null;
 
@@ -74,29 +76,54 @@ namespace AoC {
             
             return table;
         }
+
+        public List<string> ProcessMap(List<string> AoCMap) {
+            return AoCMap.Select(s => s.Replace('.', Empty).Replace('#', Full)).ToList();
+        }
+        
+        public List<string> ReadProcessedMap() {
+            return ProcessMap(ReadLines());
+        }
     }
 
     class EntryPoint {
         static int Main(string[] args) {
 
             string ret = "";
+            bool useExample = false;
+            if (args.Length == 2 && args[1] == "--example") {
+                useExample = true;
+            }
+
+            Stopwatch stopwatch = new();
+
+            stopwatch.Start();
 
             if (args.Length == 0) {
                 Console.WriteLine("Please pass the part you want to solve to the program.");
                 return 1;
             }
             else if (args[0] == "1") {
-                ret = Part1.solve();
+                
+                ret = Part1.solve(useExample);
                 File.WriteAllText("output1.txt", ret);
             }
             else if (args[0] == "2") {
-                ret = Part2.solve();
+                ret = Part2.solve(useExample);
                 File.WriteAllText("output2.txt", ret);
             }
             else {
                 Console.WriteLine("Cannot recognise the number you passed to the script, exiting...");
                 return 1;
             }
+
+            stopwatch.Stop();
+            TimeSpan ts = stopwatch.Elapsed;
+            string elapsedTime = String.Format(
+                "Runtime: {0:00}:{1:00}:{2:00}.{3:00}",
+                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10
+            );
+            Console.WriteLine(elapsedTime);
 
             Console.WriteLine(ret);
 
