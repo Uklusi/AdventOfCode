@@ -47,10 +47,10 @@ namespace AoCUtils {
     }
 
     public static class Constants {
-        public static const char Solid = '\u2588';
-        public static const char Full = Solid;
-        public static const char Empty = ' ';
-        public static const char Path = '·';
+        public const char Solid = '\u2588';
+        public const char Full = Solid;
+        public const char Empty = ' ';
+        public const char Path = '·';
     }
 
     public static class Functions {
