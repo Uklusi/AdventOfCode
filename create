@@ -12,7 +12,7 @@ def main():
 
     headers = {
         'cookie': f'session={session_cookie}',
-        'User-Agent': "https://github.com/Uklusi/AdventOfCode/cs-create by aurelio.polinto@gmail.com"
+        'User-Agent': "https://github.com/Uklusi/AdventOfCode/create by aurelio.polinto@gmail.com"
     }
 
     args = sys.argv[1:]
