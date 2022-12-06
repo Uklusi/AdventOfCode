@@ -69,6 +69,27 @@ namespace AoCUtils {
             }
             return Gcd(b % a, a);
         }
+
+        public static Func<T, U> MemoizeNonRecursive<T, U>(Func<T, U> f) where T : IEquatable<T> {
+            Dictionary<T, U> memoryCache = new();
+
+            U MemoizedFunction(T input) {
+                if (memoryCache.ContainsKey(input)) {
+                    return memoryCache[input];
+                }
+                U value = f(input);
+                memoryCache[input] = value;
+                return value;
+            }
+
+            return MemoizedFunction;
+        }
+        public static Func<T1, T2, U> MemoizeNonRecursive<T1, T2, U>(Func<T1, T2, U> f)
+            where T1 : IEquatable<T1>
+            where T2 : IEquatable<T2> {
+                var g = MemoizeNonRecursive<(T1, T2), U>(x => f(x.Item1, x.Item2));
+                return (T1 a, T2 b) => g((a, b));
+        } 
     }
 
     namespace GridUtils {

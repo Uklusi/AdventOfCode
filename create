@@ -3,6 +3,7 @@ import sys
 from pathlib import Path
 import requests
 import shutil
+from datetime import datetime, timezone
 
 
 def main():
@@ -32,7 +33,12 @@ def main():
     original_folder = os.getcwd()
     os.makedirs(folder_to_create, exist_ok=True)
 
-    if not os.path.isfile(folder_to_create / "input.txt" ):
+    puzzle_release_date = datetime(year, 12, day, 6, 0, tzinfo=timezone.utc)
+    now_utc = datetime.now(timezone.utc)
+    if (
+        not os.path.isfile(folder_to_create / "input.txt" )
+        and now_utc > puzzle_release_date
+    ):
         with open(folder_to_create / "input.txt", "w") as f:
             r = requests.get(
                 url=f"https://adventofcode.com/{year}/day/{day}/input",
@@ -59,8 +65,7 @@ def main():
             os.symlink(Path("../../libraries/AoCUtils.cs"), folder_to_create / "AoCUtils.cs")
     else:
         if not os.path.isfile(folder_to_create / "part1.py"):
-            shutil.copy(Path("templates/template.py"), folder_to_create / "part1.py")
-            open(folder_to_create / "part2.py", 'a').close()
+            shutil.copy(Path("templates/template.py"), folder_to_create / "AoC.py")
             os.symlink(Path("../../libraries/AoCUtils.py"), folder_to_create / "AoCUtils.py")
 
     

@@ -25,7 +25,6 @@ from itertools import product, starmap # type: ignore
 from queue import PriorityQueue
 from collections import defaultdict # type: ignore
 import re
-import time
 
 import numpy as np
 from numpy.typing import NDArray
@@ -63,31 +62,6 @@ def prettifyDict(dictionary: dict[Any, Any]) -> str:
 def sign(x: Numeric) -> int:
     return 1 if x > 0 else 0 if x == 0 else -1
 
-def docstring(string: str) -> str:
-    slist = string.strip().split("\n")
-    slist = [line.strip() for line in slist]
-    return prettify(slist)
-
-
-def printLogFactory(logFile: LogFileType, printNewline: bool = True) -> Callable[..., None]:
-
-    def printLog(*t: Any) -> None:
-        """
-        printLog function.
-        Takes an arbitrary number of inputs and writes them to a log file
-        If logFile is stdout, writes to stdout
-        """
-
-        if isinstance(logFile, str):
-            print(*t)
-        else:
-            s = " ".join(stringify(t))
-            logFile.write(s)
-            if printNewline:
-                logFile.write("\n")
-            logFile.flush()
-
-    return printLog
 
 def rangeFrame(frame: Sequence[Sequence[Any]], x: bool = False, y: bool = False):
     if x:
@@ -1277,8 +1251,8 @@ def recreatePath(
 def aStar(
     start: _PositionVar,
     goal: _PositionVar,
-    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
-    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
+    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
+    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
     includeCorners: bool = False,
     returnPath: Literal[False] = False
 ) -> NUM:
@@ -1288,8 +1262,8 @@ def aStar(
 def aStar(
     start: _PositionVar,
     goal: _PositionVar,
-    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
-    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
+    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
+    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
     includeCorners: bool = False,
     returnPath: Literal[True] = True
 ) -> list[_PositionVar]:
@@ -1298,8 +1272,8 @@ def aStar(
 def aStar(
     start: _PositionVar,
     goal: _PositionVar,
-    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
-    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
+    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
+    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q), #type:ignore
     includeCorners: bool = False,
     returnPath: bool = False
 ) -> Union[NUM, list[_PositionVar]]:
@@ -1399,53 +1373,3 @@ def binSearch(start: int, stop: int, check: Callable[[int], bool]) -> int:
         return binSearch(middle, stop, check)
     else:
         return binSearch(start, middle, check)
-
-
-# Shamelessly stolen from mebeim (https://github.com/mebeim/aoc/blob/master/utils/timer.py)
-def seconds_to_most_relevant_unit(s: float):
-    s *= 1e6
-    if s < 1000:
-        return '{:.3f}µs'.format(s)
-
-    s /= 1000
-    if s < 1000:
-        return '{:.3f}ms'.format(s)
-
-    s /= 1000
-    if s < 60:
-        return '{:.3f}s'.format(s)
-
-    m = int(s / 60)
-    return '{:d}m {:.3f}s'.format(m, (s - m * 60))
-
-timers: dict[str, tuple[float, float, float, float, int]] = {}
-
-def timer_start(name: str="Timer"):
-    now_wall, now_cpu = time.perf_counter(), time.process_time()
-    timers[name] = (now_wall, now_cpu, now_wall, now_cpu, 1)
-
-def timer_lap(name: str="Timer", print_time: bool=True):
-    now_wall, now_cpu = time.perf_counter(), time.process_time()
-    *x, prev_wall, prev_cpu, lap = timers[name]
-
-    dt_wall = seconds_to_most_relevant_unit(now_wall - prev_wall)
-    dt_cpu = seconds_to_most_relevant_unit(now_cpu - prev_cpu)
-
-    timers[name] = (*x, time.perf_counter(), time.process_time(), lap + 1)
-
-    ret = ('Timer lap #{}: {} wall, {} CPU\n'.format(lap, dt_wall, dt_cpu))
-    if print_time:
-        print(ret)
-    return ret
-
-def timer_stop(name: str="Timer", print_time: bool=True):
-    now_wall, now_cpu = time.perf_counter(), time.process_time()
-    prev_wall, prev_cpu, *_ = timers.pop(name)
-
-    dt_wall = seconds_to_most_relevant_unit(now_wall - prev_wall)
-    dt_cpu = seconds_to_most_relevant_unit(now_cpu - prev_cpu)
-
-    ret = ('Timer: {} wall, {} CPU\n'.format(dt_wall, dt_cpu))
-    if print_time:
-        print(ret)
-    return ret

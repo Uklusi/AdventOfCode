@@ -1,38 +1,169 @@
 ﻿from AoCUtils import *
-
-writeToLog = False
-# writeToLog = True
-
-useExample = False
-# useExample = True
+import sys
+import time
 
 
-result = 0
-partNumber = "1"
+def solve_p1(useExample: bool = False) -> str:
+    
+    logger = Logger("part1")
+    result = 0
 
-if writeToLog:
-    logFile = open("log" + partNumber + ".txt", "w")
-else:
-    logFile = "stdout"
-printLog = printLogFactory(logFile)
+    input_reader = InputReader(useExample=useExample) #type: ignore
 
-timer_start(partNumber)
 
-inputFileName = ("example.txt" if useExample else "input.txt")
-with open(inputFileName, "r") as inputFile:
-    lines = inputFile.read().strip().split("\n")
-    for line in lines:
-        line = line.strip()
+    
+
+    logger.close()
+    return str(result)
 
 
 
 
 
-timer_stop(partNumber)
+def solve_p2(useExample: bool = False) -> str:
+    
+    logger = Logger("part2")
+    result = 0
 
-with open("output" + partNumber + ".txt", "w") as outputFile:
-    outputFile.write(str(result))
-    print(str(result))
+    input_reader = InputReader(useExample=useExample) #type: ignore
 
-if writeToLog:
-    cast(TextIOWrapper, logFile).close()
+
+    
+
+    logger.close()
+    return str(result)
+
+
+
+
+
+class Logger():
+    def __init__(self, log_file_name: str, write_to_log: bool = False):
+        self.log_file: TextIOWrapper | None
+        if write_to_log:
+            self.log_file = open(log_file_name + ".log", "w")
+        else:
+            self.log_file = None
+
+    def write_line(self, *t: Any):
+        if self.log_file is None:
+            print(*t)
+        else:
+            self.log_file.write(" ".join([str(o) for o in t]) + "\n")
+            self.log_file.flush()
+
+    def write(self, *t: Any):
+        if self.log_file is None:
+            print(*t, end="")
+        else:
+            self.log_file.write(" ".join([str(o) for o in t]))
+            self.log_file.flush()
+
+    def close(self):
+        if self.log_file is not None:
+            self.log_file.close()
+
+
+class InputReader():
+    def __init__(self, useExample: bool):
+        self.data = ""
+        inputFile = "example.txt" if useExample else "input.txt"
+
+        with open(inputFile, "r") as f:
+            self.data = f.read().rstrip()
+    
+    def read(self):
+        return self.data
+
+    def read_lines(self):
+        return self.data.split("\n")
+
+    def read_double_lines(self):
+        return [paragraph.split("\n") for paragraph in self.data.split("\n")]
+
+
+class Timer():
+    def __init__(self, name: str = "Timer"):
+        now_wall, now_cpu = time.perf_counter(), time.process_time()
+
+        self.name = name
+        self.start_wall = now_wall
+        self.start_cpu = now_cpu
+        self.last_wall = now_wall
+        self.last_cpu = now_cpu
+        self.lap_number = 0
+
+    # Shamelessly stolen from mebeim (https://github.com/mebeim/aoc/blob/master/utils/timer.py)
+    @classmethod
+    def seconds_to_most_relevant_unit(cls, s: float):
+        s *= 1e6
+        if s < 1000:
+            return '{:.3f}µs'.format(s)
+
+        s /= 1000
+        if s < 1000:
+            return '{:.3f}ms'.format(s)
+
+        s /= 1000
+        if s < 60:
+            return '{:.3f}s'.format(s)
+
+        m = int(s / 60)
+        return '{:d}m {:.3f}s'.format(m, (s - m * 60))
+
+    def lap(self):
+        now_wall, now_cpu = time.perf_counter(), time.process_time()
+        
+        dt_wall = Timer.seconds_to_most_relevant_unit(now_wall - self.last_wall)
+        dt_cpu = Timer.seconds_to_most_relevant_unit(now_cpu - self.last_cpu)
+
+        self.last_wall = now_wall
+        self.last_cpu = now_cpu        
+
+        self.lap_number += 1
+
+        return (f'{self.name}, lap #{self.lap_number}: {dt_wall} wall, {dt_cpu} CPU')
+
+    def stop(self):
+        now_wall, now_cpu = time.perf_counter(), time.process_time()
+
+        dt_wall = Timer.seconds_to_most_relevant_unit(now_wall - self.start_wall)
+        dt_cpu = Timer.seconds_to_most_relevant_unit(now_cpu - self.start_cpu)
+
+        return (f'{self.name}: {dt_wall} wall, {dt_cpu} CPU')
+
+
+def main():
+    args = sys.argv[1:]
+    
+    if not (1 <= len(args) <= 2):
+        print("Please pass the part you want to solve to the program,")
+        print("And optionally the --example flag")
+        sys.exit(1)
+    
+    part = int(args[0])
+    if (len(args) == 2 and args[2] == "--example"):
+        useExample = True
+    else:
+        useExample = False
+
+    timer = Timer(f"Part {part}")
+
+    result = ""
+    if (part == 1):
+        result = solve_p1(useExample)
+    elif part == 2:
+        result = solve_p2(useExample)
+    else:
+        print("Wrong part specified, exiting")
+        sys.exit(1)
+    
+    time_str = timer.stop()
+    print(time_str)
+
+    with open(f"output{part}.txt", "w") as outputFile:
+        outputFile.write(result)
+    print(result)
+
+if __name__ == "__main__":
+    main()

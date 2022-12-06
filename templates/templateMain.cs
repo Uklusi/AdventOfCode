@@ -13,7 +13,7 @@ namespace AoC {
 
         public Logger(string logFile, bool writeToFile = false) {
             if (writeToFile) {
-                logStream = File.CreateText(logFile + ".txt");
+                logStream = File.CreateText(logFile + ".log");
             }
         }
 

@@ -42,7 +42,7 @@ def main():
             if year < 2022:
                 os.system(f"python part{part}.py {switch}")
             else:
-                os.system(f"python main.py {part} {switch}")
+                os.system(f"python AoC.py {part} {switch}")
     finally:
         os.chdir(original_folder)
 
