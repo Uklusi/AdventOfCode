@@ -1,7 +1,7 @@
 from __future__ import annotations
 import hashlib
 from typing import (
-    Hashable,
+    Hashable, # type: ignore
     Sequence,
     Iterable,
     Optional,
@@ -13,20 +13,22 @@ from typing import (
     NoReturn,
     Any,
     NewType,
+    Self,
     cast,
     overload
 )
 from io import TextIOWrapper
 from copy import copy, deepcopy
-from math import gcd, prod
-from functools import partial, cache
-from itertools import product, starmap
+from math import gcd, prod # type: ignore
+from functools import partial, cache # type: ignore
+from itertools import product, starmap # type: ignore
 from queue import PriorityQueue
-from collections import defaultdict
+from collections import defaultdict # type: ignore
 import re
 import time
 
 import numpy as np
+from numpy.typing import NDArray
 
 # Type aliases (for type hinting)
 Numeric = Union[int, float]
@@ -36,12 +38,12 @@ LogFileType = Union[str, TextIOWrapper]
 DoubleSlice = Union[tuple[MaybeSlice, MaybeSlice], MaybeSlice]
 
 T = TypeVar('T')
-NUM = TypeVar('NUM', int, float)
+NUM = int | float
 NewType = NewType
 
 # Utility functions (debug, logging, prettify, etc...)
 
-def rotations(seq: Sequence[T]) -> list[Sequence[T]]:
+def rotations(seq: Sequence[T]) -> list[list[T]]:
     cycled = list(seq) + list(seq)
     n = len(seq)
     return [cycled[i:i + n] for i in range(n)]
@@ -55,7 +57,7 @@ def join(seq: Iterable[Any]) -> str:
 def prettify(seq: Iterable[Any]) -> str:
     return "\n".join(stringify(seq))
 
-def prettifyDict(dictionary: dict) -> str:
+def prettifyDict(dictionary: dict[Any, Any]) -> str:
     return "\n".join(f"{str(k)}: {str(v)}" for (k, v) in dictionary.items())
 
 def sign(x: Numeric) -> int:
@@ -87,7 +89,7 @@ def printLogFactory(logFile: LogFileType, printNewline: bool = True) -> Callable
 
     return printLog
 
-def rangeFrame(frame: Sequence[Sequence], x: bool = False, y: bool = False):
+def rangeFrame(frame: Sequence[Sequence[Any]], x: bool = False, y: bool = False):
     if x:
         return range(len(frame[0]))
     if y:
@@ -198,10 +200,12 @@ class _BaseR2Class():
     def __hash__(self) -> int:
         return hash(self.stdcoords())
 
-    def __eq__(self: _BaseR2Generic, other: _BaseR2Generic2) -> bool:
+    def __eq__(self: Self, other: Any) -> bool:
+        if type(other) != Self:
+            return false
         return self.stdcoords() == other.stdcoords()
 
-    def __gt__(self: _BaseR2Generic, other: _BaseR2Generic2) -> bool:
+    def __gt__(self: Self, other: Self) -> bool:
         (sx, sy, *_) = self.stdcoords()
         (ox, oy, *_) = other.stdcoords()
         sign = -self.upVertSign
@@ -209,7 +213,7 @@ class _BaseR2Class():
         o = (sign * oy, ox)
         return s > o
 
-    def __ge__(self: _BaseR2Generic, other: _BaseR2Generic2) -> Union[bool, NoReturn]:
+    def __ge__(self: Self, other: Self) -> Union[bool, NoReturn]:
         try:
             gt = self > other
         except: # noqa
@@ -396,11 +400,11 @@ class Position(_BaseR2Class):
 
     @overload
     def __sub__(self: _PositionVar, other: Vector) -> _PositionVar:
-        return type(self)(0, 0)
+        ...
 
     @overload
-    def __sub__(self, other: _PositionGeneric) -> Vector:
-        return Vector(0, 0)
+    def __sub__(self, other: Position) -> Vector:
+        ...
 
     def __sub__(self, other: Union[Vector, _PositionGeneric]):
         if isinstance(other, Vector):
@@ -432,13 +436,13 @@ class Position(_BaseR2Class):
 
         return (initialRet + [pos for pos in include if pos not in initialRet])
 
-    def distance(self, other: Optional[_PositionGeneric] = None) -> int:
+    def distance(self, other: Optional[Position] = None) -> int:
         if other is None:
             other = Position(0, 0)
         v: Vector = self - other
         return v.distance()
 
-    def length(self, other: Optional[_PositionGeneric] = None) -> float:
+    def length(self, other: Optional[Position] = None) -> float:
         if other is None:
             other = Position(0, 0)
         v: Vector = self - other
@@ -496,7 +500,7 @@ class Agent(Position):
     def turnReverse(self) -> None:
         self.turn(2)
 
-    def moveTo(self, target: _PositionGeneric) -> None:
+    def moveTo(self, target: Position) -> None:
         self.x = target.x
         self.y = target.y
 
@@ -546,7 +550,7 @@ class MapPosition(Position):
         xmax: Numeric = inf,
         ymin: Numeric = -inf,
         ymax: Numeric = inf,
-        occupied: Callable[[_PositionGeneric], bool] = lambda p: False
+        occupied: Callable[[Position], bool] = lambda p: False
     ) -> None:
         super().__init__(
             x,
@@ -566,7 +570,7 @@ class MapPosition(Position):
 
         self._occupiedFunction = occupied
 
-    def __add__(self, vector: Vector) -> _PositionGeneric:
+    def __add__(self, vector: Vector) -> Self:
         return MapPosition(
             self.x + vector.vx,
             self.y + vector.vy,
@@ -600,7 +604,7 @@ class MapPosition(Position):
     ) -> list[_PositionVar]:
         ret = super().adjacent(includeCorners=includeCorners, include=include)
         T1 = type(self)
-        return cast(list[T1], [p for p in ret if p.isValid() or p in include])
+        return cast(list[T1], [p for p in ret if cast(MapPosition, p).isValid() or p in include])
 
 
 class MapAgent(MapPosition, Agent):
@@ -626,7 +630,7 @@ class MapAgent(MapPosition, Agent):
         xmax: Numeric = inf,
         ymin: Numeric = -inf,
         ymax: Numeric = inf,
-        occupied: Callable[[_PositionGeneric], bool] = lambda p: False
+        occupied: Callable[[Position], bool] = lambda p: False
     ):
         Agent.__init__(
             self,
@@ -705,9 +709,9 @@ class HexGrid(_BaseR2Class):
 
     Syntax: HexGrid(x, y) [Hashable]
 
-    HexGrid is hashable while mutable: pay attention at what you do.
+    HexGrid is hashable while mutable: I know I shouldn't, but I don't care.
 
-    HexGrid is basically an unholy union of Agent and Vector, but on an hex grid.
+    HexGrid is basically an unholy union of Position and Vector, but on an hex grid.
     This means that a position is represented as a 2d coordinate, but not all coordinates are acceptable.
     I am using a system like in figure, with axis NE and SW, with N and S as third axis.
     ·    |
@@ -828,7 +832,9 @@ class PositionNDim():
     def __hash__(self) -> int:
         return hash(self.coords())
 
-    def __eq__(self, other: PositionNDim) -> bool:
+    def __eq__(self, other: Any) -> bool:
+        if type(other) != PositionNDim:
+            return false
         return self.coords() == other.coords()
 
     def __str__(self) -> str:
@@ -899,7 +905,7 @@ class GameOfLife():
     def __repr__(self) -> str:
         return str(self)
 
-    def _neighs(self, p: _PositionGeneric) -> list[_PositionGeneric2]:
+    def _neighs(self, p: Position) -> list[MapPosition]:
         q = MapPosition(p.x, p.y, frame=self.state)
         return q.adjacent(includeCorners=True)
 
@@ -988,14 +994,16 @@ class Image():
     The four rotations of an image are available using image.rotations(),
     while all the variations (rotated and flipped) are available using image.variations()
     """
-    def __init__(self, image: Iterable[Iterable[Any]]) -> None:
+    def __init__(self, image: Iterable[Iterable[str]]) -> None:
 
-        self.pixels: np.ndarray = np.array([list(r) for r in image]) # type: ignore
+        self.pixels: NDArray[np.str_] = np.array([list(r) for r in image])
 
-    def __eq__(self, other: Image) -> bool:
+    def __eq__(self, other: Any) -> bool:
+        if type(other) != Self:
+            return False
         if self.shape != other.shape:
             return False
-        return bool(cast(np.ndarray, self.pixels == other.pixels).all())
+        return bool((self.pixels == other.pixels).all())
 
     def __add__(self, other: Image) -> Image:
         return Image(np.concatenate((self.pixels, other.pixels), axis=1))
@@ -1037,11 +1045,11 @@ class Image():
 
     @overload
     def rotate(self, n: int = 0, clockwise: bool = False, copy: Literal[False] = False) -> None:
-        return
+        ...
 
     @overload
     def rotate(self, n: int = 0, clockwise: bool = False, copy: Literal[True] = True) -> Image:
-        return Image([[""]])
+        ...
 
     def rotate(self, n: int = 1, clockwise: bool = False, copy: bool = False):
         if clockwise:
@@ -1056,11 +1064,11 @@ class Image():
 
     @overload
     def flip(self, ud: bool = False, copy: Literal[False] = False) -> None:
-        return
+        ...
 
     @overload
     def flip(self, ud: bool = False, copy: Literal[True] = True) -> Image:
-        return Image([[""]])
+        ...
 
     def flip(self, ud: bool = False, copy: bool = False):
         if ud:
@@ -1083,7 +1091,7 @@ class Image():
         i1 = self.flip(copy=True)
         return self.rotations() + i1.rotations()
 
-def imageConcat(imageIter: Iterable[Union[Image, np.ndarray]], vertical: bool = False) -> Image:
+def imageConcat(imageIter: Iterable[Union[Image, NDArray[np.str_]]], vertical: bool = False) -> Image:
     """
     This is an helper function in order to concatenate several images in one passage.
     """
@@ -1092,12 +1100,11 @@ def imageConcat(imageIter: Iterable[Union[Image, np.ndarray]], vertical: bool = 
         if isinstance(imageList[i], Image):
             imageList[i] = cast(Image, imageList[i]).pixels
 
-    imageList = cast(list[np.ndarray], imageList)
     if vertical:
         axis = 0
     else:
         axis = 1
-    return Image(np.concatenate(imageIter, axis=axis))
+    return Image(np.concatenate(imageIter, axis=axis)) # type: ignore
 
 
 class Map():
@@ -1204,6 +1211,7 @@ class LinkedList():
             del(self)
             return None
         else:
+            ret = None
             if self.next is not None:
                 self.next.prev = self.prev
                 ret = self.next
@@ -1235,7 +1243,9 @@ class LinkedList():
                     ret = ret.prev
         return ret
 
-    def __eq__(self, other: LinkedList) -> bool:
+    def __eq__(self, other: Any) -> bool:
+        if type(other) != LinkedList:
+            return false
         return self is other
 
 
@@ -1267,29 +1277,29 @@ def recreatePath(
 def aStar(
     start: _PositionVar,
     goal: _PositionVar,
-    distanceFunction: Callable[[_PositionGeneric, _PositionGeneric2], NUM] = lambda p, q: p.distance(q),
-    estimateFunction: Callable[[_PositionGeneric, _PositionGeneric2], NUM] = lambda p, q: p.distance(q),
+    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
+    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
     includeCorners: bool = False,
     returnPath: Literal[False] = False
 ) -> NUM:
-    return 0
+    ...
 
 @overload
 def aStar(
     start: _PositionVar,
     goal: _PositionVar,
-    distanceFunction: Callable[[_PositionGeneric, _PositionGeneric2], NUM] = lambda p, q: p.distance(q),
-    estimateFunction: Callable[[_PositionGeneric, _PositionGeneric2], NUM] = lambda p, q: p.distance(q),
+    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
+    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
     includeCorners: bool = False,
     returnPath: Literal[True] = True
 ) -> list[_PositionVar]:
-    return []
+    ...
 
 def aStar(
     start: _PositionVar,
     goal: _PositionVar,
-    distanceFunction: Callable[[_PositionGeneric, _PositionGeneric2], NUM] = lambda p, q: p.distance(q),
-    estimateFunction: Callable[[_PositionGeneric, _PositionGeneric2], NUM] = lambda p, q: p.distance(q),
+    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
+    estimateFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
     includeCorners: bool = False,
     returnPath: bool = False
 ) -> Union[NUM, list[_PositionVar]]:
@@ -1314,7 +1324,7 @@ def aStar(
 
     estimate = partial(estimateFunction, goal)
     openSet: PriorityQueue[tuple[NUM, _PositionVar]] = PriorityQueue()
-    distance: dict[_PositionVar, NUM] = {start: 0}
+    distance: dict[Position, NUM] = {start: 0}
     pathTrace: dict[_PositionVar, _PositionVar] = {start: start}
     openSet.put((estimate(start) + distance[start], start))
 
@@ -1340,7 +1350,7 @@ def aStar(
 
 def dijkstra(
     start: _PositionGeneric,
-    distanceFunction: Callable[[_PositionGeneric2, _PositionGeneric2], NUM] = lambda p, q: p.distance(q),
+    distanceFunction: Callable[[Position, Position], NUM] = lambda p, q: p.distance(q),
 ) -> dict[_PositionGeneric, NUM]:
     """
     Dijkstra graph exploration algorithm (on a grid).
@@ -1392,7 +1402,7 @@ def binSearch(start: int, stop: int, check: Callable[[int], bool]) -> int:
 
 
 # Shamelessly stolen from mebeim (https://github.com/mebeim/aoc/blob/master/utils/timer.py)
-def seconds_to_most_relevant_unit(s):
+def seconds_to_most_relevant_unit(s: float):
     s *= 1e6
     if s < 1000:
         return '{:.3f}µs'.format(s)
@@ -1408,13 +1418,13 @@ def seconds_to_most_relevant_unit(s):
     m = int(s / 60)
     return '{:d}m {:.3f}s'.format(m, (s - m * 60))
 
-timers = {}
+timers: dict[str, tuple[float, float, float, float, int]] = {}
 
-def timer_start(name="Timer"):
+def timer_start(name: str="Timer"):
     now_wall, now_cpu = time.perf_counter(), time.process_time()
     timers[name] = (now_wall, now_cpu, now_wall, now_cpu, 1)
 
-def timer_lap(name="Timer", print_time=True):
+def timer_lap(name: str="Timer", print_time: bool=True):
     now_wall, now_cpu = time.perf_counter(), time.process_time()
     *x, prev_wall, prev_cpu, lap = timers[name]
 
@@ -1428,7 +1438,7 @@ def timer_lap(name="Timer", print_time=True):
         print(ret)
     return ret
 
-def timer_stop(name="Timer", print_time=True):
+def timer_stop(name: str="Timer", print_time: bool=True):
     now_wall, now_cpu = time.perf_counter(), time.process_time()
     prev_wall, prev_cpu, *_ = timers.pop(name)
 
