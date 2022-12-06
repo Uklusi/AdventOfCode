@@ -1,0 +1,53 @@
+import os
+import sys
+from pathlib import Path
+
+
+def main():
+
+    args = sys.argv[1:]
+    if len(args) < 4 or len(args) > 5:
+        print("The script must be called with four parameters plus one optional.")
+        print("Required parameters: [cs/py], year, day and part.")
+        print("Optional parameter: --example")
+        sys.exit(1)
+    
+    language = args[0]
+    if language not in ["cs", "py"]:
+        print("First argument must be one of cs or py")
+        sys.exit(1)
+    
+    year = int(args[1])
+    day = int(args[2])
+    part = int(args[3])
+
+    if len(args) == 4:
+        switch = None
+    else:
+        switch = args[4]
+    if switch != "--example":
+        switch = ""
+    
+    original_folder = os.getcwd()
+    if year < 2022:
+        folder = Path(f"{year}/Day_{day:02d}")
+    else:
+        folder = Path(f"{year}/{day:02d}")
+
+    try:
+        os.chdir(folder)
+        if language == "cs":
+            os.system(f"dotnet run -- {part} {switch}")
+        else:
+            if year < 2022:
+                os.system(f"python part{part}.py {switch}")
+            else:
+                os.system(f"python main.py {part} {switch}")
+    finally:
+        os.chdir(original_folder)
+
+    sys.exit(0)
+
+if __name__ == "__main__":
+    main()
+    
