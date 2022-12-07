@@ -8,6 +8,26 @@ using static AoCUtils.Constants;
 
 namespace AoC {
 
+    public class StopwatchUtil : Stopwatch {
+        public string ElapsedString {
+            get {
+                long num = ElapsedMilliseconds;
+                if (num < 1000) {
+                    return $"{num} ms";
+                }
+                if (num < 60 * 1000) {
+                    return $"{num / 1000}.{num % 1e3:000} s";
+                }
+                num /= 1000;
+                if (num < 60 * 60) {
+                    return $"{num/60} m {num%60} s";
+                }
+                num /= 60;
+                return $"{num/60} h {num%60} m";
+            }
+        }
+    }
+
     public class Logger {
         StreamWriter? logStream = null;
 
@@ -95,7 +115,7 @@ namespace AoC {
                 useExample = true;
             }
 
-            Stopwatch stopwatch = new();
+            StopwatchUtil stopwatch = new();
 
             stopwatch.Start();
 
@@ -118,11 +138,7 @@ namespace AoC {
             }
 
             stopwatch.Stop();
-            TimeSpan ts = stopwatch.Elapsed;
-            string elapsedTime = String.Format(
-                "Runtime: {0:00}:{1:00}:{2:00}.{3:00}",
-                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10
-            );
+            string elapsedTime = $"Runtime: {stopwatch.ElapsedString}";
             Console.WriteLine(elapsedTime);
 
             Console.WriteLine(ret);
