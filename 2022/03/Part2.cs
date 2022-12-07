@@ -16,7 +16,7 @@ namespace AoC {
             var logger = new Logger("Part2", writeToFile: false);
 
             var inputReader = new Input(useExample: false);
-            var inputData = inputReader.ReadLines().WithIndex();
+            var inputData = inputReader.ReadLines().Enumerate();
             string result = "";
             int resultInt = 0;
             string[] elfGroup = new string[3];

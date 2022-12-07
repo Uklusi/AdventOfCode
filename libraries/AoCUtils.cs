@@ -16,8 +16,15 @@ namespace AoCUtils {
     }
 
     public static class MyExtensions {
-        public static IEnumerable<(int index, T item)> WithIndex<T>(this IEnumerable<T> self) =>
+        public static IEnumerable<(int index, T item)> Enumerate<T>(this IEnumerable<T> self) =>
             self.Select((item, index) => (index, item));
+        
+        public static T GetOne<T>(this IEnumerable<T> self) {
+            if (self.Count() > 0) {
+                return self.ToList()[0];
+            }
+            throw new IndexOutOfRangeException("Cannot get one element from empty enumberable");
+        }
 
         public static int ToInt(this string s) => int.Parse(s);
 

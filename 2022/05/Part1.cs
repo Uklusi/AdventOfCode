@@ -20,7 +20,7 @@ namespace AoC {
 
             List<char>[] stacks = new List<char>[n];
 
-            foreach ((int i, string line) in cratesScheme.WithIndex()) {
+            foreach ((int i, string line) in cratesScheme.Enumerate()) {
                 if (i == 0) {
                     for (int k = 0; k < n; k++) {
                         stacks[k] = new List<char>();
