@@ -2,10 +2,11 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using static System.Math;
 
 namespace AoCUtils {
-    using FrameType = IEnumerable<IEnumerable<char>>;
     using static Functions;
     using static Constants;
 
@@ -23,10 +24,20 @@ namespace AoCUtils {
             if (self.Count() > 0) {
                 return self.ToList()[0];
             }
-            throw new IndexOutOfRangeException("Cannot get one element from empty enumberable");
+            throw new InvalidOperationException("Cannot get one element from empty enumberable");
+        }
+
+        public static bool TryGetOne<T>(this IEnumerable<T> self, [NotNullWhen(true)] out T? element) {
+            if (self.Count() > 0) {
+                element = self.ToList()[0];
+            }
+            element = default;
+            return element is not null;
         }
 
         public static int ToInt(this string s) => int.Parse(s);
+        public static int ToInt(this char c) => int.Parse(c.ToString());
+        public static long ToLong(this string s) => long.Parse(s);
 
         public static bool IsInInterval(this int testing, int lowerLimit, int upperLimit) {
             return (lowerLimit <= testing && testing <= upperLimit);
@@ -41,16 +52,69 @@ namespace AoCUtils {
             return testing.IsInInterval(lowerLimit, upperLimit);
         }
 
-        public static string JoinString<T>(this IEnumerable<T> iType, char c) {
-            return String.Join("", iType);
-        }
-        public static string JoinString<T>(this IEnumerable<T> iType, string s) {
-            return String.Join(s, iType);
-        }
-        public static string JoinString<T>(this IEnumerable<T> iType) {
-            return iType.JoinString("");
+        public static bool IsIn<T>(this T value, IEnumerable<T> options) {
+            return options.Contains(value);
         }
 
+        public static IEnumerable<T> Flatten<T>(this IEnumerable<IEnumerable<T>> self) {
+            return self.SelectMany(i => i);
+        }
+
+        public static string JoinString<T>(this IEnumerable<T> self, char c) {
+            return String.Join(c, self);
+        }
+        public static string JoinString<T>(this IEnumerable<T> self, string s) {
+            return String.Join(s, self);
+        }
+        public static string JoinString<T>(this IEnumerable<T> self) {
+            return self.JoinString("");
+        }
+
+        public static T[][] ToJaggedArray<T>(this IEnumerable<IEnumerable<T>> self) {
+            return self.Select(l => l.ToArray()).ToArray();
+        }
+
+        public static List<List<T>> ToNestedList<T>(this IEnumerable<IEnumerable<T>> self) {
+            return self.Select(l => l.ToList()).ToList();
+        }
+
+        public static T[,] ToDoubleArray<T>(this IEnumerable<IEnumerable<T>> self) {
+            var s = self.Select(l => l.ToArray()).ToArray();
+            int rows = s.Count();
+            int cols = s[0].Count();
+            T[,] ret = new T[rows, cols];
+            for (int r = 0; r < rows; r++) {
+                for (int c = 0; c < cols; c++) {
+                    ret[r,c] = s[r][c];
+                }
+            }
+            return ret;
+        }
+
+        public static IEnumerable<IEnumerable<T>> GetRows<T>(this T[,] self) {
+            int rownum = self.GetLength(0);
+            int colnum = self.GetLength(1);
+            IEnumerable<T1> GetRow<T1>(int row, T1[,] self){
+                for (int c = 0; c < colnum; c++) {
+                    yield return self[row, c];
+                }
+            }
+            for (int r = 0; r < rownum; r++) {
+                yield return GetRow(r, self);
+            }
+        }
+        public static IEnumerable<IEnumerable<T>> GetCols<T>(this T[,] self) {
+            int rownum = self.GetLength(0);
+            int colnum = self.GetLength(1);
+            IEnumerable<T1> GetCol<T1>(int col, T1[,] self){
+                for (int r = 0; r < rownum; r++) {
+                    yield return self[r, col];
+                }
+            }
+            for (int c = 0; c < colnum; c++) {
+                yield return GetCol(c, self);
+            }
+        }
     }
 
     public static class Constants {
@@ -66,15 +130,26 @@ namespace AoCUtils {
         }
 
         public static int Gcd(int a, int b) {
-            if (a < 0 || b < 0 || (a == 0 && b == 0)){
+            if (a == 0 && b == 0){
                 throw new ArgumentException("Cannot calculate gcd between the provided numbers");
             }
 
+            (a, b) = (Abs(a), Abs(b));
             (a, b) = (Min(a, b), Max(a, b));
-            if (a == 0) {
-                return b;
+
+            // It is guaranteed that a1, b1 are positive and a1 <= b1
+            int GcdNoCheck(int a1, int b1) {
+                if (a1 == 0) {
+                    return b1;
+                }
+                return GcdNoCheck(b1 % a1, a1);
             }
-            return Gcd(b % a, a);
+            
+            return GcdNoCheck(a, b);
+        }
+
+        public static IEnumerable<(T1, T2)> Zip<T1, T2>(IEnumerable<T1> a, IEnumerable<T2> b) {
+            return a.Zip(b);
         }
 
         public static Func<T, U> MemoizeNonRecursive<T, U>(Func<T, U> f) where T : IEquatable<T> {
@@ -99,6 +174,96 @@ namespace AoCUtils {
         } 
     }
 
+    namespace MatrixUtils {
+        public class MatrixCoord {
+            protected int _Row;
+            protected int _Col;
+            public int Row {get {return _Row;}}
+            public int Col {get {return _Col;}}
+
+            public MatrixCoord(int row, int col) {
+                _Row = row;
+                _Col = col;
+            }
+
+            public MatrixCoord Rotate(int n, (int rows, int cols) shape) {
+                return Mod(n, 4) switch {
+                    0 => this,
+                    1 => new MatrixCoord(shape.cols - Col + 1, Row),
+                    2 => new MatrixCoord(shape.rows - Row + 1, shape.cols - Col + 1),
+                    3 => new MatrixCoord(Col, shape.rows - Row + 1),
+                    _ => throw new UnreachableException()
+                };
+            }
+
+            public MatrixCoord Transpose() {
+                return new MatrixCoord(Col, Row);
+            }
+
+            public (int, int) ToTuple() {
+                return (Row, Col);
+            }
+
+            public override string ToString() {
+                return $"[{Row}, {Col}]";
+            }
+            
+            public int CompareTo(MatrixCoord other) {
+                return Sign(Row - other.Row) * 2 + Sign(Col - other.Col);
+            }
+
+            public override bool Equals(object? obj)
+            {
+                if (obj is null || !(this.GetType().Equals(obj.GetType()))) {
+                    return false;
+                } else {
+                    MatrixCoord other = (MatrixCoord)obj;
+                    return this.CompareTo(other) == 0;
+                }
+            }
+
+            public override int GetHashCode() =>
+                this.ToString().GetHashCode();
+
+
+            public static bool operator == (MatrixCoord left, MatrixCoord right) {
+                return left.Equals(right);
+            }
+            public static bool operator != (MatrixCoord left, MatrixCoord right) {
+                return !(left == right);
+            }
+        }
+
+        public class Matrix<T> {
+            public readonly T[,] data;
+            public Matrix(IEnumerable<IEnumerable<T>> template) {
+                data = template.ToDoubleArray();
+            }
+
+            public (int rows, int cols) Shape { get {
+                return (data.GetLength(0), data.GetLength(1));
+            } }
+
+            public Matrix<T> Rotate(int n) {
+                return Mod(n, 4) switch {
+                    0 => this,
+                    1 => new Matrix<T>(data.GetCols().Reverse()),
+                    2 => new Matrix<T>(data.GetRows().Select(r => r.Reverse()).Reverse()),
+                    3 => new Matrix<T>(data.GetCols().Select(r => r.Reverse())),
+                    _ => throw new UnreachableException()
+                };
+            }
+
+            public Matrix<T> Transpose() {
+                return new Matrix<T>(data.GetCols());
+            }
+
+            public T this[int r, int c] => data[r-1, c-1];
+            public T this[MatrixCoord coords] => this[coords.Row, coords.Col];
+
+        }
+    }
+
     namespace GridUtils {
         
         public class Direction {
@@ -113,7 +278,7 @@ namespace AoCUtils {
                     "U" or "^" or "N" or "1" => 1,
                     "L" or "<" or "W" or "2" => 2,
                     "D" or "v" or "S" or "3" => 3,
-                    _ => throw new NotSupportedException()
+                    _ => throw new UnreachableException()
                 };
             }
 
@@ -125,7 +290,7 @@ namespace AoCUtils {
                     s switch {
                         "L" => 1,
                         "R" => 3,
-                        _ => throw new NotSupportedException()
+                        _ => throw new ArgumentException()
                     }
                 );
             }
@@ -140,7 +305,7 @@ namespace AoCUtils {
                     1 => "↑",
                     2 => "←",
                     3 => "↓",
-                    _ => throw new NotSupportedException()
+                    _ => throw new UnreachableException()
                 };
             }
 
@@ -237,7 +402,7 @@ namespace AoCUtils {
             }
 
             public Vector Normalized() {
-                if (this.ToTuple() == (0, 0)) {
+                if (ToTuple() == (0, 0)) {
                     return this;
                 }
                 int d = Gcd(X, Y);
@@ -250,7 +415,7 @@ namespace AoCUtils {
                     1 => new Vector(-Y, X),
                     2 => new Vector(-X, -Y),
                     3 => new Vector(Y, -X),
-                    _ => throw new NotSupportedException()
+                    _ => throw new UnreachableException()
                 };
             }
             public Vector Rotate(string s) {
@@ -258,7 +423,7 @@ namespace AoCUtils {
                     s switch {
                         "L" => 1,
                         "R" => 3,
-                        _ => throw new NotSupportedException()
+                        _ => throw new ArgumentException()
                     }
                 );
             }
@@ -272,7 +437,7 @@ namespace AoCUtils {
                     1 => new Vector(0, 1),
                     2 => new Vector(-1, 0),
                     3 => new Vector(0, -1),
-                    _ => throw new NotSupportedException()
+                    _ => throw new UnreachableException()
                 };
             }
 
@@ -344,7 +509,10 @@ namespace AoCUtils {
                 return new Vector(left.X - right.X, left.Y - right.Y);
             }
             public static Point operator + (Point left, Vector right) {
-                return new Point(left.X - right.X, left.Y - right.Y);
+                return new Point(left.X + right.X, left.Y + right.Y);
+            }
+            public static Point operator - (Point left, Vector right) {
+                return left + (-right);
             }
             public static Point operator + (Vector left, Point right) {
                 return right + left;
@@ -371,8 +539,8 @@ namespace AoCUtils {
 
         public class MapPoint : Point {
             protected static List<List<char>>? Frame = null;
-            protected static int[] xLimits = new int[2];
-            protected static int[] yLimits = new int[2];
+            protected static int[] xLimits = new int[]{int.MinValue, int.MaxValue};
+            protected static int[] yLimits = new int[]{int.MinValue, int.MaxValue};
             protected static Func<Point, bool> _IsOccupied = (p => false);
 
             public static void SetFrame(IEnumerable<IEnumerable<char>> frame) {
@@ -421,6 +589,9 @@ namespace AoCUtils {
             public Movable(int x, int y, Direction d) : base(x, y) {
                 dir = d;
             }
+            public Movable(int x, int y) : this(x, y, new Direction(0)) {}
+            public Movable(Direction d) : this(0, 0, d) {}
+            public Movable() : this(0, 0, new Direction(0)) {}
 
             public override int GetHashCode()
             {
@@ -504,7 +675,7 @@ namespace AoCUtils {
                     return Rotate(2).Rotate(1);
                 }
                 else {
-                    throw new Exception("This shouldn't happen");
+                    throw new UnreachableException();
                 }
             }
 
@@ -613,7 +784,7 @@ namespace AoCUtils {
                         "S" => "N",
                         "SE" => "NW",
                         "NE" => "SW",
-                        _ => throw new ArgumentException("This cannot happen")
+                        _ => throw new UnreachableException()
                     }
                 );
             }
@@ -639,7 +810,7 @@ namespace AoCUtils {
                     "S" => (-1, -1),
                     "SE" => (0, -1),
                     "NE" => (1, 0),
-                    _ => throw new ArgumentException("Wrong direction")
+                    _ => throw new UnreachableException()
                 };
                 return new HexPoint(X + a * numTimes, Y + b * numTimes);
             }
