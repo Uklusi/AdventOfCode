@@ -10,18 +10,20 @@ using static AoCUtils.Constants;
 using static AoCUtils.Functions;
 
 namespace AoC {
+    using static Common;
 
     public static class Common {
+        static Logger logger = new Logger(writeToFile: false);
+        public static void Log(params string[] args) => logger.Log(args);
         
+        
+
     }
 
     public static class Part1 {
-
-        static Logger logger = new Logger("Part1", writeToFile: false);
-
         public static string solve(bool useExample) {
             
-            var inputReader = new Input(useExample: useExample);
+            Input reader = new Input(useExample: useExample);
 
             string result = "";
             int resultInt = 0;
@@ -32,7 +34,6 @@ namespace AoC {
             if (resultInt != 0) {
                 result = resultInt.ToString();
             }
-            logger.Close();
             return result;
         }
     }
@@ -40,12 +41,9 @@ namespace AoC {
 
 
     public static class Part2 {
-
-        static Logger logger = new Logger("Part2", writeToFile: false);
-
         public static string solve(bool useExample) {
 
-            var inputReader = new Input(useExample: useExample);
+            Input reader = new Input(useExample: useExample);
             
             string result = "";
             int resultInt = 0;
@@ -56,7 +54,6 @@ namespace AoC {
             if (resultInt != 0) {
                 result = resultInt.ToString();
             }
-            logger.Close();
             return result;
         }
     }

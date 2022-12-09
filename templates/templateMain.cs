@@ -3,8 +3,11 @@ using System.IO;
 using System.Diagnostics;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
+using AoCUtils;
 using static AoCUtils.Constants;
+using static AoCUtils.Functions;
 
 namespace AoC {
 
@@ -31,7 +34,7 @@ namespace AoC {
     public class Logger {
         StreamWriter? logStream = null;
 
-        public Logger(string logFile, bool writeToFile = false) {
+        public Logger(string logFile = "log", bool writeToFile = false) {
             if (writeToFile) {
                 logStream = File.CreateText(logFile + ".log");
             }
@@ -85,7 +88,7 @@ namespace AoC {
             return new List<string>(data.Split('\n'));
         }
 
-        public List<List<string>> ReadDoubleLines() {
+        public List<List<string>> ReadParagraphs() {
             string[] blocks = data.Split("\n\n");
             List<List<string>> table = new List<List<string>>();
             
@@ -103,6 +106,40 @@ namespace AoC {
         
         public List<string> ReadProcessedMap() {
             return ProcessMap(ReadLines());
+        }
+
+        public List<List<string>> ReadTokens() {
+            return data.Split('\n').Select(line => line.Split(' ').ToList()).ToList();
+        }
+
+        public List<List<int>> Ints(List<string> linesWithInts) {
+            Regex re = new Regex(@"\b\d+\b", RegexOptions.Compiled);
+            return linesWithInts
+                .Select(
+                    line => re.Matches(line)
+                        .Select(match => match.Value.ToInt())
+                        .ToList()
+                ).ToList();
+        }
+        public List<List<int>> ReadInts() => Ints(ReadLines());
+
+        public List<(List<int> ints, List<string> strs)> ReadIntsAndStrings() {
+            Regex re = new Regex(@"^\d+$", RegexOptions.Compiled);
+            return (
+                from line in ReadTokens()
+                select (
+                    (
+                        from token in line
+                        where re.IsMatch(token)
+                        select token.ToInt()
+                    ).ToList(),
+                    (
+                        from token in line
+                        where ! re.IsMatch(token)
+                        select token
+                    ).ToList()
+                )
+            ).ToList();
         }
     }
 

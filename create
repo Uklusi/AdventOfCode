@@ -60,7 +60,7 @@ def main():
             os.chdir(original_folder)
 
         if not os.path.isfile(folder_to_create / "Main.cs"):
-            shutil.copy(Path("templates/templateMain.cs"), folder_to_create / "Main.cs")
+            os.symlink(Path("../../templates/templateMain.cs"), folder_to_create / "Main.cs")
             shutil.copy(Path("templates/templateSolver.cs"), folder_to_create / "Solver.cs")
             os.symlink(Path("../../libraries/AoCUtils.cs"), folder_to_create / "AoCUtils.cs")
     else:
