@@ -172,6 +172,17 @@ namespace AoCUtils {
                 var g = MemoizeNonRecursive<(T1, T2), U>(x => f(x.Item1, x.Item2));
                 return (T1 a, T2 b) => g((a, b));
         } 
+
+        public static IEnumerable<int> IntRange(int start, int end, int step) {
+            if (step == 0 || Sign(end - start) != Sign(step)) {
+                yield break;
+            }
+            for(int i = start; i < end; i+= step) {
+                yield return i;
+            }
+        }
+        public static IEnumerable<int> IntRange(int start, int end) => IntRange(start, end, 1);
+        public static IEnumerable<int> IntRange(int end) => IntRange(0, end, 1);
     }
 
     namespace MatrixUtils {

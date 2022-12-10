@@ -113,7 +113,7 @@ namespace AoC {
         }
 
         public List<List<int>> Ints(List<string> linesWithInts) {
-            Regex re = new Regex(@"\b\d+\b", RegexOptions.Compiled);
+            Regex re = new Regex(@"(\b|-)\d+\b", RegexOptions.Compiled);
             return linesWithInts
                 .Select(
                     line => re.Matches(line)
@@ -124,7 +124,7 @@ namespace AoC {
         public List<List<int>> ReadInts() => Ints(ReadLines());
 
         public List<(List<int> ints, List<string> strs)> ReadIntsAndStrings() {
-            Regex re = new Regex(@"^\d+$", RegexOptions.Compiled);
+            Regex re = new Regex(@"^-?\d+$", RegexOptions.Compiled);
             return (
                 from line in ReadTokens()
                 select (
