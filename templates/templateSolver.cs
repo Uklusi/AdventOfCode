@@ -15,6 +15,8 @@ namespace AoC {
     public static class Common {
         static Logger logger = new Logger(writeToFile: false);
         public static void Log(params string[] args) => logger.Log(args);
+        public static void Log(params object[] args) => logger.Log(args);
+        public static void LogEnum<T>(IEnumerable<T> en) => logger.LogEnum(en);
         
         
 

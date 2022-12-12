@@ -19,21 +19,6 @@ namespace AoCUtils {
     public static class MyExtensions {
         public static IEnumerable<(int index, T item)> Enumerate<T>(this IEnumerable<T> self) =>
             self.Select((item, index) => (index, item));
-        
-        public static T GetOne<T>(this IEnumerable<T> self) {
-            if (self.Count() > 0) {
-                return self.ToList()[0];
-            }
-            throw new InvalidOperationException("Cannot get one element from empty enumberable");
-        }
-
-        public static bool TryGetOne<T>(this IEnumerable<T> self, [NotNullWhen(true)] out T? element) {
-            if (self.Count() > 0) {
-                element = self.ToList()[0];
-            }
-            element = default;
-            return element is not null;
-        }
 
         public static int ToInt(this string s) => int.Parse(s);
         public static int ToInt(this char c) => int.Parse(c.ToString());
@@ -187,96 +172,6 @@ namespace AoCUtils {
         public static IEnumerable<int> IntRange(int end) => IntRange(0, end, 1);
     }
 
-    namespace MatrixUtils {
-        public class MatrixCoord {
-            protected int _Row;
-            protected int _Col;
-            public int Row {get {return _Row;}}
-            public int Col {get {return _Col;}}
-
-            public MatrixCoord(int row, int col) {
-                _Row = row;
-                _Col = col;
-            }
-
-            public MatrixCoord Rotate(int n, (int rows, int cols) shape) {
-                return Mod(n, 4) switch {
-                    0 => this,
-                    1 => new MatrixCoord(shape.cols - Col + 1, Row),
-                    2 => new MatrixCoord(shape.rows - Row + 1, shape.cols - Col + 1),
-                    3 => new MatrixCoord(Col, shape.rows - Row + 1),
-                    _ => throw new UnreachableException()
-                };
-            }
-
-            public MatrixCoord Transpose() {
-                return new MatrixCoord(Col, Row);
-            }
-
-            public (int, int) ToTuple() {
-                return (Row, Col);
-            }
-
-            public override string ToString() {
-                return $"[{Row}, {Col}]";
-            }
-            
-            public int CompareTo(MatrixCoord other) {
-                return Sign(Row - other.Row) * 2 + Sign(Col - other.Col);
-            }
-
-            public override bool Equals(object? obj)
-            {
-                if (obj is null || !(this.GetType().Equals(obj.GetType()))) {
-                    return false;
-                } else {
-                    MatrixCoord other = (MatrixCoord)obj;
-                    return this.CompareTo(other) == 0;
-                }
-            }
-
-            public override int GetHashCode() =>
-                this.ToString().GetHashCode();
-
-
-            public static bool operator == (MatrixCoord left, MatrixCoord right) {
-                return left.Equals(right);
-            }
-            public static bool operator != (MatrixCoord left, MatrixCoord right) {
-                return !(left == right);
-            }
-        }
-
-        public class Matrix<T> {
-            public readonly T[,] data;
-            public Matrix(IEnumerable<IEnumerable<T>> template) {
-                data = template.ToDoubleArray();
-            }
-
-            public (int rows, int cols) Shape { get {
-                return (data.GetLength(0), data.GetLength(1));
-            } }
-
-            public Matrix<T> Rotate(int n) {
-                return Mod(n, 4) switch {
-                    0 => this,
-                    1 => new Matrix<T>(data.GetCols().Reverse()),
-                    2 => new Matrix<T>(data.GetRows().Select(r => r.Reverse()).Reverse()),
-                    3 => new Matrix<T>(data.GetCols().Select(r => r.Reverse())),
-                    _ => throw new UnreachableException()
-                };
-            }
-
-            public Matrix<T> Transpose() {
-                return new Matrix<T>(data.GetCols());
-            }
-
-            public T this[int r, int c] => data[r-1, c-1];
-            public T this[MatrixCoord coords] => this[coords.Row, coords.Col];
-
-        }
-    }
-
     namespace GridUtils {
         
         public class Direction {
@@ -291,7 +186,7 @@ namespace AoCUtils {
                     "U" or "^" or "N" or "1" => 1,
                     "L" or "<" or "W" or "2" => 2,
                     "D" or "v" or "S" or "3" => 3,
-                    _ => throw new UnreachableException()
+                    _ => throw new ArgumentException()
                 };
             }
 
@@ -410,10 +305,6 @@ namespace AoCUtils {
                 return Abs(X) + Abs(Y);
             }
 
-            public double Length() {
-                return Sqrt(Pow(X, 2) + Pow(Y, 2));
-            }
-
             public Vector Normalized() {
                 if (ToTuple() == (0, 0)) {
                     return this;
@@ -491,13 +382,6 @@ namespace AoCUtils {
                 return this.Distance(new Point(0,0));
             }
 
-            public double Length(Point other) {
-                return (this - other).Length();
-            }
-            public double Length(){
-                return this.Length(new Point(0,0));
-            }
-
             public Point ToPoint(){
                 return new Point(X, Y);
             }
@@ -531,7 +415,7 @@ namespace AoCUtils {
                 return right + left;
             }
             public static bool operator == (Point left, Point right) {
-                return left.Equals(right);
+                return left.ToPoint().Equals(right.ToPoint());
             }
             public static bool operator != (Point left, Point right) {
                 return !(left == right);
@@ -600,7 +484,7 @@ namespace AoCUtils {
         }
 
         public class Movable : MapPoint {
-            Direction dir;
+            protected Direction dir;
             public Movable(int x, int y, Direction d) : base(x, y) {
                 dir = d;
             }
@@ -650,84 +534,137 @@ namespace AoCUtils {
             }
         }
     
-        public class Image {
-            protected char[][] _image;
-            public Image(IEnumerable<IEnumerable<char>> imTemplate){
-                _image = imTemplate.Select(l => l.ToArray()).ToArray();
+public class MatrixCoord {
+            protected int _Row;
+            protected int _Col;
+            public int Row {get {return _Row;}}
+            public int Col {get {return _Col;}}
+
+            public MatrixCoord(int row, int col) {
+                _Row = row;
+                _Col = col;
             }
 
-            public (int, int) Shape() {
-                return (_image[0].Length, _image.Length);
+            public MatrixCoord Rotate(int n, (int rows, int cols) shape) {
+                return Mod(n, 4) switch {
+                    0 => this,
+                    1 => new MatrixCoord(shape.cols - Col + 1, Row),
+                    2 => new MatrixCoord(shape.rows - Row + 1, shape.cols - Col + 1),
+                    3 => new MatrixCoord(Col, shape.rows - Row + 1),
+                    _ => throw new UnreachableException()
+                };
             }
 
-            public Image Copy(){
-                return new Image(_image);
+            public MatrixCoord Transpose() {
+                return new MatrixCoord(Col, Row);
             }
 
-            public Image Rotate(int numTimes) {
-                int n = Mod(numTimes, 4);
-                (int xMax, int yMax) = Shape();
-                if (n == 0) {
-                    return Copy();
-                }
-                else if (n == 1) {
-                    char[][] newImg = new char[xMax][];
-                    for (int x = xMax - 1; x >= 0; x--) {
-                        char[] newRow = new char[yMax];
-                        for (int y = 0; y < yMax; y++) {
-                            newRow[y] = (_image[y][x]);
-                        }
-                        newImg[x] = newRow;
-                    }
-                    return new Image(newImg);
-                }
-                else if (n == 2) {
-                    return new Image(
-                        _image.Select(l => l.Reverse()).Reverse()
-                    );
-                }
-                else if (n == 3) {
-                    return Rotate(2).Rotate(1);
-                }
-                else {
-                    throw new UnreachableException();
+            public (int, int) ToTuple() {
+                return (Row, Col);
+            }
+
+            public override string ToString() {
+                return $"[{Row}, {Col}]";
+            }
+            
+            public int CompareTo(MatrixCoord other) {
+                return Sign(Row - other.Row) * 2 + Sign(Col - other.Col);
+            }
+
+            public override bool Equals(object? obj)
+            {
+                if (obj is null || !(this.GetType().Equals(obj.GetType()))) {
+                    return false;
+                } else {
+                    MatrixCoord other = (MatrixCoord)obj;
+                    return this.CompareTo(other) == 0;
                 }
             }
 
-            public Image Flip(bool upDown=false) {
+            public override int GetHashCode() =>
+                this.ToString().GetHashCode();
+
+
+            public static bool operator == (MatrixCoord left, MatrixCoord right) {
+                return left.Equals(right);
+            }
+            public static bool operator != (MatrixCoord left, MatrixCoord right) {
+                return !(left == right);
+            }
+        }
+
+        public class Grid2D<T> {
+            protected T[,] _grid;
+            public Grid2D(IEnumerable<IEnumerable<T>> gridTemplate){
+                _grid = gridTemplate.ToDoubleArray();
+            }
+            public Grid2D(T[,] grid) {
+                _grid = grid;
+            }
+
+            public (int rows, int cols) Shape { get {
+                return (_grid.GetLength(0), _grid.GetLength(1));
+            } }
+
+            public Grid2D<T> Copy(){
+                return new Grid2D<T>(_grid);
+            }
+
+            public Grid2D<T> Rotate(int n) {
+                return Mod(n, 4) switch {
+                    0 => this,
+                    1 => new Grid2D<T>(_grid.GetCols().Reverse()),
+                    2 => new Grid2D<T>(_grid.GetRows().Select(r => r.Reverse()).Reverse()),
+                    3 => new Grid2D<T>(_grid.GetCols().Select(r => r.Reverse())),
+                    _ => throw new UnreachableException()
+                };
+            }
+
+            
+            public Grid2D<T> Transpose() {
+                return new Grid2D<T>(_grid.GetCols());
+            }
+
+            public T this[int r, int c] => _grid[r-1, c-1];
+            public T this[MatrixCoord coords] => this[coords.Row, coords.Col];
+
+            public T this[Point p] => _grid[p.Y, p.X];
+
+
+            public Grid2D<T> Flip(bool upDown=false) {
                 if (upDown) {
-                    return new Image(_image.Reverse());
+                    return new Grid2D<T>(_grid.GetRows().Reverse());
                 }
                 else {
-                    return new Image(_image.Select(l => l.Reverse()));
+                    return new Grid2D<T>(_grid.GetRows().Select(l => l.Reverse()));
                 }
             }
 
-            public IEnumerable<Image> Rotations() {
+            public IEnumerable<Grid2D<T>> Rotations() {
                 for (int i = 0; i < 4; i++) {
                     yield return Rotate(i);
                 }
             }
 
-            public IEnumerable<Image> Variations() {
-                Image flipped = Flip();
-                foreach (Image r in Rotations()){
+            public IEnumerable<Grid2D<T>> Variations() {
+                Grid2D<T> flipped = Transpose();
+                foreach (Grid2D<T> r in Rotations()){
                     yield return r;
                 }
-                foreach (Image r in flipped.Rotations()){
+                foreach (Grid2D<T> r in flipped.Rotations()){
                     yield return r;
                 }
             }
 
             public override string ToString() {
-                return _image.Select(l => l.JoinString()).JoinString("\n");
+                return _grid.GetRows().Select(l => l.JoinString()).JoinString("\n");
             }
 
             public override bool Equals(object? obj){
                 if (obj is null || !(this.GetType().Equals(obj.GetType()))) {
                     return false;
                 } else {
-                    Image other = (Image)obj;
+                    Grid2D<T> other = (Grid2D<T>)obj;
                     return this == other;
                 }
             }
@@ -736,20 +673,20 @@ namespace AoCUtils {
                 return ToString().GetHashCode();
             }
 
-            public static bool operator == (Image left, Image right) {
-                return left._image == right._image;
+            public static bool operator == (Grid2D<T> left, Grid2D<T> right) {
+                return left._grid == right._grid;
             }
-            public static bool operator != (Image left, Image right) {
-                return !(left._image == right._image);
+            public static bool operator != (Grid2D<T> left, Grid2D<T> right) {
+                return !(left._grid == right._grid);
             }
-            public static Image operator + (Image left, Image right) {
-                return new Image(
-                    left._image.Select((c, i) => c.Concat(right._image[i]))
+            public static Grid2D<T> operator + (Grid2D<T> left, Grid2D<T> right) {
+                return new Grid2D<T>(
+                    left._grid.GetRows().Zip(right._grid.GetRows()).Select(t => t.First.Concat(t.Second))
                 );
             }
-            public static Image operator & (Image left, Image right) {
-                return new Image(
-                    left._image.Concat(right._image)
+            public static Grid2D<T> operator & (Grid2D<T> left, Grid2D<T> right) {
+                return new Grid2D<T>(
+                    left._grid.GetRows().Concat(right._grid.GetRows())
                 );
             }
         }

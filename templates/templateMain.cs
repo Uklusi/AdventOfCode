@@ -54,6 +54,13 @@ namespace AoC {
             }
             return;
         }
+        public void Log(params object[] args) {
+            Log(args.ToStringArray());
+        }
+
+        public void LogEnum<T>(IEnumerable<T> en) {
+            Log(en.ToStringArray());
+        }
 
         public void Close() {
             if (logStream != null) {

@@ -106,12 +106,12 @@ namespace AoC {
 
             MapPoint.SetFrame(data);
 
-            (int rowIndex, var row) = data.Enumerate().Where(r => r.item.Contains('S')).GetOne();
-            int colIndex = row.Enumerate().Where(c => c.item == 'S').GetOne().index;
+            (int rowIndex, var row) = data.Enumerate().Where(r => r.item.Contains('S')).First();
+            int colIndex = row.Enumerate().Where(c => c.item == 'S').First().index;
             MapPoint start = new(colIndex, rowIndex);
 
-            (rowIndex, row) = data.Enumerate().Where(r => r.item.Contains('E')).GetOne();
-            colIndex = row.Enumerate().Where(c => c.item == 'E').GetOne().index;
+            (rowIndex, row) = data.Enumerate().Where(r => r.item.Contains('E')).First();
+            colIndex = row.Enumerate().Where(c => c.item == 'E').First().index;
             MapPoint end = new(colIndex, rowIndex);
 
             resultInt = BFS(map, start, end)[end];
@@ -145,12 +145,12 @@ namespace AoC {
 
             MapPoint.SetFrame(data);
 
-            (int rowIndex, var row) = data.Enumerate().Where(r => r.item.Contains('S')).GetOne();
-            int colIndex = row.Enumerate().Where(c => c.item == 'S').GetOne().index;
+            (int rowIndex, var row) = data.Enumerate().Where(r => r.item.Contains('S')).First();
+            int colIndex = row.Enumerate().Where(c => c.item == 'S').First().index;
             MapPoint start = new(colIndex, rowIndex);
 
-            (rowIndex, row) = data.Enumerate().Where(r => r.item.Contains('E')).GetOne();
-            colIndex = row.Enumerate().Where(c => c.item == 'E').GetOne().index;
+            (rowIndex, row) = data.Enumerate().Where(r => r.item.Contains('E')).First();
+            colIndex = row.Enumerate().Where(c => c.item == 'E').First().index;
             MapPoint end = new(colIndex, rowIndex);
 
             resultInt = BFSInverse(map, end);

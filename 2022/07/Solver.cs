@@ -51,7 +51,7 @@ namespace AoC {
                     string nodeName = line[5..];
                     TreeNode newCurr;
                     try {
-                        newCurr = current.children.Where(n => n.Name == nodeName).GetOne();
+                        newCurr = current.children.Where(n => n.Name == nodeName).First();
                     }
                     catch {
                         newCurr = new(nodeName);
