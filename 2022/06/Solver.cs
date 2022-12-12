@@ -29,9 +29,9 @@ namespace AoC {
 
         static Logger logger = new Logger("Part1", writeToFile: false);
 
-        public static string solve() {
+        public static string solve(bool useExample) {
             
-            var inputReader = new Input(useExample: false);
+            var inputReader = new Input(useExample: useExample);
             var inputData = inputReader.Read();
             string result = "";
             int resultInt = GetSolution(inputData, 4);
@@ -52,9 +52,9 @@ namespace AoC {
 
         static Logger logger = new Logger("Part2", writeToFile: false);
 
-        public static string solve() {
-
-            var inputReader = new Input(useExample: false);
+        public static string solve(bool useExample) {
+            
+            var inputReader = new Input(useExample: useExample);
             var inputData = inputReader.Read();
             string result = "";
             int resultInt = Part1.GetSolution(inputData, 14);

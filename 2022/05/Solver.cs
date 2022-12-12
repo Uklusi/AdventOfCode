@@ -38,12 +38,10 @@ namespace AoC {
             return stacks;
         }
 
-        public string solve() {
-
+        public static string solve(bool useExample) {
             
-
-            var inputReader = new Input(useExample: false);
-            var inputData = inputReader.ReadDoubleLines();
+            var inputReader = new Input(useExample: useExample);
+            var inputData = inputReader.ReadParagraphs();
             string result = "";
 
 
@@ -66,9 +64,36 @@ namespace AoC {
 
             
 
-
-            logger.Close();
             return result;
         }
     }
+
+    public class Part2 {
+        public static string solve(bool useExample) {
+            
+            var inputReader = new Input(useExample: useExample);
+
+            var inputData = inputReader.ReadParagraphs();
+            string result = "";
+
+            List<char>[] stacks = Part1.readCrateDisposition(inputData[0]);
+
+            foreach (var line in inputData[1]) {
+                string[] lineWords = line.Split(" ");
+                int numMoved = int.Parse(lineWords[1]);
+                int pileFrom = int.Parse(lineWords[3]) -1;
+                int pileTo = int.Parse(lineWords[5]) - 1;
+
+                
+                List<char> moved = stacks[pileFrom].GetRange(stacks[pileFrom].Count - numMoved, numMoved);
+                stacks[pileFrom].RemoveRange(stacks[pileFrom].Count - numMoved, numMoved);
+                stacks[pileTo].AddRange(moved);
+            }
+
+            result = string.Join("", stacks.Select(l => l.Last()));
+
+            return result;
+        }
+    }
+
 }
