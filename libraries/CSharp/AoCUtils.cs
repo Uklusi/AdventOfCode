@@ -22,6 +22,7 @@ namespace AoCUtils {
 
         public static int ToInt(this string s) => int.Parse(s);
         public static int ToInt(this char c) => int.Parse(c.ToString());
+        public static int ToInt(this bool b) => b ? 1 : 0;
         public static long ToLong(this string s) => long.Parse(s);
 
         public static string[] ToStringArray<T>(this IEnumerable<T> self) => self.Select(e => e?.ToString() ?? "").ToArray();

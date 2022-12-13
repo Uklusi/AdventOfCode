@@ -1,10 +1,9 @@
 using System.Collections;
-using System.ComponentModel;
-using System.Reflection.PortableExecutable;
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 using static System.Math;
 
 using AoCUtils;
@@ -34,97 +33,94 @@ namespace AoC {
 
     }
 
-    public class ElfComparer : Comparer<string> {
-        public override int Compare(string? leftPar, string? rightPar) {
-            string left = leftPar ?? "";
-            string right = rightPar ?? "";
-            int lpos = 0;
-            int rpos = 0;
-            Log(left, right);
-
-            while (lpos != left.Length && rpos != right. Length) {
-                char l = left[lpos];
-                char r = right[rpos];
-                // Log(l, r);
-
-                if (l == ']' || r == ']') {
-                    if (l == ']' && r == ']') {
-                        lpos ++;
-                        rpos++;
-                        Log("Both lists closed, continuing");
-                    }
-                    else if (l == ']'){
-                        Log($"Left closed when r continued, left < right");
-                        return -1;
-                    }
-                    else {
-                        Log($"R closed when l continued, left > right");
-                        return 1;
-
-                    }
-                }
-                else if (l == ',' && r == ',') {
-                    lpos++;
-                    rpos++;
-                }
-                else if (l == '[') {
-                    if ( r == '[' ) {
-                        lpos++;
-                        rpos++;
-                        Log("Both lists found");
-                    }
-                    else if (re.IsMatch(r.ToString())) {
-                        (string n, int len) = ReadNum(right, rpos);
-                        right = right.ReplaceAt(rpos, len, $"[{n}]");
-                        Log($"Substituting {n} with [{n}] at right {rpos}");
-                    }
-                    else {
-                        throw new Exception("This shouldn't happen");
-                    }
-                }
-                else if (r == '[') {
-                    if (re.IsMatch(l.ToString())) {
-                        (string n, int len) = ReadNum(left, lpos);
-                        left = left.ReplaceAt(lpos, len, $"[{n}]");
-                        Log($"Substituting {n} with [{n}] at left {lpos}");
-                    }
-                    else {
-                        throw new Exception("This shouldn't happen");
-                    }
-                }
-                else {
-                    //this should only be numeric
-                    if (!re.IsMatch(l.ToString()) || !re.IsMatch(r.ToString())) {
-                        throw new Exception("This shouldn't happen");
-                    }
-                    else {
-                        (string lnum, int llen) = ReadNum(left, lpos);
-                        (string rnum, int rlen) = ReadNum(right, rpos);
-                        
-                        Log($"Confronting {lnum} with {rnum}");
-                        int ln = lnum.ToInt();
-                        int rn = rnum.ToInt();
-                        if (ln < rn) {
-                            Log("left < right");
-                            return -1;
-                        }
-                        else if (ln > rn) {
-                            Log("left > right");
-                            return 1;
-                        }
-                        else {
-                            Log("left == right, continuing");
-                            lpos += llen;
-                            rpos += rlen;
-                        }
-                    }
-                }
-
-            }
-            return 0;
+    public class Packet {}
+    
+    public class PacketElem : Packet {
+        public int val;
+        public PacketElem(int n) {
+            val = n;
         }
     }
-    
+
+    public class PacketList : Packet {
+        public List<Packet> elems;
+
+        public PacketList() {
+            elems = new();
+        }
+        public PacketList(params Packet[] p) {
+            elems = new();
+            elems.AddRange(p);
+        }
+
+        public static PacketList Parse(string s) {
+            Stack<PacketList> stack = new();
+            Regex re = new Regex(@"\[|\]|,|\d+");
+            List<string> tokens = re.Matches(s).Select(m => m.Value).ToList();
+            PacketList lastPopped = new();
+            foreach (string token in tokens) {
+                switch (token) {
+                    case "[":
+                        stack.Push(new PacketList());
+                        break;
+                    case "]":
+                        PacketList closed = stack.Pop();
+                        if (stack.Count > 0) {
+                            stack.Peek().elems.Add(closed);
+                        }
+                        else {
+                            lastPopped = closed;
+                        }
+                        break;
+                    case ",":
+                        break;
+                    default:
+                        int n = token.ToInt();
+                        stack.Peek().elems.Add(new PacketElem(n));
+                        break;
+                }
+            }
+            return lastPopped;
+        }
+    }
+
+    public class PacketComparer : Comparer<Packet> {
+        public override int Compare(Packet? x, Packet? y)
+        {
+            if (x is null || y is null) {
+                return (y is null).ToInt() - (x is null).ToInt();
+            }
+            if (x is PacketList && y is PacketList) {
+                PacketList xlist = x as PacketList ?? throw new UnreachableException();
+                PacketList ylist = y as PacketList ?? throw new UnreachableException();
+                foreach (var (a, b) in xlist.elems.Zip(ylist.elems)) {
+                    int comparison = Compare(a, b);
+                    if (comparison != 0) {
+                        return comparison;
+                    }
+                }
+                return xlist.elems.Count - ylist.elems.Count;
+            }
+            else if (x is PacketList && y is PacketElem) {
+                PacketList xlist = x as PacketList ?? throw new UnreachableException();
+                PacketElem yelem = y as PacketElem ?? throw new UnreachableException();
+                return Compare(xlist, new PacketList(yelem));
+            }
+            else if (x is PacketElem && y is PacketList) {
+                PacketElem xelem = x as PacketElem ?? throw new UnreachableException();
+                PacketList ylist = y as PacketList ?? throw new UnreachableException();
+                return Compare(new PacketList(xelem), ylist);
+            }
+            else if (x is PacketElem && y is PacketElem) {
+                PacketElem xelem = x as PacketElem ?? throw new UnreachableException();
+                PacketElem yelem = y as PacketElem ?? throw new UnreachableException();
+                return xelem.val.CompareTo(yelem.val);
+            }
+            else {
+                throw new UnreachableException();
+            }
+        }
+    }
 
     public static class Part1 {
         public static string solve(bool useExample) {
@@ -134,21 +130,17 @@ namespace AoC {
             string result = "";
             int resultInt = 0;
 
-            var PacketList = reader.ReadParagraphs();
-
-            Log(PacketList.Count);
+            var PacketsInput = reader.ReadParagraphs();
             
-            var elfComparer = new ElfComparer();
+            var PacketComparer = new PacketComparer();
 
-            foreach ((int i, var packets) in PacketList.Enumerate()) {
-                string left = packets[0];
-                string right = packets[1];
+            foreach ((int i, var packets) in PacketsInput.Enumerate()) {
+                PacketList x = PacketList.Parse(packets[0]);
+                PacketList y = PacketList.Parse(packets[1]);
 
-                if (elfComparer.Compare(left, right) < 0){
+                if (PacketComparer.Compare(x, y) < 0){
                     resultInt += i+1;
                 }
-
-                Log(resultInt);
             }
 
             
@@ -172,16 +164,17 @@ namespace AoC {
             string result = "";
             int resultInt = 0;
 
-            List<string> data = reader.ReadParagraphs().Flatten().ToList();
-            string s1 = "[[2]]";
-            string s2 = "[[6]]";
+            List<PacketList> data = reader.ReadParagraphs().Flatten().Select(s => PacketList.Parse(s)).ToList();
+            
+            PacketList p1 = PacketList.Parse("[[2]]");
+            PacketList p2 = PacketList.Parse("[[6]]");
 
-            data.Add(s1);
-            data.Add(s2);
+            data.Add(p1);
+            data.Add(p2);
 
-            data.Sort(new ElfComparer());
+            data.Sort(new PacketComparer());
 
-            resultInt = (data.IndexOf(s1) + 1) * (data.IndexOf(s2) + 1);
+            resultInt = (data.IndexOf(p1) + 1) * (data.IndexOf(p2) + 1);
 
 
             if (resultInt != 0) {
