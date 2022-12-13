@@ -64,6 +64,7 @@ namespace AoC {
 
         public void Close() {
             if (logStream != null) {
+                logStream.Flush();
                 logStream.Close();
             }
         }

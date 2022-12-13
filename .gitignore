@@ -26,3 +26,4 @@ obj
 session_cookie.txt
 input.txt
 *[Tt]est*
+*.log
