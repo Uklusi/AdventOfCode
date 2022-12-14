@@ -302,7 +302,7 @@ namespace AoCUtils {
                 return Sign(Y - other.Y) * 2 + Sign(X - other.X);
             }
 
-            public int Distance() {
+            public int Length() {
                 return Abs(X) + Abs(Y);
             }
 
@@ -377,7 +377,7 @@ namespace AoCUtils {
             {}
 
             public int Distance(Point other) {
-                return (this - other).Distance();
+                return (this - other).Length();
             }
             public int Distance(){
                 return this.Distance(new Point(0,0));
