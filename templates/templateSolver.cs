@@ -6,6 +6,7 @@ using static System.Math;
 
 using AoCUtils;
 using AoCUtils.GridUtils;
+using AoCUtils.MultidimUtils;
 using static AoCUtils.Constants;
 using static AoCUtils.Functions;
 

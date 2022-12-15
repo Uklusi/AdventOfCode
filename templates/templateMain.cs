@@ -48,6 +48,7 @@ namespace AoC {
             string output = string.Join(" ", args);
             if (logStream != null) {
                 logStream.WriteLine(output);
+                logStream.Flush();
             }
             else {
                 Console.WriteLine(output);
