@@ -16,16 +16,60 @@ namespace AoCUtils {
         }
     }
 
+    public class ReverseComparer<T> : Comparer<T> {
+        private IComparer<T> _oldComparer;
+        public ReverseComparer(IComparer<T> oldComparer) {
+            _oldComparer = oldComparer;
+        }
+
+        public override int Compare(T? x, T? y) {
+            return _oldComparer.Compare(y, x);
+        }
+    }
+
+    public class ComparerBuilder<T> {
+        class InternalComparer : Comparer<T> {
+            private Func<T, T, int> _comp;
+            
+            public InternalComparer(Func<T, T, int> comp) {
+                _comp = comp;
+            }
+
+            public override int Compare(T? x, T? y) {
+                if (x is null || y is null) {
+                    return (x is null).ToInt() - (y is null).ToInt();
+                }
+                else {
+                    return _comp(x, y);
+                }
+            }
+        }
+        
+
+        public static IComparer<T> NewComparer(Func<T, T, int> compare) {
+            return new InternalComparer(compare);
+        }
+    }
+
     public static class MyExtensions {
         public static IEnumerable<(int index, T item)> Enumerate<T>(this IEnumerable<T> self) =>
             self.Select((item, index) => (index, item));
+
+        public static IEnumerable<R> ZipApply<T1, T2, R>(
+            this IEnumerable<T1> self,
+            IEnumerable<T2> other,
+            Func<T1, T2, R> f
+        ) {
+            return self.Zip(other).Select(t => f(t.First, t.Second));
+        }
 
         public static int ToInt(this string s) => int.Parse(s);
         public static int ToInt(this char c) => int.Parse(c.ToString());
         public static int ToInt(this bool b) => b ? 1 : 0;
         public static long ToLong(this string s) => long.Parse(s);
 
-        public static string[] ToStringArray<T>(this IEnumerable<T> self) => self.Select(e => e?.ToString() ?? "").ToArray();
+        public static string[] ToStringArray<T>(this IEnumerable<T> self) =>
+            self.Select(e => e?.ToString() ?? "").Where(s => s != "").ToArray();
 
         public static bool IsInInterval(this int testing, int lowerLimit, int upperLimit) {
             return (lowerLimit <= testing && testing <= upperLimit);
@@ -135,6 +179,8 @@ namespace AoCUtils {
             
             return GcdNoCheck(a, b);
         }
+
+        public static T[] Arr<T>(params T[] args) => args;
 
         public static IEnumerable<(T1, T2)> Zip<T1, T2>(IEnumerable<T1> a, IEnumerable<T2> b) {
             return a.Zip(b);
@@ -535,7 +581,7 @@ namespace AoCUtils {
             }
         }
     
-public class MatrixCoord {
+        public class MatrixCoord {
             protected int _Row;
             protected int _Col;
             public int Row {get {return _Row;}}
@@ -682,7 +728,10 @@ public class MatrixCoord {
             }
             public static Grid2D<T> operator + (Grid2D<T> left, Grid2D<T> right) {
                 return new Grid2D<T>(
-                    left._grid.GetRows().Zip(right._grid.GetRows()).Select(t => t.First.Concat(t.Second))
+                    left._grid.GetRows().ZipApply(
+                        right._grid.GetRows(),
+                        (l, r) => l.Concat(r)
+                    )
                 );
             }
             public static Grid2D<T> operator & (Grid2D<T> left, Grid2D<T> right) {
@@ -793,10 +842,11 @@ public class MatrixCoord {
                 MapPoint finish,
                 Func<Point, Point, int>? distanceFunc = null,
                 Func<Point, Point, int>? estimateFunc = null,
-                bool corners = false
+                Func<MapPoint, IEnumerable<MapPoint>>? adjacenceFunc = null
             ) {
                 Func<Point, Point, int> distanceFuncNN = distanceFunc ?? ((p, q) => p.Distance(q));
                 Func<Point, Point, int> estimateFuncNN = estimateFunc ?? ((p, q) => p.Distance(q));
+                Func<MapPoint, IEnumerable<MapPoint>> adjacenceFuncNN = adjacenceFunc ?? (p => p.Adjacent());
 
                 Func<Point, int> estimateFinish = (p => estimateFuncNN(p, finish));
                 PriorityQueue<MapPoint, int> openSet = new();
@@ -808,7 +858,7 @@ public class MatrixCoord {
                     if (current == finish) {
                         return distances[finish];
                     }
-                    foreach (MapPoint newPoint in current.Adjacent(corners: corners)) {
+                    foreach (MapPoint newPoint in adjacenceFuncNN(current)) {
                         int tentativeDistance = distances[current] +
                             distanceFuncNN(current, newPoint);
                         if (
@@ -826,9 +876,12 @@ public class MatrixCoord {
 
             public static Dictionary<Point, int> Dijkstra(
                 MapPoint start,
-                Func<Point, Point, int>? distanceFunc = null
+                Func<Point, Point, int>? distanceFunc = null,
+                Func<MapPoint, IEnumerable<MapPoint>>? adjacenceFunc = null
             ) {
                 Func<Point, Point, int> distanceFuncNN = distanceFunc ?? ((p, q) => p.Distance(q));
+                Func<MapPoint, IEnumerable<MapPoint>> adjacenceFuncNN = adjacenceFunc ?? (p => p.Adjacent());
+
                 PriorityQueue<MapPoint, int> openSet = new();
                 Dictionary<Point, int> distances = new(){{start, 0}};
                 openSet.Enqueue(start, 0);
@@ -851,6 +904,200 @@ public class MatrixCoord {
                 return distances;
             }
         
+        }
+
+    }
+
+    namespace MultidimUtils {
+
+        public class VectorMultiDim {
+            int[] _comps;
+            
+            public VectorMultiDim(IEnumerable<int> components) {
+                _comps = components.ToArray();
+            }
+            public VectorMultiDim(params int[] components){
+                _comps = components;
+            }
+
+            public int Dimension {get => _comps.Length;}
+            public int[] Components {get => (int[])_comps.Clone();}
+
+            public override string ToString() {
+                return "<" + _comps.JoinString(", ") + ">";
+            }
+
+            public string ToTypeString(){
+                return $"{GetType()}{ToString()}";
+            }
+
+            public override bool Equals(object? obj)
+            {
+                if (obj is null || !(GetType().Equals(obj.GetType()))) {
+                    return false;
+                } else {
+                    VectorMultiDim other = (VectorMultiDim)obj;
+                    return _comps == other.Components;
+                }
+            }
+
+            public override int GetHashCode() => ToTypeString().GetHashCode();
+            
+            public VectorMultiDim Normalized() {
+                if (_comps.All(i => i == 0)) {
+                    return this;
+                }
+                int d = _comps.Aggregate(Gcd);
+                return new VectorMultiDim(_comps.Select(i => i / d));
+            }
+
+            public int Length() {
+                return _comps.Select(Abs).Aggregate((i, j) => i + j);
+            }
+            
+            public static VectorMultiDim operator * (int left, VectorMultiDim right) {
+                return new VectorMultiDim(right.Components.Select(i => left * i));
+            }
+            public static VectorMultiDim operator * (VectorMultiDim left, int right) {
+                return right * left;
+            }
+            public static VectorMultiDim operator + (VectorMultiDim left, VectorMultiDim right) {
+                if (
+                    left.Dimension != right.Dimension
+                ) {
+                    throw new ArgumentException("Cannot sum Vectors with different dimensions");
+                }
+
+                return new VectorMultiDim(
+                    left.Components.ZipApply(
+                        right.Components,
+                        (l, r) => l + r
+                    )
+                );
+            }
+            public static VectorMultiDim operator - (VectorMultiDim v) {
+                return (-1 * v);
+            }
+            public static VectorMultiDim operator - (VectorMultiDim left, VectorMultiDim right) {
+                return left + (-right);
+            }
+            public static bool operator == (VectorMultiDim left, VectorMultiDim right) {
+                if (
+                    left.Dimension != right.Dimension
+                ) {
+                    throw new ArgumentException("Cannot sum Vectors with different dimensions");
+                }
+
+                return left.Equals(right);
+            }
+            public static bool operator != (VectorMultiDim left, VectorMultiDim right) {
+                return !(left == right);
+            }
+        }
+
+        public class PointMultiDim {
+            int[] _coords;
+            
+            public PointMultiDim(IEnumerable<int> coords) {
+                _coords = coords.ToArray();
+            }
+            public PointMultiDim(params int[] coords){
+                _coords = coords;
+            }
+
+            public int Dimension {get => _coords.Length;}
+            public int[] Coordinates {get => (int[])_coords.Clone();}
+
+            public override string ToString() {
+                return "(" + _coords.JoinString(", ") + ")";
+            }
+
+            public string ToTypeString(){
+                return $"{GetType()}{ToString()}";
+            }
+
+            public override bool Equals(object? obj)
+            {
+                if (obj is null || !(GetType().Equals(obj.GetType()))) {
+                    return false;
+                } else {
+                    PointMultiDim other = (PointMultiDim)obj;
+                    return _coords == other._coords;
+                }
+            }
+
+            public override int GetHashCode() =>
+                this.ToTypeString().GetHashCode();
+
+            public int Distance(PointMultiDim other) {
+                return (this - other).Length();
+            }
+            public int Distance(){
+                return this.Distance(new PointMultiDim(_coords.Select(i => 0)));
+            }
+
+            public virtual IEnumerable<PointMultiDim> Adjacent(bool corners = false) {
+                if (corners) {
+                    throw new NotImplementedException();
+                }
+                else {
+                    foreach (int coord in IntRange(_coords.Length)) {
+                        yield return new PointMultiDim(
+                            _coords.Select((val, index) => val + (index == coord).ToInt())
+                        );
+                        yield return new PointMultiDim(
+                            _coords.Select((val, index) => val - (index == coord).ToInt())
+                        );
+                    }
+                }
+            }
+
+            public static VectorMultiDim operator - (PointMultiDim left, PointMultiDim right) {
+                if (
+                    left.Dimension != right.Dimension
+                ) {
+                    throw new ArgumentException("Cannot sum Vectors with different dimensions");
+                }
+
+                return new VectorMultiDim(
+                    left.Coordinates.ZipApply(
+                        right.Coordinates,
+                        (l, r) => l - r
+                    )
+                );
+            }
+            public static PointMultiDim operator + (PointMultiDim left, VectorMultiDim right) {
+                if (
+                    left.Dimension != right.Dimension
+                ) {
+                    throw new ArgumentException("Cannot sum Vectors with different dimensions");
+                }
+
+                return new PointMultiDim(
+                    left.Coordinates.ZipApply(
+                        right.Components,
+                        (l, r) => l + r
+                    )
+                );
+            }
+            public static PointMultiDim operator - (PointMultiDim left, VectorMultiDim right) {
+                return left + (-right);
+            }
+            public static PointMultiDim operator + (VectorMultiDim left, PointMultiDim right) {
+                return right + left;
+            }
+            public static bool operator == (PointMultiDim left, PointMultiDim right) {
+                if (
+                    left.Dimension != right.Dimension
+                ) {
+                    throw new ArgumentException("Cannot sum Vectors with different dimensions");
+                }
+
+                return left.Equals(right);
+            }
+            public static bool operator != (PointMultiDim left, PointMultiDim right) {
+                return !(left == right);
+            }
         }
 
     }
