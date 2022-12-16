@@ -27,7 +27,7 @@ namespace AoCUtils {
         }
     }
 
-    public class ComparerBuilder<T> {
+    public class ComparerFactory<T> {
         class InternalComparer : Comparer<T> {
             private Func<T, T, int> _comp;
             
@@ -46,7 +46,7 @@ namespace AoCUtils {
         }
         
 
-        public static IComparer<T> NewComparer(Func<T, T, int> compare) {
+        public static IComparer<T> Create(Func<T, T, int> compare) {
             return new InternalComparer(compare);
         }
     }
@@ -88,8 +88,23 @@ namespace AoCUtils {
             return options.Contains(value);
         }
 
+        public static bool Empty<T>(this IEnumerable<T> self) {
+            return self.Count() == 0;
+        }
+        public static bool Empty<T, U>(this PriorityQueue<T, U> self) {
+            return self.Count == 0;
+        }
+
         public static IEnumerable<T> Flatten<T>(this IEnumerable<IEnumerable<T>> self) {
             return self.SelectMany(i => i);
+        }
+
+        public static IEnumerable<(T Left, U Right)> Product<T, U>(this IEnumerable<T> self, IEnumerable<U> other) {
+            return
+                from t in self
+                join u in other
+                on 1 equals 1
+                select (t, u);
         }
 
         public static string JoinString<T>(this IEnumerable<T> self, char c) {
@@ -217,6 +232,24 @@ namespace AoCUtils {
         }
         public static IEnumerable<int> IntRange(int start, int end) => IntRange(start, end, 1);
         public static IEnumerable<int> IntRange(int end) => IntRange(0, end, 1);
+    }
+
+    public class Counter<T> : Dictionary<T, int> where T : notnull {
+        private readonly int _defaultValue;
+        public Counter(int defaultValue) {
+            _defaultValue = defaultValue;
+        }
+        public Counter() : this(0) {}
+
+        new public int this[T key] {
+            get {
+                int value;
+                return TryGetValue(key, out value) ? value : _defaultValue;
+            }
+            set {
+                base[key] = value;
+            }
+        }
     }
 
     namespace GridUtils {
@@ -377,6 +410,10 @@ namespace AoCUtils {
                         _ => throw new ArgumentException()
                     }
                 );
+            }
+
+            public override string ToString() {
+                return $"<{X}, {Y}>";
             }
 
             public override bool Equals(object? obj) => base.Equals(obj);
@@ -981,6 +1018,7 @@ namespace AoCUtils {
             public static VectorMultiDim operator - (VectorMultiDim left, VectorMultiDim right) {
                 return left + (-right);
             }
+            
             public static bool operator == (VectorMultiDim left, VectorMultiDim right) {
                 if (
                     left.Dimension != right.Dimension
@@ -1038,7 +1076,25 @@ namespace AoCUtils {
 
             public virtual IEnumerable<PointMultiDim> Adjacent(bool corners = false) {
                 if (corners) {
-                    throw new NotImplementedException();
+                    IEnumerable<int[]> offsets = new int[][] {new int[Dimension]};
+                    int[][] Split3(int[] list, int coord) {
+                        int[] l1 = (int[])list.Clone();
+                        int[] l3 = (int[])list.Clone();
+                        l1[coord]--;
+                        l3[coord]++;
+                        return Arr(l1, (int[])list.Clone(), l3);
+                    }
+                    foreach (int coord in IntRange(Dimension)) {
+                        offsets = offsets.SelectMany(Split3);
+                    }
+                    foreach (int[] offset in offsets) {
+                        if (!offset.All(i => i == 0)) {
+                            yield return new PointMultiDim(
+                                _coords.ZipApply(offset, (i, j) => i + j)
+                            );
+                        }
+                    }
+
                 }
                 else {
                     foreach (int coord in IntRange(_coords.Length)) {
