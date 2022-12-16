@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Text.RegularExpressions;
 using static System.Math;
 
@@ -82,30 +83,26 @@ namespace AoC {
         }
 
         public static int FindBestPathTwoAgents(
-            Dictionary<string, Edges> allEdges, 
+            ///Shouldn't matter to pass these immutable objects to the function
+            /// C# Only copies the references
+            Dictionary<string, Edges> allEdges,
             Dictionary<string, int> flows,
-            IEnumerable<string> visited,
-            // string start1 = "AA",
-            // string start2 = "AA",
-            string target1 = "AA",
-            string target2 = "AA",
-            int timeTo1 = 0,
-            int timeTo2 = 0,
+            ImmutableHashSet<string> visited,
+            string[] targets,
+            int[] timeTo,
             int timeToEnd = 26,
             int currScore = 0,
             int currFlow = 0,
             int maxReached = 0
         ) {
-            // Log(target1, target2, timeToTarget1, timeToTarget2);
-            // Log("currtime:", currTime, "score:", currScore, "flow:", currFlow, "max:", maxReached);
             /// If the time to the end is 0, we are at the end, so the score is the one we received
             if (timeToEnd == 0) {
                 return currScore;
             }
             /// CurrTime is > 0, and we did not reach any of the targets
-            if (timeTo1 > 0 && timeTo2 > 0) {
+            if (timeTo[0] > 0 && timeTo[1] > 0) {
                 /// We can go only for the minimum of these three values before hitting a roadblock
-                int m = Arr(timeTo1, timeTo2, timeToEnd).Min();
+                int m = Arr(timeTo[0], timeTo[1], timeToEnd).Min();
                 /// In m minutes, all times diminish by m
                 /// and the score grows by flow * m
                 /// Everything else dows not change
@@ -113,10 +110,8 @@ namespace AoC {
                     allEdges: allEdges,
                     flows: flows,
                     visited: visited,
-                    target1: target1,
-                    target2: target2,
-                    timeTo1: timeTo1 - m,
-                    timeTo2: timeTo2 - m,
+                    targets: targets,
+                    timeTo: Arr(timeTo[0] - m, timeTo[1] - m),
                     timeToEnd: timeToEnd - m,
                     currScore: currScore + currFlow * m,
                     currFlow: currFlow,
@@ -128,31 +123,33 @@ namespace AoC {
             /// The optimistic extimate is
             /// score
             /// + flow * time to end
+            /// + flow t0 * (time to end - time to t0)
             /// + flow t1 * (time to end - time to t1)
-            /// + flow t2 * (time to end - time to t2)
             /// + flow unexplored * (time to end - minimum time to reach unexplored)
             var unexploredFlows = flows.Where(kv => !kv.Key.IsIn(visited));
-            var unexploredEdgesBy1 = allEdges[target1].Where(
+
+            var timesAvailableBy0 = allEdges[targets[0]].Where(
                 kv => !kv.Key.IsIn(visited)
-            );
-            var timesAvailableBy1 = unexploredEdgesBy1.Select(
-                kv => (Key: kv.Key, Value: timeToEnd - timeTo1 - kv.Value)
+            ).Select(
+                kv => (Key: kv.Key, Value: timeToEnd - timeTo[0] - kv.Value)
             ).Where(
                 kv => kv.Value > 0
             );
-            var unexploredEdgesBy2 = allEdges[target2].Where(
+
+            var timesAvailableBy1 = allEdges[targets[1]].Where(
                 kv => !kv.Key.IsIn(visited)
-            );
-            var timesAvailableBy2 = unexploredEdgesBy2.Select(
-                kv => (Key: kv.Key, Value: timeToEnd - timeTo2 - kv.Value)
+            ).Select(
+                kv => (Key: kv.Key, Value: timeToEnd - timeTo[1] - kv.Value)
             ).Where(
                 kv => kv.Value > 0
             );
+
+            /// Full join of the poors (if it works it works)
             Counter<string> maxTimesAvailable = new Counter<string>();
-            foreach (var kv in timesAvailableBy1) {
+            foreach (var kv in timesAvailableBy0) {
                 maxTimesAvailable[kv.Key] = kv.Value;
             }
-            foreach (var kv in timesAvailableBy2) {
+            foreach (var kv in timesAvailableBy1) {
                 maxTimesAvailable[kv.Key] = Max(maxTimesAvailable[kv.Key], kv.Value);
             }
 
@@ -163,10 +160,12 @@ namespace AoC {
                 (kv1, kv2) => kv1.Value * kv2.Value
             ).Sum();
 
+            /// The Max is there to avoid situations in which TimeTo is bigger than TimeToEnd,
+            /// Which will underestimate the final score
             int estimate = currScore + timeToEnd * currFlow
             + sumUnexploredFlows
-            + (timeToEnd - timeTo1) * (timeToEnd >= timeTo1).ToInt() * flows[target1]
-            + (timeToEnd - timeTo2) * (timeToEnd >= timeTo2).ToInt() * flows[target2];
+            + Max(timeToEnd - timeTo[0], 0) * flows[targets[0]]
+            + Max(timeToEnd - timeTo[1], 0) * flows[targets[1]];
             // Log(estimate);
             if (estimate < maxReached) {
                 return 0;
@@ -174,84 +173,129 @@ namespace AoC {
 
 
             List<int> possibilities = new();
-            if (timeTo1 == 0 && timeTo2 == 0) {
-                currFlow += flows[target1] + flows[target2];
+            /// Case 1: Both 0 and 1 are activating a new flow in the same minute
+            /// This is also the case for the first step of the algorithm,
+            /// Where both start from AA
+            if (timeTo[0] == 0 && timeTo[1] == 0) {
+                /// First thing is adding the new flows
+                currFlow += flows[targets[0]] + flows[targets[1]];
                 foreach(var t in 
-                    from kv1 in allEdges[target1]
-                    join kv2 in allEdges[target2]
+                /// I want all the couples of edges reaching two distinct nonvisited that can be reached before the end
+                    from kv1 in allEdges[targets[0]]
+                        .Where(kv => !visited.Contains(kv.Key))
+                        .Where(kv => kv.Value < timeToEnd)
+                    join kv2 in allEdges[targets[1]]
+                        .Where(kv => !visited.Contains(kv.Key))
+                        .Where(kv => kv.Value < timeToEnd)
                     on 1 equals 1
-                    where !kv1.Key.IsIn(visited)
-                        && !kv2.Key.IsIn(visited)
-                        && kv1.Key != kv2.Key
-                    orderby flows[kv1.Key] + flows[kv2.Key] descending
+                    where kv1.Key != kv2.Key
+                        /// This is a simple deduplication:
+                        /// It is symmetric to consider (A, B) and (B, A) when starting from the same place
+                        /// So we only choose one
+                        && (flows[kv1.Key] >= flows[kv2.Key] || targets[0] != targets[1])
+                    /// I'm using an eurystic: I want to first try the nodes will make me gain more,
+                    /// and by going to A first I gain (timeToEnd - timeToA)*flowA
+                    orderby
+                        (timeToEnd - kv1.Value) * flows[kv1.Key]
+                        + (timeToEnd - kv2.Value) * flows[kv2.Key]
+                        descending
                     select (kv1, kv2)
                 ) {
                     string t1 = t.kv1.Key;
                     string t2 = t.kv2.Key;
                     int n = FindBestPathTwoAgents(
-                        allEdges, flows, visited.Append(t1).Append(t2),
-                        t1, t2, t.kv1.Value + 1, t.kv2.Value + 1,
-                        timeToEnd, currScore, currFlow, maxReached
+                        allEdges: allEdges,
+                        flows: flows,
+                        visited: visited.Add(t1).Add(t2),
+                        targets: Arr(t1, t2),
+                        timeTo: Arr(t.kv1.Value + 1, t.kv2.Value + 1),
+                        timeToEnd: timeToEnd,
+                        currScore: currScore,
+                        currFlow: currFlow,
+                        maxReached: maxReached
                     );
+                    
                     maxReached = Max(maxReached, n);
                     possibilities.Add(n);
                 }
+                /// possibilities is only empty when there are no two disting reachable nodes
+                /// In this case, to consider the possibility that there is only one reachable node,
+                /// we try both the cases
+                /// Since we added both the flows, we need to remove the one that will be re-added in the next call 
                 if (possibilities.Empty()) {
-                    possibilities.Add(
-                        FindBestPathTwoAgents(
-                            allEdges, flows, visited, target1, target2,
-                            timeTo1, 900,
-                            timeToEnd, currScore, currFlow - flows[target1], maxReached
-                        )
-                    );
+                    foreach (int i in Arr(0,1)) {
+                        int[] timeToNew = (int[])timeTo.Clone();
+                        timeToNew[i] = timeToEnd;
+
+                        possibilities.Add(
+                            FindBestPathTwoAgents(
+                                allEdges: allEdges,
+                                flows: flows,
+                                visited: visited,
+                                targets: targets,
+                                timeTo: timeToNew,
+                                timeToEnd: timeToEnd,
+                                currScore: currScore,
+                                currFlow: currFlow - flows[targets[i]],
+                                maxReached: maxReached
+                            )
+                        );
+                    }
                 }
             }
-            else if (timeTo1 == 0) {
-                currFlow += flows[target1];
+            else {
+                int index;
+                if (timeTo[0] == 0) {
+                    index = 0;
+                }
+                else {
+                    index = 1;
+                }
+                currFlow += flows[targets[index]];
                 foreach(
-                    var kv in allEdges[target1]
+                    /// Same as before: I only want nonvisited nodes that I will reach before the end
+                    var kv in allEdges[targets[index]]
                         .Where(kv => !visited.Contains(kv.Key))
-                        .OrderByDescending(kv => flows[kv.Key])
+                        .Where(kv => timeToEnd > kv.Value)
+                        /// The eurystic is also the same
+                        .OrderByDescending(kv => (timeToEnd - kv.Value) * flows[kv.Key])
                 ) {
+                    var newTargets = targets.ToArray();
+                    var newTimes = timeTo.ToArray();
+                    newTargets[index] = kv.Key;
+                    newTimes[index] = kv.Value + 1;
                     int n = FindBestPathTwoAgents(
-                        allEdges, flows, visited.Append(kv.Key),
-                        kv.Key, target2, kv.Value + 1, timeTo2,
-                        timeToEnd, currScore, currFlow, maxReached
+                        allEdges: allEdges,
+                        flows: flows,
+                        visited: visited.Add(kv.Key),
+                        targets: newTargets,
+                        timeTo: newTimes,
+                        timeToEnd: timeToEnd,
+                        currScore: currScore,
+                        currFlow: currFlow,
+                        maxReached: maxReached
                     );
                     maxReached = Max(maxReached, n);
                     possibilities.Add(n);
                 }
+                /// possibilities is empty if there are no new nodes to check
+                /// in this case we let the simulation run for the max time
+                /// or until the other node finishes, what comes first
                 if (possibilities.Empty()) {
+                    var newTimes = timeTo.ToArray();
+                    newTimes[index] = timeToEnd;
+
                     possibilities.Add(
                         FindBestPathTwoAgents(
-                            allEdges, flows, visited, target1, target2,
-                            900, timeTo2,
-                            timeToEnd, currScore, currFlow, maxReached
-                        )
-                    );
-                }
-            }
-            else if (timeTo2 == 0) {
-                currFlow += flows[target2];
-                foreach(
-                    var kv in allEdges[target2]
-                        .Where(kv => !visited.Contains(kv.Key))
-                        .OrderByDescending(kv => flows[kv.Key])
-                ) {
-                    int n = FindBestPathTwoAgents(
-                        allEdges, flows, visited.Append(kv.Key),
-                        target1, kv.Key, timeTo1, kv.Value + 1,
-                        timeToEnd, currScore, currFlow, maxReached
-                    );
-                    maxReached = Max(maxReached, n);
-                    possibilities.Add(n);
-                }
-                if (possibilities.Empty()) {
-                    possibilities.Add(
-                        FindBestPathTwoAgents(
-                            allEdges, flows, visited, target1, target2,
-                            timeTo1, 900,
-                            timeToEnd, currScore, currFlow, maxReached
+                            allEdges: allEdges,
+                            flows: flows,
+                            visited: visited,
+                            targets: targets,
+                            timeTo: newTimes,
+                            timeToEnd: timeToEnd,
+                            currScore: currScore,
+                            currFlow: currFlow,
+                            maxReached: maxReached
                         )
                     );
                 }
@@ -285,9 +329,9 @@ namespace AoC {
 
             Dictionary<string, Edges> RelevantEdges = new();
             Edges DijkstraEdges;
-            string[] relevantNodes = flows.Where(kv => kv.Value > 0).Select(kv => kv.Key).ToArray();
+            var relevantNodes = flows.Where(kv => kv.Value > 0).Select(kv => kv.Key).ToImmutableHashSet();
 
-            foreach(string node in relevantNodes.Append("AA")) {
+            foreach(string node in relevantNodes.Add("AA")) {
                 DijkstraEdges = Dijkstra_Graph(node, mapping);
                 RelevantEdges[node] = new();
                 foreach (var kv in DijkstraEdges) {
@@ -336,9 +380,9 @@ namespace AoC {
 
             Dictionary<string, Edges> RelevantEdges = new();
             Edges DijkstraEdges;
-            string[] relevantNodes = flows.Where(kv => kv.Value > 0).Select(kv => kv.Key).ToArray();
+            var relevantNodes = flows.Where(kv => kv.Value > 0).Select(kv => kv.Key).ToImmutableHashSet();
 
-            foreach(string node in relevantNodes.Append("AA")) {
+            foreach(string node in relevantNodes.Add("AA")) {
                 DijkstraEdges = Dijkstra_Graph(node, mapping);
                 RelevantEdges[node] = new();
                 foreach (var kv in DijkstraEdges) {
@@ -351,7 +395,9 @@ namespace AoC {
             resultInt = FindBestPathTwoAgents(
                 RelevantEdges,
                 flows,
-                new List<string>()
+                Arr<string>().ToImmutableHashSet(),
+                Arr("AA", "AA"),
+                Arr(0, 0)
             );
 
 
