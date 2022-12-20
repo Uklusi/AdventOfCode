@@ -35,7 +35,7 @@ namespace AoCUtils {
                     return false;
                 } else {
                     VectorMultiDim other = (VectorMultiDim)obj;
-                    return _comps == other.Components;
+                    return _comps.ComponentEquals(other.Components);
                 }
             }
 
@@ -139,7 +139,7 @@ namespace AoCUtils {
                     return false;
                 } else {
                     PointMultiDim other = (PointMultiDim)obj;
-                    return _coords == other._coords;
+                    return _coords.ComponentEquals(other._coords);
                 }
             }
 

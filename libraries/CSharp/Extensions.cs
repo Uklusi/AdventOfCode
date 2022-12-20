@@ -31,6 +31,15 @@ namespace AoCUtils {
             return self.Any(x => x.ToBool());
         }
 
+
+        public static bool ComponentEquals<T>(this IEnumerable<T> self, IEnumerable<T> other)
+        where T : IEquatable<T> {
+            if (self.Count() != other.Count()) {
+                return false;
+            }
+            return self.ZipApply(other, (l, r) => l.Equals(r)).All();
+        }
+
         public static IEnumerable<(int index, T item)> Enumerate<T>(this IEnumerable<T> self) =>
             self.Select((item, index) => (index, item));
 
@@ -166,7 +175,7 @@ namespace AoCUtils {
         public static int ToInt(this bool b) => b ? 1 : 0;
         public static long ToLong(this string s) => long.Parse(s);
         public static bool ToBool<T>(this T? self) =>
-            self is null || self.Equals(default(T));
+            self is not null && !self.Equals(default(T));
 
 
         public static bool IsInInterval(this int testing, int lowerLimit, int upperLimit) {
