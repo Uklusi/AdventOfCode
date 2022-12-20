@@ -20,6 +20,12 @@ namespace AoCUtils {
         public static int Mod(int a, int m) {
             return ((a % m) + m) % m;
         }
+        public static long Mod(long a, long m) {
+            return ((a % m) + m) % m;
+        }
+        public static int Mod(long a, int m) {
+            return (int)(((a % m) + m) % m);
+        }
 
         public static int Gcd(int a, int b) {
             if (a == 0 && b == 0){
