@@ -84,10 +84,10 @@ namespace AoC {
                     result += "\n";
                 }
                 if (n.IsIn(IntRange(register - 1, register + 2))) {
-                    result += Full;
+                    result += FULL;
                 }
                 else {
-                    result += Empty;
+                    result += EMPTY;
                 }
 
                 var line = data[currentLineNum];

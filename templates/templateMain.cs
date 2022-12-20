@@ -110,7 +110,7 @@ namespace AoC {
         }
 
         public List<string> ProcessMap(List<string> AoCMap) {
-            return AoCMap.Select(s => s.Replace('.', Empty).Replace('#', Full)).ToList();
+            return AoCMap.Select(s => s.Replace('.', EMPTY).Replace('#', FULL)).ToList();
         }
         
         public List<string> ReadProcessedMap() {
