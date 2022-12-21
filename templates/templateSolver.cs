@@ -28,8 +28,8 @@ namespace AoC {
             
             Input reader = new Input(useExample: useExample);
 
-            string result = "";
-            int resultInt = 0;
+            string result = "0";
+            long resultInt = 0;
 
             
 
@@ -48,8 +48,8 @@ namespace AoC {
 
             Input reader = new Input(useExample: useExample);
             
-            string result = "";
-            int resultInt = 0;
+            string result = "0";
+            long resultInt = 0;
 
             
 
