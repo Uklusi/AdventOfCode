@@ -37,18 +37,27 @@ namespace AoCUtils {
             if (self.Count() != other.Count()) {
                 return false;
             }
-            return self.ZipApply(other, (l, r) => l.Equals(r)).All();
+            return self.Zip(other).ApplyTuple((l, r) => l.Equals(r)).All();
         }
 
         public static IEnumerable<(int index, T item)> Enumerate<T>(this IEnumerable<T> self) =>
             self.Select((item, index) => (index, item));
+
+        public static IEnumerable<R> ApplyTuple<T1, T2, R>(
+            this IEnumerable<(T1, T2)> self,
+            Func<T1, T2, R> f
+        ) {
+            return self.Select(t => f(t.Item1, t.Item2));
+        } 
 
         public static IEnumerable<R> ZipApply<T1, T2, R>(
             this IEnumerable<T1> self,
             IEnumerable<T2> other,
             Func<T1, T2, R> f
         ) {
-            return self.Zip(other).Select(t => f(t.First, t.Second));
+            return self
+                .Zip(other)
+                .ApplyTuple(f);
         }
 
 
@@ -142,28 +151,28 @@ namespace AoCUtils {
                 .Where(s => s != "")
                 .ToArray();
 
-        public static string ToDictionaryString<K, V>(this Dictionary<K,V> self) where K : notnull =>
+        public static string Beautify<K, V>(this Dictionary<K,V> self) where K : notnull =>
             "{\n"
             + self
                 .Select(kv => $"{kv.Key}: {kv.Value}")
                 .JoinString("\n")
             + "\n]";
         
-        public static string ToContentString<T>(this IEnumerable<T> self, string sep) =>
+        public static string Stringify<T>(this IEnumerable<T> self, string sep) =>
             "["
             + self
                 .Select(e => e?.ToString() ?? "")
                 .Where(s => s != "")
                 .JoinString(sep)
             + "]";
-        public static string ToContentString<T>(this IEnumerable<T> self) =>
-            self.ToContentString(", ");
+        public static string Stringify<T>(this IEnumerable<T> self) =>
+            self.Stringify(", ");
 
 
-        public static string ToFormattedString<T>(this IEnumerable<IEnumerable<T>> self) =>
+        public static string Beautify<T>(this IEnumerable<IEnumerable<T>> self) =>
             "["
             + self
-                .Select(l => l.ToContentString())
+                .Select(l => l.Stringify())
                 .JoinString("\n")
             + "]";
     }

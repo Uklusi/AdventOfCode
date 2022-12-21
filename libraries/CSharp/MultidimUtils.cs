@@ -18,8 +18,23 @@ namespace AoCUtils {
                 _comps = components;
             }
 
+            public static VectorMultiDim FromAxis(int axis, int dimension) {
+                int[] components = Repeat(0, dimension).ToArray();
+                components[axis] = 1;
+                return new VectorMultiDim(components);
+            }
+
+            public static VectorMultiDim ZeroVector(int dimension) {
+                return new VectorMultiDim(Repeat(0, dimension));
+            }
+
             public int Dimension {get => _comps.Length;}
             public int[] Components {get => (int[])_comps.Clone();}
+
+            public int X {get => _comps[0];}
+            public int Y {get => _comps[1];}
+            public int Z {get => _comps[2];}
+            public int W {get => _comps[3];}
 
             public override string ToString() {
                 return "<" + _comps.JoinString(", ") + ">";
@@ -67,10 +82,9 @@ namespace AoCUtils {
                 }
 
                 return new VectorMultiDim(
-                    left.Components.ZipApply(
-                        right.Components,
-                        (l, r) => l + r
-                    )
+                    left.Components
+                        .Zip(right.Components)
+                        .ApplyTuple((l, r) => l + r)
                 );
             }
             public static VectorMultiDim operator - (VectorMultiDim v) {
@@ -108,7 +122,10 @@ namespace AoCUtils {
                 if (rc.All(i => i==0)) {
                     throw new ArgumentException("Cannot divide by 0");
                 }
-                return lc.ZipApply(rc, (i, j) => j != 0 ? i / j : int.MaxValue).Min();
+                return lc
+                    .Zip(rc)
+                    .ApplyTuple((i, j) => j != 0 ? i / j : int.MaxValue)
+                    .Min();
             }
         }
 
@@ -121,6 +138,12 @@ namespace AoCUtils {
             public PointMultiDim(params int[] coords){
                 _coords = coords;
             }
+
+            
+            public int X {get => _coords[0];}
+            public int Y {get => _coords[1];}
+            public int Z {get => _coords[2];}
+            public int W {get => _coords[3];}
 
             public int Dimension {get => _coords.Length;}
             public int[] Coordinates {get => (int[])_coords.Clone();}
@@ -169,7 +192,9 @@ namespace AoCUtils {
                     foreach (int[] offset in offsets) {
                         if (!offset.All(i => i == 0)) {
                             yield return new PointMultiDim(
-                                _coords.ZipApply(offset, (i, j) => i + j)
+                                _coords
+                                    .Zip(offset)
+                                    .ApplyTuple((i, j) => i + j)
                             );
                         }
                     }
@@ -195,10 +220,9 @@ namespace AoCUtils {
                 }
 
                 return new VectorMultiDim(
-                    left.Coordinates.ZipApply(
-                        right.Coordinates,
-                        (l, r) => l - r
-                    )
+                    left.Coordinates
+                        .Zip(right.Coordinates)
+                        .ApplyTuple((l, r) => l - r)
                 );
             }
             public static PointMultiDim operator + (PointMultiDim left, VectorMultiDim right) {
@@ -209,10 +233,9 @@ namespace AoCUtils {
                 }
 
                 return new PointMultiDim(
-                    left.Coordinates.ZipApply(
-                        right.Components,
-                        (l, r) => l + r
-                    )
+                    left.Coordinates
+                        .Zip(right.Components)
+                        .ApplyTuple((l, r) => l + r)
                 );
             }
             public static PointMultiDim operator - (PointMultiDim left, VectorMultiDim right) {

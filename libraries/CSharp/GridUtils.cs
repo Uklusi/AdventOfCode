@@ -529,10 +529,10 @@ namespace AoCUtils {
             }
             public static Grid2D<T> operator + (Grid2D<T> left, Grid2D<T> right) {
                 return new Grid2D<T>(
-                    left._grid.GetRows().ZipApply(
-                        right._grid.GetRows(),
-                        (l, r) => l.Concat(r)
-                    )
+                    left._grid
+                        .GetRows()
+                        .Zip(right._grid.GetRows())
+                        .ApplyTuple((l, r) => l.Concat(r))
                 );
             }
             public static Grid2D<T> operator & (Grid2D<T> left, Grid2D<T> right) {
