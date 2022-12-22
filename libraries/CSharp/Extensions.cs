@@ -157,6 +157,13 @@ namespace AoCUtils {
                 .Select(kv => $"{kv.Key}: {kv.Value}")
                 .JoinString("\n")
             + "\n]";
+
+        public static string BeautifyDebug<K, V>(this Dictionary<K,V> self) where K : notnull =>
+            "{ "
+            + self
+                .Select(kv => $"{kv.Key}: {kv.Value}")
+                .JoinString(" - ")
+            + " ]";
         
         public static string Stringify<T>(this IEnumerable<T> self, string sep) =>
             "["
@@ -174,6 +181,13 @@ namespace AoCUtils {
             + self
                 .Select(l => l.Stringify())
                 .JoinString("\n")
+            + "]";
+
+        public static string BeautifyDebug<T>(this IEnumerable<IEnumerable<T>> self) =>
+            "["
+            + self
+                .Select(l => l.Stringify())
+                .JoinString(" - ")
             + "]";
     }
 

@@ -17,6 +17,10 @@ namespace AoCUtils {
     }
 
     public static class Functions {
+        public static Exception InPanic() {
+            return new Exception("AAAA");
+        }
+
         public static int Mod(int a, int m) {
             return ((a % m) + m) % m;
         }

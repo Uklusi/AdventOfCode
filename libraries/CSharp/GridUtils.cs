@@ -24,6 +24,12 @@ namespace AoCUtils {
                 };
             }
 
+            public static IEnumerable<Direction> Values {
+                get {
+                    return IntRange(4).Select(i => new Direction(i));
+                }
+            }
+
             public Direction Rotate(int n) {
                 return new Direction(dir + n);
             }
@@ -173,7 +179,10 @@ namespace AoCUtils {
             public override bool Equals(object? obj) => base.Equals(obj);
             public override int GetHashCode() => base.GetHashCode();
 
-            public static Vector FromDirection(Direction d) {
+            public static Vector FromDirection(Direction d, bool upIsNegative = false) {
+                if (upIsNegative) {
+                    d = new Direction(-d.ToInt());
+                }
                 return d.ToInt() switch {
                     0 => new Vector(1, 0),
                     1 => new Vector(0, 1),
@@ -183,11 +192,23 @@ namespace AoCUtils {
                 };
             }
 
+            public Direction ToDirection(bool upIsNegative = false) {
+                if (Length() != 1) {
+                    throw InPanic();
+                }
+                return Direction.Values
+                    .Where(d => Vector.FromDirection(d, upIsNegative) == this)
+                    .First();
+            }
+
             public static Vector operator * (int left, Vector right) {
                 return new Vector(left * right.X, left * right.Y);
             }
             public static Vector operator * (Vector left, int right) {
                 return right * left;
+            }
+            public static Vector operator / (Vector left, int right) {
+                return new Vector(left.X / right, left.Y / right);
             }
             public static Vector operator + (Vector left, Vector right) {
                 return new Vector(left.X + right.X, left.Y + right.Y);
@@ -322,9 +343,11 @@ namespace AoCUtils {
         }
 
         public class Movable : MapPoint {
-            protected Direction dir;
-            public Movable(int x, int y, Direction d) : base(x, y) {
+            public Direction dir;
+            public bool UpIsNegative;
+            public Movable(int x, int y, Direction d, bool upIsNegative = false) : base(x, y) {
                 dir = d;
+                UpIsNegative = upIsNegative;
             }
             public Movable(int x, int y) : this(x, y, new Direction(0)) {}
             public Movable(Direction d) : this(0, 0, d) {}
@@ -340,6 +363,10 @@ namespace AoCUtils {
             }
             public void Turn(string s){
                 dir = dir.Rotate(s);
+            }
+
+            public Movable Copy() {
+                return new Movable(X, Y, dir, UpIsNegative);
             }
 
             public virtual void MoveTo(Point p) {
@@ -360,7 +387,7 @@ namespace AoCUtils {
 
                 for (int i = 0; i < steps; i++) {
                     Point before = this.ToPoint();
-                    MoveTo(this + Vector.FromDirection(direction));
+                    MoveTo(this + Vector.FromDirection(direction, upIsNegative: UpIsNegative));
                     Point after = this.ToPoint();
                     if (before == after) {
                         break;
@@ -369,6 +396,9 @@ namespace AoCUtils {
             }
             public virtual void Move(int steps) {
                 Move(steps, dir);
+            }
+            public virtual void Move() {
+                Move(1, dir);
             }
         }
     
@@ -470,6 +500,12 @@ namespace AoCUtils {
             }
 
             public T this[int r, int c] => _grid[r-1, c-1];
+            public IEnumerable<IEnumerable<T>> this[Range r, Range c] {
+                get => IntRange(r.Start.Value, r.End.Value)
+                        .Select(row => IntRange(c.Start.Value, c.End.Value)
+                            .Select(col => this[row, col])
+                        );
+            }
             public T this[MatrixCoord coords] => this[coords.Row, coords.Col];
 
             public T this[Point p] => _grid[p.Y, p.X];

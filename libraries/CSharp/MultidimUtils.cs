@@ -107,6 +107,10 @@ namespace AoCUtils {
                 return !(left == right);
             }
 
+            public static VectorMultiDim operator / (VectorMultiDim left, int right) {
+                return new VectorMultiDim(left.Components.Select(i => i / right));
+            }
+
             public static int operator / (VectorMultiDim left, VectorMultiDim right) {
                 if (left.Dimension != right.Dimension) {
                     throw new ArgumentException();
