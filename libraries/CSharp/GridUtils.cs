@@ -24,13 +24,20 @@ namespace AoCUtils {
                 };
             }
 
+            private static Direction[] _Values = new Direction[] {
+                new Direction(0),
+                new Direction(1),
+                new Direction(2),
+                new Direction(3)
+            };
+
             public static IEnumerable<Direction> Values {
                 get {
-                    return IntRange(4).Select(i => new Direction(i));
+                    return _Values;
                 }
             }
 
-            public Direction Rotate(int n) {
+            public Direction Rotate(int n = 1) {
                 return new Direction(dir + n);
             }
             public Direction Rotate(string s) {
@@ -67,7 +74,7 @@ namespace AoCUtils {
             }
 
             public override int GetHashCode() {
-                return ToString().GetHashCode();
+                return dir.GetHashCode();
             }
 
             public static bool operator == (Direction left, Direction right) {
@@ -125,7 +132,7 @@ namespace AoCUtils {
             }
 
             public override int GetHashCode() =>
-                this.ToTypeString().GetHashCode();
+                (X, Y).GetHashCode();
 
         }
 
@@ -179,17 +186,18 @@ namespace AoCUtils {
             public override bool Equals(object? obj) => base.Equals(obj);
             public override int GetHashCode() => base.GetHashCode();
 
+            private static Dictionary<int, Vector> _FromDirection = new() {
+                {0, new Vector(1, 0)},
+                {1, new Vector(0, 1)},
+                {2, new Vector(-1, 0)},
+                {3, new Vector(0, -1)}
+            };
+
             public static Vector FromDirection(Direction d, bool upIsNegative = false) {
                 if (upIsNegative) {
                     d = new Direction(-d.ToInt());
                 }
-                return d.ToInt() switch {
-                    0 => new Vector(1, 0),
-                    1 => new Vector(0, 1),
-                    2 => new Vector(-1, 0),
-                    3 => new Vector(0, -1),
-                    _ => throw new UnreachableException()
-                };
+                return _FromDirection[d.ToInt()];
             }
 
             public Direction ToDirection(bool upIsNegative = false) {
@@ -245,14 +253,17 @@ namespace AoCUtils {
                 return new Point(X, Y);
             }
 
+            private static IEnumerable<Vector> _Diagonals = Direction.Values
+                .Select(d => Vector.FromDirection(d) + Vector.FromDirection(d.Rotate()))
+                .ToArray();
+
             public virtual IEnumerable<Point> Adjacent(bool corners = false) {
-                for (int i = 0; i < 4; i++) {
-                    yield return this + Vector.FromDirection(new Direction(i)); 
+                foreach (Direction d in Direction.Values) {
+                    yield return this + Vector.FromDirection(d); 
                 }
                 if (corners) {
-                    for (int i = 0; i < 4; i++) {
-                        yield return this + Vector.FromDirection(new Direction(i)) +
-                            Vector.FromDirection(new Direction(i+1));
+                    foreach (Vector diagonalDir in Point._Diagonals) {
+                        yield return this + diagonalDir;
                     }
                 }
             }
@@ -450,7 +461,7 @@ namespace AoCUtils {
             }
 
             public override int GetHashCode() =>
-                this.ToString().GetHashCode();
+                (Row, Col).GetHashCode();
 
 
             public static bool operator == (MatrixCoord left, MatrixCoord right) {
@@ -605,7 +616,7 @@ namespace AoCUtils {
             }
 
             public override int GetHashCode() {
-                return ToString().GetHashCode();
+                return dir.GetHashCode();
             }
 
             public static bool operator == (HexDirection left, HexDirection right) {
