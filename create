@@ -39,13 +39,13 @@ def main():
         not os.path.isfile(folder_to_create / "input.txt" )
         and now_utc > puzzle_release_date
     ):
-        with open(folder_to_create / "input.txt", "w") as f:
+        with open(folder_to_create / "input.txt", "w", newline="\n") as f:
             r = requests.get(
                 url=f"https://adventofcode.com/{year}/day/{day}/input",
                 headers=headers
             )
             if r.ok:
-                f.write(r.text.replace("\r", ""))
+                f.write(r.text.replace("\r\n", "\n"))
             else:
                 print(f"request failed with error {r.text}")
             pass
@@ -54,8 +54,9 @@ def main():
         try:
             os.chdir(folder_to_create)
             if not os.path.isfile(f"{day:02d}.csproj"):
+                reference = Path('../../libraries/CSharp/CSharp.csproj')
                 os.system("dotnet new console")
-                os.system("dotnet add reference '../../libraries/CSharp/CSharp.csproj'")
+                os.system(f"dotnet add reference {str(reference)}")
                 os.remove("Program.cs")
         finally:
             os.chdir(original_folder)

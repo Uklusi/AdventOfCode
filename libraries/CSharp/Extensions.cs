@@ -225,5 +225,12 @@ namespace AoCUtils {
             return self.ToList();
         }
 
+        public static void AddRange<T>(this HashSet<T> self, IEnumerable<T> range) {
+            self.EnsureCapacity(self.Count + range.Count());
+            foreach (T el in range) {
+                self.Add(el);
+            }
+        }
+
     }
 }

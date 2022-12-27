@@ -20,9 +20,10 @@ namespace AoCUtils {
                     "U" or "^" or "N" or "1" => 1,
                     "L" or "<" or "W" or "2" => 2,
                     "D" or "v" or "S" or "3" => 3,
-                    _ => throw new ArgumentException()
+                    _ => throw new ArgumentException($"Error processing {s}")
                 };
             }
+            public Direction(char c) : this(c.ToString()) {}
 
             private static Direction[] _Values = new Direction[] {
                 new Direction(0),
@@ -305,7 +306,7 @@ namespace AoCUtils {
         }
 
         public class MapPoint : Point {
-            protected static List<List<char>>? Frame = null;
+            public static List<List<char>>? Frame = null;
             protected static int[] xLimits = new int[]{int.MinValue, int.MaxValue};
             protected static int[] yLimits = new int[]{int.MinValue, int.MaxValue};
             protected static Func<Point, bool> _IsOccupied = (p => (
@@ -338,6 +339,8 @@ namespace AoCUtils {
             }
 
             public MapPoint(int x, int y) : base(x, y) {}
+
+            public MapPoint ToMapPoint() => new MapPoint(X, Y);
 
             public bool Occupied {get { return _IsOccupied(this.ToPoint()); }}
             public bool Free {get { return !this.Occupied; }}
@@ -397,9 +400,9 @@ namespace AoCUtils {
                 }
 
                 for (int i = 0; i < steps; i++) {
-                    Point before = this.ToPoint();
+                    (int, int) before = this.ToTuple();
                     MoveTo(this + Vector.FromDirection(direction, upIsNegative: UpIsNegative));
-                    Point after = this.ToPoint();
+                    (int, int) after = this.ToTuple();
                     if (before == after) {
                         break;
                     }
