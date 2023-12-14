@@ -48,7 +48,7 @@ namespace AoC {
             }
             return l.Components
                 .Zip(r.Components)
-                .ApplyTuple((i, j) => i <= j)
+                .SelectTuple((i, j) => i <= j)
                 .All();
         }
 
@@ -124,7 +124,7 @@ namespace AoC {
             // over the maximum we are capable of spending
             IEnumerable<bool> shouldBeConstructed = currentRobots.Components
                 .Zip(MaxRobotCost.Components)
-                .ApplyTuple((robotNum, maxCost) => robotNum < maxCost);
+                .SelectTuple((robotNum, maxCost) => robotNum < maxCost);
 
             // We can build a robot its cost is <= than our current materials
             IEnumerable<bool> canBeConstructed = RobotCosts
@@ -135,7 +135,7 @@ namespace AoC {
             // and we still don't have enough of them
             bool allowedToConstructNothing = canBeConstructed
                 .Zip(shouldBeConstructed)
-                .ApplyTuple((a, b) => !a && b)
+                .SelectTuple((a, b) => !a && b)
                 .AnyBool();
 
             // We should not build a robot if

@@ -476,12 +476,16 @@ namespace AoCUtils {
         }
 
         public class Grid2D<T> {
-            protected T[,] _grid;
+            public T[,] _grid;
             public Grid2D(IEnumerable<IEnumerable<T>> gridTemplate){
                 _grid = gridTemplate.ToDoubleArray();
             }
             public Grid2D(T[,] grid) {
                 _grid = (T[,])grid.Clone();
+            }
+
+            public static Grid2D<T> FromCols(IEnumerable<IEnumerable<T>> cols) {
+                return new Grid2D<T>(cols.ToDoubleArrayFromCols());
             }
 
             public static Grid2D<V> FromOtherType<U, V>(IEnumerable<IEnumerable<U>> templ, Func<U, V> f) {
@@ -524,6 +528,17 @@ namespace AoCUtils {
 
             public T this[Point p] => _grid[p.Y, p.X];
 
+            public bool Inbound(Point p) {
+                return p.Y.IsInInterval(0, Shape.rows) && p.X.IsInInterval(0, Shape.cols);
+            }
+
+            public IEnumerable<IEnumerable<T>> GetRows() {
+                return _grid.GetRows();
+            }
+
+            public IEnumerable<IEnumerable<T>> GetCols() {
+                return _grid.GetCols();
+            }
 
             public Grid2D<T> Flip(bool upDown=false) {
                 if (upDown) {
@@ -582,7 +597,7 @@ namespace AoCUtils {
                     left._grid
                         .GetRows()
                         .Zip(right._grid.GetRows())
-                        .ApplyTuple((l, r) => l.Concat(r))
+                        .SelectTuple((l, r) => l.Concat(r))
                 );
             }
             public static Grid2D<T> operator & (Grid2D<T> left, Grid2D<T> right) {

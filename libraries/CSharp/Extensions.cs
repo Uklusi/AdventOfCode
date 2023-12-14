@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using static System.Math;
 
+using AoCUtils.GridUtils;
+
 namespace AoCUtils {
 
     public static class IEnumerableExtensions {
@@ -24,45 +26,24 @@ namespace AoCUtils {
             return self.All(x => x.ToBool());
         }
 
-        public static bool Any<T>(this IEnumerable<T> self) {
-            return self.Any(x => x.ToBool());
-        }
+        // Does not work since list.Any() is list.NotEmpty()
+        // public static bool Any<T>(this IEnumerable<T> self) {
+        //     return self.Any(x => x.ToBool());
+        // }
         public static bool AnyBool<T>(this IEnumerable<T> self) {
             return self.Any(x => x.ToBool());
         }
 
 
-        public static bool ComponentEquals<T>(this IEnumerable<T> self, IEnumerable<T> other)
-        where T : IEquatable<T> {
-            if (self.Count() != other.Count()) {
-                return false;
-            }
-            return self.Zip(other).ApplyTuple((l, r) => l.Equals(r)).All();
-        }
-
         public static IEnumerable<(int index, T item)> Enumerate<T>(this IEnumerable<T> self) =>
             self.Select((item, index) => (index, item));
 
-        public static IEnumerable<R> ApplyTuple<T1, T2, R>(
-            this IEnumerable<(T1, T2)> self,
-            Func<T1, T2, R> f
-        ) {
-            return self.Select(t => f(t.Item1, t.Item2));
-        } 
-
-        public static IEnumerable<R> ZipApply<T1, T2, R>(
-            this IEnumerable<T1> self,
-            IEnumerable<T2> other,
-            Func<T1, T2, R> f
-        ) {
-            return self
-                .Zip(other)
-                .ApplyTuple(f);
-        }
-
-
-        public static IEnumerable<T> Flatten<T>(this IEnumerable<IEnumerable<T>> self) {
-            return self.SelectMany(i => i);
+        public static IEnumerable<(Point p, T item)> Enumerate2D<T>(this IEnumerable<IEnumerable<T>> self) {
+            return self.Select(
+                (line, y) => line.Select(
+                    (item, x) => (p: new Point(x, y), item)
+                )
+            ).Flatten();
         }
 
         public static IEnumerable<IEnumerable<U>> SelectInner<T, U>(
@@ -70,6 +51,36 @@ namespace AoCUtils {
             Func<T, U> f
         ) {
             return self.Select(l => l.Select(f));
+        }
+
+        public static IEnumerable<R> SelectTuple<T1, T2, R>(
+            this IEnumerable<(T1, T2)> self,
+            Func<T1, T2, R> f
+        ) {
+            return self.Select(t => f(t.Item1, t.Item2));
+        } 
+
+        public static IEnumerable<R> ZipSelect<T1, T2, R>(
+            this IEnumerable<T1> self,
+            IEnumerable<T2> other,
+            Func<T1, T2, R> f
+        ) {
+            return self
+                .Zip(other)
+                .SelectTuple(f);
+        }
+
+        public static bool ComponentEquals<T>(this IEnumerable<T> self, IEnumerable<T> other)
+        where T : IEquatable<T> {
+            if (self.Count() != other.Count()) {
+                return false;
+            }
+            return self.Zip(other).SelectTuple((l, r) => l.Equals(r)).All();
+        }
+
+
+        public static IEnumerable<T> Flatten<T>(this IEnumerable<IEnumerable<T>> self) {
+            return self.SelectMany(i => i);
         }
 
         public static IEnumerable<(T Left, U Right)> Product<T, U>(this IEnumerable<T> self, IEnumerable<U> other) {
@@ -119,9 +130,9 @@ namespace AoCUtils {
         }
 
         public static T[,] ToDoubleArray<T>(this IEnumerable<IEnumerable<T>> self) {
-            var s = self.Select(l => l.ToArray()).ToArray();
-            int rows = s.Count();
-            int cols = s[0].Count();
+            var s = self.ToJaggedArray();
+            int rows = s.Length;
+            int cols = s[0].Length;
             T[,] ret = new T[rows, cols];
             for (int r = 0; r < rows; r++) {
                 for (int c = 0; c < cols; c++) {
@@ -131,64 +142,75 @@ namespace AoCUtils {
             return ret;
         }
 
+        public static T[,] ToDoubleArrayFromCols<T>(this IEnumerable<IEnumerable<T>> self) {
+            var s = self.ToJaggedArray();
+            int rows = s[0].Length;
+            int cols = s.Length;
+            T[,] ret = new T[rows, cols];
+            for (int r = 0; r < rows; r++) {
+                for (int c = 0; c < cols; c++) {
+                    ret[r,c] = s[c][r];
+                }
+            }
+            return ret;
+        }
 
         
         public static string JoinString<T>(this IEnumerable<T> self, char c) {
-            return String.Join(c, self);
+            return string.Join(c, self);
         }
         public static string JoinString<T>(this IEnumerable<T> self, string s) {
-            return String.Join(s, self);
+            return string.Join(s, self);
         }
         public static string JoinString<T>(this IEnumerable<T> self) {
             return self.JoinString("");
         }
 
-
+        public static IEnumerable<string> ToStringEnum<T>(this IEnumerable<T> self) =>
+            self
+                .Select(e => e?.ToString() ?? "")
+                .Where(s => s != "");
 
         public static string[] ToStringArray<T>(this IEnumerable<T> self) =>
             self
-                .Select(e => e?.ToString() ?? "")
-                .Where(s => s != "")
+                .ToStringEnum()
                 .ToArray();
 
-        public static string Beautify<K, V>(this Dictionary<K,V> self) where K : notnull =>
+        
+
+        public static string ReprList<T>(this IEnumerable<T> self, string sep) =>
+            "["
+            + self
+                .ToStringEnum()
+                .JoinString(sep)
+            + "]";
+        public static string ReprList<T>(this IEnumerable<T> self) =>
+            self.ReprList(", ");
+        public static string ReprNestedList<T>(this IEnumerable<IEnumerable<T>> self) =>
+            "["
+            + self
+                .Select(l => l.ReprList())
+                .JoinString("\n")
+            + "]";
+        public static string ReprDict<K, V>(this Dictionary<K,V> self) where K : notnull =>
             "{\n"
             + self
                 .Select(kv => $"{kv.Key}: {kv.Value}")
                 .JoinString("\n")
-            + "\n]";
+            + "\n}";
 
-        public static string BeautifyDebug<K, V>(this Dictionary<K,V> self) where K : notnull =>
+        public static string ReprNestedListInline<T>(this IEnumerable<IEnumerable<T>> self) =>
+            "["
+            + self
+                .Select(l => l.ReprList())
+                .JoinString(" - ")
+            + "]";
+        public static string ReprDictInline<K, V>(this Dictionary<K,V> self) where K : notnull =>
             "{ "
             + self
                 .Select(kv => $"{kv.Key}: {kv.Value}")
                 .JoinString(" - ")
             + " ]";
-        
-        public static string Stringify<T>(this IEnumerable<T> self, string sep) =>
-            "["
-            + self
-                .Select(e => e?.ToString() ?? "")
-                .Where(s => s != "")
-                .JoinString(sep)
-            + "]";
-        public static string Stringify<T>(this IEnumerable<T> self) =>
-            self.Stringify(", ");
-
-
-        public static string Beautify<T>(this IEnumerable<IEnumerable<T>> self) =>
-            "["
-            + self
-                .Select(l => l.Stringify())
-                .JoinString("\n")
-            + "]";
-
-        public static string BeautifyDebug<T>(this IEnumerable<IEnumerable<T>> self) =>
-            "["
-            + self
-                .Select(l => l.Stringify())
-                .JoinString(" - ")
-            + "]";
     }
 
     public static class OtherExtensions {
@@ -201,8 +223,14 @@ namespace AoCUtils {
             self is not null && !self.Equals(default(T));
 
 
+        public static bool IsIn<T>(this T value, IEnumerable<T> options) {
+            return options.Contains(value);
+        }
         public static bool IsInInterval(this int testing, int lowerLimit, int upperLimit) {
-            return (lowerLimit <= testing && testing <= upperLimit);
+            return lowerLimit <= testing && testing <= upperLimit;
+        }
+        public static bool IsInInterval(this int testing, (int, int) limits) {
+            return testing.IsInInterval(limits.Item1, limits.Item2);
         }
         public static bool IsInInterval(this int testing, IEnumerable<int> limits) {
             if (limits.Count() != 2) {
@@ -213,9 +241,6 @@ namespace AoCUtils {
             int upperLimit = limitsArr[1];
             return testing.IsInInterval(lowerLimit, upperLimit);
         }
-        public static bool IsIn<T>(this T value, IEnumerable<T> options) {
-            return options.Contains(value);
-        }
 
 
         public static T[] Copy<T>(this T[] self) {
@@ -225,12 +250,13 @@ namespace AoCUtils {
             return self.ToList();
         }
 
-        public static void AddRange<T>(this HashSet<T> self, IEnumerable<T> range) {
-            self.EnsureCapacity(self.Count + range.Count());
-            foreach (T el in range) {
-                self.Add(el);
-            }
-        }
+        // Removed since it's the same as UnionWith
+        // public static void AddRange<T>(this HashSet<T> self, IEnumerable<T> range) {
+        //     self.EnsureCapacity(self.Count + range.Count());
+        //     foreach (T el in range) {
+        //         self.Add(el);
+        //     }
+        // }
 
     }
 }

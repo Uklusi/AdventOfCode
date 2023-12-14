@@ -65,7 +65,7 @@ namespace AoC {
         public void Step() {
             HashSet<MapPoint> possibilities = currents.ToHashSet();
             foreach (MapPoint p in currents) {
-                possibilities.AddRange(p.Adjacent());
+                possibilities.UnionWith(p.Adjacent());
             }
             foreach (Movable m in blizzards) {
                 MoveCircular(m);

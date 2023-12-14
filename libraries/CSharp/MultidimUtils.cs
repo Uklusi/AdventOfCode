@@ -84,7 +84,7 @@ namespace AoCUtils {
                 return new VectorMultiDim(
                     left.Components
                         .Zip(right.Components)
-                        .ApplyTuple((l, r) => l + r)
+                        .SelectTuple((l, r) => l + r)
                 );
             }
             public static VectorMultiDim operator - (VectorMultiDim v) {
@@ -128,7 +128,7 @@ namespace AoCUtils {
                 }
                 return lc
                     .Zip(rc)
-                    .ApplyTuple((i, j) => j != 0 ? i / j : int.MaxValue)
+                    .SelectTuple((i, j) => j != 0 ? i / j : int.MaxValue)
                     .Min();
             }
         }
@@ -198,7 +198,7 @@ namespace AoCUtils {
                             yield return new PointMultiDim(
                                 _coords
                                     .Zip(offset)
-                                    .ApplyTuple((i, j) => i + j)
+                                    .SelectTuple((i, j) => i + j)
                             );
                         }
                     }
@@ -226,7 +226,7 @@ namespace AoCUtils {
                 return new VectorMultiDim(
                     left.Coordinates
                         .Zip(right.Coordinates)
-                        .ApplyTuple((l, r) => l - r)
+                        .SelectTuple((l, r) => l - r)
                 );
             }
             public static PointMultiDim operator + (PointMultiDim left, VectorMultiDim right) {
@@ -239,7 +239,7 @@ namespace AoCUtils {
                 return new PointMultiDim(
                     left.Coordinates
                         .Zip(right.Components)
-                        .ApplyTuple((l, r) => l + r)
+                        .SelectTuple((l, r) => l + r)
                 );
             }
             public static PointMultiDim operator - (PointMultiDim left, VectorMultiDim right) {

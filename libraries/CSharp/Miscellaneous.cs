@@ -49,14 +49,44 @@ namespace AoCUtils {
             
             return GcdNoCheck(a, b);
         }
+        public static long Gcd(long a, long b) {
+            if (a == 0 && b == 0){
+                throw new ArgumentException("Cannot calculate gcd between the provided numbers");
+            }
+
+            (a, b) = (Abs(a), Abs(b));
+            (a, b) = (Min(a, b), Max(a, b));
+
+            // It is guaranteed that a1, b1 are positive and a1 <= b1
+            long GcdNoCheck(long a1, long b1) {
+                if (a1 == 0) {
+                    return b1;
+                }
+                return GcdNoCheck(b1 % a1, a1);
+            }
+            
+            return GcdNoCheck(a, b);
+        }
 
         public static T[] Arr<T>(params T[] args) => args;
 
         public static IEnumerable<T> Repeat<T>(T value, int numTimes){
             if (numTimes <= 0) {
-                throw new ArgumentOutOfRangeException("Number of repeats must be greater than 0");
+                throw new ArgumentOutOfRangeException(
+                    nameof(numTimes),
+                    "Number of repeats must be greater than 0"
+                );
             }
             return IntRange(numTimes).Select(_ => value);
+        }
+        public static IEnumerable<T> RepeatFlat<T>(IEnumerable<T> value, int numTimes){
+            if (numTimes <= 0) {
+                throw new ArgumentOutOfRangeException(
+                    nameof(numTimes),
+                    "Number of repeats must be greater than 0"
+                );
+            }
+            return IntRange(numTimes).Select(_ => value).Flatten();
         }
 
         public static IEnumerable<(T1, T2)> Zip<T1, T2>(IEnumerable<T1> a, IEnumerable<T2> b) {
@@ -75,6 +105,22 @@ namespace AoCUtils {
         public static IEnumerable<int> IntRange(int end) => IntRange(0, end, 1);
     }
 
+    public class DefaultDictionary<T, U> : Dictionary<T, U> where T : notnull {
+        private readonly U _defaultValue;
+        public DefaultDictionary(U defaultValue) {
+            _defaultValue = defaultValue;
+        }
+        
+        new public U this[T key] {
+            get {
+                return TryGetValue(key, out U? value) ? value : _defaultValue;
+            }
+            set {
+                base[key] = value;
+            }
+        }
+    }
+    
     public class Counter<T> : Dictionary<T, int> where T : notnull {
         private readonly int _defaultValue;
         public Counter(int defaultValue) {
@@ -84,8 +130,7 @@ namespace AoCUtils {
 
         new public int this[T key] {
             get {
-                int value;
-                return TryGetValue(key, out value) ? value : _defaultValue;
+                return TryGetValue(key, out int value) ? value : _defaultValue;
             }
             set {
                 base[key] = value;
