@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -146,6 +148,119 @@ namespace AoCUtils {
         public void SetMin(T key, int n) {
             this[key] = Min(this[key], n);
         }
+    }
+
+    public class OrderedDictionary<TKey, TValue> : 
+        IDictionary<TKey, TValue>
+    {
+        public struct Enumerator : IEnumerator, IEnumerator<KeyValuePair<TKey, TValue>> {
+            public IDictionaryEnumerator _e;
+            public bool MoveNext() {
+                return _e.MoveNext();
+            }
+            public void Reset() {
+                _e.Reset();
+            }
+            public KeyValuePair<TKey, TValue> Current {
+                get {
+                    return new((TKey)_e.Entry.Key, (TValue)_e.Entry.Value!);
+                }
+            }
+            object IEnumerator.Current {
+                get {
+                    return new KeyValuePair<TKey, TValue>((TKey)_e.Entry.Key, (TValue)_e.Entry.Value!);
+                }
+            }
+            public void Dispose() {}
+        }
+        private OrderedDictionary _d = new();
+        public OrderedDictionary() : base() {}
+
+        public TValue this[TKey key] {
+            get {
+                return (TValue)(
+                    _d[key!] ?? throw new Exception("I hate you stop putting null as a value")
+                );
+            }
+            set {
+                TKey k = key ?? throw new Exception("Key cannot be null");
+                _d[k] = value ?? throw new Exception("I hate you stop putting null as a value");
+            }
+        }
+        public int Count {
+            get {return _d.Count;}
+        }
+        public bool IsReadOnly {
+            get {return _d.IsReadOnly;}
+        }
+        public ICollection<TKey> Keys {
+            get {return _d.Keys.Cast<TKey>().ToList();}
+        }
+        public ICollection<TValue> Values {
+            get {return _d.Values.Cast<TValue>().ToList();}
+        }
+
+        public void Add(KeyValuePair<TKey, TValue> kv) {
+            this[kv.Key] = kv.Value;
+        }
+        public void Add(TKey key, TValue value) {
+            this[key] = value;
+        }
+
+        public void Clear() {
+            _d.Clear();
+        }
+        public bool ContainsKey(TKey key) {
+            if (key is null) {
+                throw new ArgumentNullException(nameof(key));
+            }
+            return _d.Contains(key!);
+        }
+        public bool Contains(KeyValuePair<TKey, TValue> kv) {
+
+            if (!this.ContainsKey(kv.Key)) {
+                return false;
+            }
+            if (kv.Value is not null) {
+                return kv.Value.Equals(this[kv.Key]);
+            }
+            return this[kv.Key] is null;
+        }
+        public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex) {
+            _d.CopyTo(array, arrayIndex);
+        }
+        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() {
+            return new OrderedDictionary<TKey, TValue>.Enumerator{_e = _d.GetEnumerator()};
+        }
+        IEnumerator IEnumerable.GetEnumerator() {
+            return this.GetEnumerator();
+        }
+        public bool Remove(TKey key) {
+            bool success = false;
+            if (this.ContainsKey(key!)) {
+                success = true;
+                _d.Remove(key!);
+            }
+            return success;
+        }
+        public bool Remove(KeyValuePair<TKey, TValue> kv) {
+            bool success = false;
+            if (this.ContainsKey(kv.Key!)) {
+                success = true;
+                _d.Remove(kv.Key!);
+            }
+            return success;
+        }
+
+        public bool TryGetValue(TKey key, [MaybeNullWhen(false)] out TValue value) {
+            if (this.ContainsKey(key)) {
+                value = this[key];
+                return true;
+            }
+            value = default;
+            return false;
+        }
+
     }
     
 }
