@@ -105,15 +105,18 @@ namespace AoCUtils {
         public static IEnumerable<int> IntRange(int end) => IntRange(0, end, 1);
     }
 
-    public class DefaultDictionary<T, U> : Dictionary<T, U> where T : notnull {
-        private readonly U _defaultValue;
-        public DefaultDictionary(U defaultValue) {
+    public class DefaultDictionary<TKey, TValue> : Dictionary<TKey, TValue> where TKey : notnull {
+        private readonly TValue _defaultValue;
+        public DefaultDictionary(TValue defaultValue) {
             _defaultValue = defaultValue;
         }
+        public DefaultDictionary() {
+            _defaultValue = default(TValue) ?? throw new Exception("Value type has no default value");
+        }
         
-        new public U this[T key] {
+        new public TValue this[TKey key] {
             get {
-                return TryGetValue(key, out U? value) ? value : _defaultValue;
+                return TryGetValue(key, out TValue? value) ? value : _defaultValue;
             }
             set {
                 base[key] = value;

@@ -226,6 +226,9 @@ namespace AoCUtils {
         public static bool IsIn<T>(this T value, IEnumerable<T> options) {
             return options.Contains(value);
         }
+        public static bool IsIn<T>(this T value, params T[] options) {
+            return options.Contains(value);
+        }
         public static bool IsInInterval(this int testing, int lowerLimit, int upperLimit) {
             return lowerLimit <= testing && testing <= upperLimit;
         }
