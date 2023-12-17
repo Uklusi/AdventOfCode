@@ -50,6 +50,9 @@ namespace AoCUtils {
                     }
                 );
             }
+            public Vector ToVector(bool upIsNegative=false) {
+                return Vector.FromDirection(this, upIsNegative: upIsNegative);
+            }
 
             public int ToInt(){
                 return dir;
@@ -370,6 +373,9 @@ namespace AoCUtils {
             public override int GetHashCode()
             {
                 throw new NotSupportedException("Cannot hash class Movable");
+            }
+            public (Point, Direction) GetState() {
+                return (this.ToPoint(), this.dir);
             }
 
             public void Turn(int i){
