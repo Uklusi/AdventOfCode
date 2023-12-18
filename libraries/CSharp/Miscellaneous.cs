@@ -23,6 +23,13 @@ namespace AoCUtils {
             return new Exception("AAAA");
         }
 
+        public static (int min, int max) MinMax(int a, int b) {
+            return (Min(a, b), Max(a, b));
+        }
+        public static (long min, long max) MinMax(long a, long b) {
+            return (Min(a, b), Max(a, b));
+        }
+
         public static int Mod(int a, int m) {
             return ((a % m) + m) % m;
         }
