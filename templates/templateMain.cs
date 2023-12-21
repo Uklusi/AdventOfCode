@@ -76,10 +76,10 @@ namespace AoC {
 
         private readonly string data = string.Empty;
 
+        /// <summary>
+        /// Helper class created in order to read input.
+        /// </summary>
         public Input(bool useExample=false) {
-            /// <summary>
-            /// Helper class created in order to read input.
-            /// </summary>
 
             string inputFile = string.Empty;
 
@@ -93,57 +93,57 @@ namespace AoC {
             data = File.ReadAllText(inputFile).Replace("\r\n", "\n").TrimEnd();
         }
 
+        /// <summary>
+        /// The data in its raw form. Loses all spaces at the end.
+        /// </summary>
         public string Read() {
-            /// <summary>
-            /// The data in its raw form. Loses all spaces at the end.
-            /// </summary>
             return data;
         }
 
+        /// <summary>
+        /// The data, digested in a list of lines
+        /// </summary>
         public List<string> ReadLines() {
-            /// <summary>
-            /// The data, digested in a list of lines
-            /// </summary>
-            return new List<string>(data.Split('\n'));
+            return data.Split('\n').ToList();
         }
 
+        /// <summary>
+        /// The data, us a list of paragraphs.
+        /// A paragraph is a list of lines, separated by an empty line
+        /// </summary>
         public List<List<string>> ReadParagraphs() {
-            /// <summary>
-            /// The data, us a list of paragraphs.
-            /// A paragraph is a list of lines, separated by an empty line
-            /// </summary>
             string[] blocks = data.Split("\n\n");
-            List<List<string>> table = new List<List<string>>();
+            List<List<string>> table = new();
             
             for (int i = 0; i < blocks.Length; i++) {
                 var block = blocks[i];
-                table.Add(new List<string>(block.Split("\n")));
+                table.Add(block.Split("\n").ToList());
             }
             
             return table;
         }
 
+        /// <summary>
+        /// Given a map (a list of lines),
+        /// returns the same map replacing '.' with ' ' and '#' with '█'
+        /// </summary>
         public List<string> ProcessMap(List<string> AoCMap) {
-            /// <summary>
-            /// Given a map (a list of lines),
-            /// returns the same map replacing '.' with ' ' and '#' with '█'
-            /// </summary>
             return AoCMap.Select(s => s.Replace('.', EMPTY).Replace('#', FULL)).ToList();
         }
         
+        /// <summary>
+        /// Reads the data as a processed map (check ProcessMap)
+        /// </summary>
         public List<string> ReadProcessedMap() {
-            /// <summary>
-            /// Reads the data as a processed map (check ProcessMap)
-            /// </summary>
             return ProcessMap(ReadLines());
         }
 
+        /// <summary>
+        /// Reads the data as a list of lines, where each line is a list of tokens
+        /// (a token is one or more characters separated by spaces)
+        /// </summary>
         public List<List<string>> ReadTokens() {
-            /// <summary>
-            /// Reads the data as a list of lines, where each line is a list of tokens
-            /// (a token is one or more characters separated by spaces)
-            /// </summary>
-            return data.Split('\n').Select(line => line.Split(' ').ToList()).ToList();
+            return data.Split('\n').Select(line => line.Split(' ')).ToNestedList();
         }
 
         public List<List<string>> ReadWords(string additionalTokens="", bool skipBlanks=true) {
@@ -158,32 +158,31 @@ namespace AoC {
                     line => re
                         .Matches(line)
                         .Select(m => m.Value)
-                        .ToList()
                 )
-                .ToList();
+                .ToNestedList();
         }
 
-        public List<List<int>> Ints(List<string> linesWithInts) {
+        public List<List<int>> Ints(IEnumerable<string> linesWithInts) {
             Regex re = new Regex(@"(\b|-)\d+\b", RegexOptions.Compiled);
             return linesWithInts
                 .Select(
                     line => re.Matches(line)
                         .Select(match => match.Value.ToInt())
-                        .ToList()
-                ).ToList();
+                ).ToNestedList();
         }
+        /// <summary>
+        /// Reads the data as a list of lines, where each line is a list of all the integers
+        /// appearing in that line of the data (when separated by word boundaries)
+        /// </summary>
         public List<List<int>> ReadInts() => Ints(ReadLines());
-            /// <summary>
-            /// Reads the data as a list of lines, where each line is a list of all the integers
-            /// appearing in that line of the data (when separated by word boundaries)
-            /// </summary>
 
+        /// <summary>
+        /// Reads the data as a list of lines, where each line is a couple of list,
+        /// one containing all the integers appearing in that line of the data
+        /// (all tokens that match exactly the Regex "-?\d+")
+        /// and the other containing all the non-integer tokens
+        /// </summary>
         public List<(List<int> ints, List<string> strs)> ReadIntsAndStrings() {
-            /// <summary>
-            /// Reads the data as a list of lines, where each line is a couple of list,
-            /// one containing all the integers appearing in that line of the data
-            /// and the other containing all the non-integer tokens
-            /// </summary>
             Regex re = new Regex(@"^-?\d+$", RegexOptions.Compiled);
             return (
                 from line in ReadTokens()
@@ -202,10 +201,10 @@ namespace AoC {
             ).ToList();
         }
         
+        /// <summary>
+        /// Reads the data as a list of tuples (Point p, char item)
+        /// </summary>
         public List<(Point p, char item)> ReadMapAsPoints() {
-            /// <summary>
-            /// Reads the data as a list of tuples (Point p, char item)
-            /// </summary>
             return ReadLines().Enumerate2D().ToList();
         }
     }
