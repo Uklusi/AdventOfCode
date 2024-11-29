@@ -67,7 +67,8 @@ def main():
     else:
         if not os.path.isfile(folder_to_create / "part1.py"):
             shutil.copy(Path("templates/template.py"), folder_to_create / "AoC.py")
-            os.symlink(Path("../../libraries/AoCUtils.py"), folder_to_create / "AoCUtils.py")
+            shutil.copy(Path("libraries/AoCUtils.py"), folder_to_create / "AoCUtils.py")
+            # os.symlink(Path("../../libraries/AoCUtils.py"), folder_to_create / "AoCUtils.py")
 
     
     open(folder_to_create / "example.txt", 'a').close()
