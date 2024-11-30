@@ -2,17 +2,17 @@
 import sys
 import time
 from io import TextIOWrapper
+from typing import Any
 
 
 def solve_p1(useExample: bool = False) -> str:
-    
-    logger = Logger("part1")
+    logger = Logger("part1", write_to_log=False)
     result = 0
 
-    input_reader = InputReader(useExample=useExample) #type: ignore
+    input_reader = InputReader(useExample=useExample)  # noqa: F841
 
 
-    
+
 
     logger.close()
     return str(result)
@@ -22,20 +22,16 @@ def solve_p1(useExample: bool = False) -> str:
 
 
 def solve_p2(useExample: bool = False) -> str:
-    
-    logger = Logger("part2")
+    logger = Logger("part2", write_to_log=False)
     result = 0
 
-    input_reader = InputReader(useExample=useExample) #type: ignore
+    input_reader = InputReader(useExample=useExample)  # noqa: F841
 
 
-    
+
 
     logger.close()
     return str(result)
-
-
-
 
 
 class Logger():
@@ -72,7 +68,7 @@ class InputReader():
 
         with open(inputFile, "r") as f:
             self.data = f.read().rstrip()
-    
+
     def read(self):
         return self.data
 
@@ -114,7 +110,7 @@ class Timer():
 
     def lap(self):
         now_wall, now_cpu = time.perf_counter(), time.process_time()
-        
+
         dt_wall = Timer.seconds_to_most_relevant_unit(now_wall - self.last_wall)
         dt_cpu = Timer.seconds_to_most_relevant_unit(now_cpu - self.last_cpu)
 
@@ -136,14 +132,14 @@ class Timer():
 
 def main():
     args = sys.argv[1:]
-    
+
     if not (1 <= len(args) <= 2):
         print("Please pass the part you want to solve to the program,")
         print("And optionally the --example flag")
         sys.exit(1)
-    
+
     part = int(args[0])
-    if (len(args) == 2 and args[2] == "--example"):
+    if (len(args) == 2 and args[1] == "--example"):
         useExample = True
     else:
         useExample = False
@@ -158,13 +154,14 @@ def main():
     else:
         print("Wrong part specified, exiting")
         sys.exit(1)
-    
+
     time_str = timer.stop()
     print(time_str)
 
     with open(f"output{part}.txt", "w") as outputFile:
         outputFile.write(result)
     print(result)
+
 
 if __name__ == "__main__":
     main()
