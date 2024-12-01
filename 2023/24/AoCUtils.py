@@ -765,6 +765,11 @@ class PositionNDim:
             ]
         )
 
+    def __mul__(self, other: PositionNDim):
+        if self.numDimensions != other.numDimensions:
+            raise ValueError("Different number of dimensions")
+        return sum([a * b for (a, b) in zip(self.coordinates, other.coordinates)])
+
     def __rmul__(self, n: int) -> PositionNDim:
         return PositionNDim([n * c for c in self.coordinates])
 
@@ -816,6 +821,24 @@ class PositionNDim:
             return self
         d = gcd(*self.coordinates)
         return PositionNDim([n // d for n in self.coordinates])
+
+    def __matmul__(self, other: PositionNDim):
+        """
+        Cross product
+        """
+        if not isinstance(other, self.__class__):
+            raise TypeError("Cannot calculate cross product")
+        if other.numDimensions != 3:
+            raise ValueError(
+                "Cannot calculate cross product with more than 3 dimensions"
+            )
+        return PositionNDim(
+            [
+                self.y * other.z - self.z * other.y,
+                self.z * other.x - self.x * other.z,
+                self.x * other.y - self.y * other.x,
+            ]
+        )
 
 
 class Interval:

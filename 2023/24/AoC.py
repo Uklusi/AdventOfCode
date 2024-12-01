@@ -64,17 +64,6 @@ def solve_p1(useExample: bool = False) -> str:
     return str(result)
 
 
-def cross(v1: tuple, v2: tuple):
-    (a, b, c) = v1
-    (d, e, f) = v2
-    return (b * f - c * e, c * d - a * f, a * e - b * d)
-
-
-def add(v1, v2, v3):
-    return tuple(map(sum, zip(v1, v2, v3)))
-    return (v1[0] + v2[0], v1[1] + v2[1], v1[2] + v2[2])
-
-
 def solve_p2(useExample: bool = False) -> str:
     """
     since p + v*t1 = p1 + v1*t1, p - p1 = -t*(v - v1)
@@ -88,21 +77,24 @@ def solve_p2(useExample: bool = False) -> str:
     input_reader = InputReader(useExample=useExample)  # noqa: F841
 
     ints = input_reader.read_ints()
-    hail_info = [((a, b, c), (d, e, f)) for (a, b, c, d, e, f) in ints]
+    hail_info = [
+        (PositionNDim(a, b, c), PositionNDim(d, e, f)) for (a, b, c, d, e, f) in ints
+    ]
 
     [(p1, v1), (p2, v2), (p3, v3)] = hail_info[:3]
 
     px, py, pz, vx, vy, vz = symbols("px py pz vx vy vz")
-    p = (px, py, pz)
-    v = (vx, vy, vz)
-    # third vector should be -cross(p1, v1), but this is equivalent
-    a = add(cross(p1, v), cross(p, v1), cross(v1, p1))
-    b = add(cross(p2, v), cross(p, v2), cross(v2, p2))
-    c = add(cross(p3, v), cross(p, v3), cross(v3, p3))
+    p = PositionNDim((px, py, pz))
+    v = PositionNDim((vx, vy, vz))
+
+    a = p1 @ v + p @ v1 - p1 @ v1
+    b = p2 @ v + p @ v2 - p2 @ v2
+    c = p3 @ v + p @ v3 - p3 @ v3
 
     system_solution = linsolve(
-        [Eq(a1, b1) for (a1, b1) in zip(a, b)] + [Eq(a1, c1) for (a1, c1) in zip(a, c)],
-        (*p, *v),
+        [Eq(a1, b1) for (a1, b1) in zip(a.coordinates, b.coordinates)]
+        + [Eq(a1, c1) for (a1, c1) in zip(a.coordinates, c.coordinates)],
+        (*p.coordinates, *v.coordinates),
     )
 
     solution = list(system_solution)[0]
