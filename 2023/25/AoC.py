@@ -4,6 +4,7 @@ import time
 from io import TextIOWrapper
 import re
 from typing import Any
+from collections import Counter
 
 
 def solve_p1(useExample: bool = False) -> str:
@@ -11,6 +12,67 @@ def solve_p1(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+
+    connections: defaultdict[str, set[str]] = defaultdict(set)
+    wires = input_reader.read_words()
+    for row in wires:
+        head = row[0]
+        for tail in row[1:]:
+            connections[head] |= {tail}
+            connections[tail] |= {head}
+
+    def traverse(
+        connections: dict[str, set[str]],
+        start: str,
+        end: str,
+        exclude: set[frozenset[str]],
+    ):
+        ret: set[frozenset[str]] = set()
+        if start == end:
+            return ret
+        visited: set[str] = set()
+        pred: dict[str, str | None] = {start: None}
+        incumbent = {start}
+        while len(incumbent) > 0:
+            x = incumbent.pop()
+            visited.add(x)
+            if x == end:
+                break
+            for y in connections[x]:
+                if y in visited or y in incumbent or frozenset((x, y)) in exclude:
+                    continue
+                pred[y] = x
+                incumbent.add(y)
+        if end not in pred:
+            return ret
+        node = end
+        while node != start:
+            ret.add(frozenset((node, pred[node])))
+            node = pred[node]
+        return ret
+
+    count = Counter()
+    connected = 0
+    disconnected = 0
+
+    comp = wires[0][0]
+    connected += 1
+    for other in connections:
+        if other != comp:
+            exclude: set[frozenset[str]] = set()
+            numpaths = 0
+            ret = traverse(connections, comp, other, exclude)
+            while len(ret) > 0:
+                numpaths += 1
+                exclude.update(ret)
+                count[other] += 1
+                ret = traverse(connections, comp, other, exclude)
+            if numpaths > 3:
+                connected += 1
+            else:
+                disconnected += 1
+
+    result = connected * disconnected
 
     logger.close()
     return str(result)
