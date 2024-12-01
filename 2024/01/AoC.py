@@ -4,6 +4,7 @@ import time
 from io import TextIOWrapper
 import re
 from typing import Any
+from collections import Counter
 
 
 def solve_p1(useExample: bool = False) -> str:
@@ -11,6 +12,16 @@ def solve_p1(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+
+    ints = input_reader.read_ints()
+
+    l1 = [c[0] for c in ints]
+    l2 = [c[1] for c in ints]
+
+    l1.sort()
+    l2.sort()
+
+    result = sum([abs(a - b) for (a, b) in zip(l1, l2)])
 
     logger.close()
     return str(result)
@@ -21,6 +32,17 @@ def solve_p2(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+    
+    ints = input_reader.read_ints()
+
+    l1 = [c[0] for c in ints]
+    l2 = [c[1] for c in ints]
+    count1 = Counter(l1)
+    count2 = Counter(l2)
+
+    for i in count1:
+        if i in count2:
+            result += i * count1[i] * count2[i]
 
     logger.close()
     return str(result)
