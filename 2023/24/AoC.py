@@ -4,6 +4,7 @@ import time
 from io import TextIOWrapper
 import re
 from typing import Any
+from itertools import combinations
 
 
 def solve_p1(useExample: bool = False) -> str:
@@ -11,6 +12,52 @@ def solve_p1(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+
+    if useExample:
+        bound = (7, 27)
+    else:
+        bound = (200000000000000, 400000000000000)
+
+    ints = input_reader.read_ints()
+    hail_info = [
+        (Position(a, b, reverseY=False), Vector(d, e, reverseY=False).direction())
+        for (a, b, _, d, e, _) in ints
+    ]
+
+    def solve_system(
+        p: Position, u: Vector, q: Position, v: Vector
+    ) -> tuple[float, float, Position]:
+        """
+        a * u - b * v == q - p
+        """
+        if u == v or u == -v:
+            return None
+        d = q - p
+        under = u.vx * v.vy - u.vy * v.vx
+        a = (d.vx * v.vy - d.vy * v.vx) / under
+        b = (d.vx * u.vy - d.vy * u.vx) / under
+        return (a, b, p + a * u)
+
+    def is_in_bounds(p: Position, u: Vector, q: Position, v: Vector):
+        t = solve_system(p, u, q, v)
+        if t is None:
+            return false
+        return (
+            t[0] > 0
+            and t[1] > 0
+            and (bound[0] <= t[2].x <= bound[1])
+            and (bound[0] <= t[2].y <= bound[1])
+        )
+
+    for ((p, u), (q, v)) in combinations(hail_info, 2):
+        # logger.write_line(solve_system(p, u, q, v))
+        if is_in_bounds(p, u, q, v):
+            result += 1
+    # logger.write_line(
+    #     solve_system(hail_info[0][0], hail_info[0][1], hail_info[1][0], hail_info[1][1])
+    # )
+
+    # logger.write_line(hail_info[0])
 
     logger.close()
     return str(result)
