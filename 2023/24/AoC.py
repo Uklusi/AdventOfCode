@@ -5,6 +5,7 @@ from io import TextIOWrapper
 import re
 from typing import Any
 from itertools import combinations
+from sympy import symbols, linsolve, Eq
 
 
 def solve_p1(useExample: bool = False) -> str:
@@ -49,7 +50,7 @@ def solve_p1(useExample: bool = False) -> str:
             and (bound[0] <= t[2].y <= bound[1])
         )
 
-    for ((p, u), (q, v)) in combinations(hail_info, 2):
+    for (p, u), (q, v) in combinations(hail_info, 2):
         # logger.write_line(solve_system(p, u, q, v))
         if is_in_bounds(p, u, q, v):
             result += 1
@@ -63,11 +64,50 @@ def solve_p1(useExample: bool = False) -> str:
     return str(result)
 
 
+def cross(v1: tuple, v2: tuple):
+    (a, b, c) = v1
+    (d, e, f) = v2
+    return (b * f - c * e, c * d - a * f, a * e - b * d)
+
+
+def add(v1, v2, v3):
+    return tuple(map(sum, zip(v1, v2, v3)))
+    return (v1[0] + v2[0], v1[1] + v2[1], v1[2] + v2[2])
+
+
 def solve_p2(useExample: bool = False) -> str:
+    """
+    since p + v*t1 = p1 + v1*t1, p - p1 = -t*(v - v1)
+    this means that (p - p1) // (v - v1), or (p - p1)×(v - v1) = 0
+    Opening with bilinearity gives p1 × v + p × v1 - p1 × v1 = - p × v
+    rhs is the same for each i, this gives the equation used to solve (since this is linear in p and v)
+    """
     logger = Logger("part2", write_to_log=False)
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+
+    ints = input_reader.read_ints()
+    hail_info = [((a, b, c), (d, e, f)) for (a, b, c, d, e, f) in ints]
+
+    [(p1, v1), (p2, v2), (p3, v3)] = hail_info[:3]
+
+    px, py, pz, vx, vy, vz = symbols("px py pz vx vy vz")
+    p = (px, py, pz)
+    v = (vx, vy, vz)
+    # third vector should be -cross(p1, v1), but this is equivalent
+    a = add(cross(p1, v), cross(p, v1), cross(v1, p1))
+    b = add(cross(p2, v), cross(p, v2), cross(v2, p2))
+    c = add(cross(p3, v), cross(p, v3), cross(v3, p3))
+
+    system_solution = linsolve(
+        [Eq(a1, b1) for (a1, b1) in zip(a, b)] + [Eq(a1, c1) for (a1, c1) in zip(a, c)],
+        (*p, *v),
+    )
+
+    solution = list(system_solution)[0]
+
+    result = solution[0] + solution[1] + solution[2]
 
     logger.close()
     return str(result)
