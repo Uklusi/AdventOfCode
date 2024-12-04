@@ -33,6 +33,12 @@ def solve_p1(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+    s = input_reader.data
+
+    t = re.findall(r"mul\(\d+,\d+\)", s)
+    for u in t:
+        [a, b] = re.findall(r"\d+", u)
+        result += int(a) * int(b)
 
     logger.close()
     return str(result)
@@ -42,6 +48,16 @@ def solve_p2(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+
+    s = input_reader.data.replace("\n", "")
+
+    s = re.sub(r"don't\(\).*?do\(\)", "", s)
+    s = re.sub(r"don't\(\).*$", "", s)
+    
+    t = re.findall(r"mul\(\d+,\d+\)", s)
+    for u in t:
+        [a, b] = re.findall(r"\d+", u)
+        result += int(a) * int(b)
 
     logger.close()
     return str(result)
