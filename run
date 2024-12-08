@@ -1,33 +1,32 @@
 import os
 import sys
 from pathlib import Path
+from datetime import datetime
+from argparse import ArgumentParser
 
 
 def main():
+    today = datetime.today()
+    parser = ArgumentParser(prog="run")
+    parser.add_argument("-l", "--language", default="py", type=str)
+    parser.add_argument("-y", "--year", default=today.year, type=int)
+    parser.add_argument("-d", "--day", default=today.day, type=int)
+    parser.add_argument("-p", "--part", default=1, type=int)
+    parser.add_argument("-e", "--example", action="store_true")
 
-    args = sys.argv[1:]
-    if len(args) < 4 or len(args) > 5:
-        print("The script must be called with four parameters plus one optional.")
-        print("Required parameters: [cs/py], year, day and part.")
-        print("Optional parameter: --example")
-        sys.exit(1)
-    
-    language = args[0]
-    if language not in ["cs", "py"]:
-        print("First argument must be one of cs or py")
-        sys.exit(1)
-    
-    year = int(args[1])
-    day = int(args[2])
-    part = int(args[3])
+    args = parser.parse_args()
 
-    if len(args) == 4:
-        switch = None
+    language: str = args.language
+    year: int = args.year
+    day: int = args.day
+    part: int = args.part
+    example: bool = args.example
+
+    if example:
+        switch = "--example"
     else:
-        switch = args[4]
-    if switch != "--example":
         switch = ""
-    
+
     original_folder = os.getcwd()
     if year < 2022:
         folder = Path(f"{year}/Day_{day:02d}")
@@ -48,6 +47,6 @@ def main():
 
     sys.exit(0)
 
+
 if __name__ == "__main__":
     main()
-    

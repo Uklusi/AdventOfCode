@@ -4,30 +4,44 @@ from pathlib import Path
 import requests
 import shutil
 from datetime import datetime, timezone
+from argparse import ArgumentParser
 
 
 def main():
-    
+
     with open("session_cookie.txt", "r") as f:
         session_cookie = f.read().strip()
 
     headers = {
-        'cookie': f'session={session_cookie}',
-        'User-Agent': "https://github.com/Uklusi/AdventOfCode/create by aurelio.polinto@gmail.com"
+        "cookie": f"session={session_cookie}",
+        "User-Agent": "https://github.com/Uklusi/AdventOfCode/create by aurelio.polinto@gmail.com",
     }
 
-    args = sys.argv[1:]
-    if len(args) != 3:
-        print("The script must be called with three parameters, [cs/py], year and day")
-        sys.exit(1)
-    
-    language = args[0]
-    if language not in ["cs", "py"]:
-        print("First argument must be one of cs or py")
-        sys.exit(1)
-    
-    year = int(args[1])
-    day = int(args[2])
+    today = datetime.today()
+
+    parser = ArgumentParser(prog="create")
+    parser.add_argument("-l", "--language", default="py", type=str)
+    parser.add_argument("-y", "--year", default=today.year, type=int)
+    parser.add_argument("-d", "--day", default=today.day, type=int)
+
+    args = parser.parse_args()
+
+    language: str = args.language
+    year: int = args.year
+    day: int = args.day
+
+    # args = sys.argv[1:]
+    # if len(args) != 3:
+    #     print("The script must be called with three parameters, [cs/py], year and day")
+    #     sys.exit(1)
+
+    # language = args[0]
+    # if language not in ["cs", "py"]:
+    #     print("First argument must be one of cs or py")
+    #     sys.exit(1)
+
+    # year = int(args[1])
+    # day = int(args[2])
 
     folder_to_create = Path(f"{year}/{day:02d}")
     original_folder = os.getcwd()
@@ -36,25 +50,24 @@ def main():
     puzzle_release_date = datetime(year, 12, day, 5, 0, tzinfo=timezone.utc)
     now_utc = datetime.now(timezone.utc)
     if (
-        not os.path.isfile(folder_to_create / "input.txt" )
+        not os.path.isfile(folder_to_create / "input.txt")
         and now_utc > puzzle_release_date
     ):
         with open(folder_to_create / "input.txt", "w", newline="\n") as f:
             r = requests.get(
-                url=f"https://adventofcode.com/{year}/day/{day}/input",
-                headers=headers
+                url=f"https://adventofcode.com/{year}/day/{day}/input", headers=headers
             )
             if r.ok:
                 f.write(r.text.replace("\r\n", "\n"))
             else:
                 print(f"request failed with error {r.text}")
             pass
-    
-    if (language == "cs"):
+
+    if language == "cs":
         try:
             os.chdir(folder_to_create)
             if not os.path.isfile(f"{day:02d}.csproj"):
-                reference = Path('../../libraries/CSharp/CSharp.csproj')
+                reference = Path("../../libraries/CSharp/CSharp.csproj")
                 os.system("dotnet new console")
                 os.system(f"dotnet add reference {str(reference)}")
                 os.remove("Program.cs")
@@ -62,21 +75,24 @@ def main():
             os.chdir(original_folder)
 
         if not os.path.isfile(folder_to_create / "Main.cs"):
-            os.symlink(Path("../../templates/templateMain.cs"), folder_to_create / "Main.cs")
-            shutil.copy(Path("templates/templateSolver.cs"), folder_to_create / "Solver.cs")
+            os.symlink(
+                Path("../../templates/templateMain.cs"), folder_to_create / "Main.cs"
+            )
+            shutil.copy(
+                Path("templates/templateSolver.cs"), folder_to_create / "Solver.cs"
+            )
     else:
         if not os.path.isfile(folder_to_create / "part1.py"):
             shutil.copy(Path("templates/template.py"), folder_to_create / "AoC.py")
             shutil.copy(Path("libraries/AoCUtils.py"), folder_to_create / "AoCUtils.py")
             # os.symlink(Path("../../libraries/AoCUtils.py"), folder_to_create / "AoCUtils.py")
 
-    
-    open(folder_to_create / "example.txt", 'a').close()
-    open(folder_to_create / "output1.txt", 'a').close()
-    open(folder_to_create / "output2.txt", 'a').close()
+    open(folder_to_create / "example.txt", "a").close()
+    open(folder_to_create / "output1.txt", "a").close()
+    open(folder_to_create / "output2.txt", "a").close()
 
     sys.exit(0)
 
+
 if __name__ == "__main__":
     main()
-    
