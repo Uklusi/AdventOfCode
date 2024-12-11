@@ -29,30 +29,29 @@ class Logger:
 logger = Logger("log", write_to_log=False)
 
 
+@cache
+def descendants(stone: str, steps: int):
+    if steps <= 0:
+        return 1
+    if stone == "0":
+        return descendants("1", steps - 1)
+    if len(stone) % 2 == 0:
+        sep = len(stone) // 2
+        a1, a2 = int(stone[:sep]), int(stone[sep:])
+        return descendants(str(a1), steps - 1) + descendants(str(a2), steps - 1)
+    return descendants(str(int(stone) * 2024), steps - 1)
+
+
 def solve_p1(useExample: bool = False) -> str:
     result = 0
 
-    input_reader = InputReader(useExample=useExample)  # noqa: F841
-    map = Frame(input_reader.lines())
-    starts: list[MapPosition] = []
-    for start in map.get_map_position():
-        if map[start] == "0":
-            starts.append(start)
+    STEPS = 25
 
-    for start in starts:
-        visited: set[MapPosition] = set()
-        to_inspect = {start}
-        ends: set[MapPosition] = set()
-        while len(to_inspect) > 0:
-            curr = to_inspect.pop()
-            visited.add(curr)
-            if map[curr] == "9":
-                ends.add(curr)
-            else:
-                for adj in curr.adjacent():
-                    if adj not in visited and int(map[adj]) == int(map[curr]) + 1:
-                        to_inspect.add(adj)
-        result += len(ends)
+    input_reader = InputReader(useExample=useExample)  # noqa: F841
+    input = input_reader.data.split()
+
+    for i in input:
+        result += descendants(i, STEPS)
 
     logger.close()
     return str(result)
@@ -61,22 +60,14 @@ def solve_p1(useExample: bool = False) -> str:
 def solve_p2(useExample: bool = False) -> str:
     result = 0
 
+    STEPS = 75
+
     input_reader = InputReader(useExample=useExample)  # noqa: F841
-    map = Frame(input_reader.lines())
-    starts: list[MapPosition] = []
-    for start in map.get_map_position():
-        if map[start] == "0":
-            starts.append(start)
+    input = input_reader.data.split()
 
-    @cache
-    def rating(p: MapPosition):
-        if map[p] == "9":
-            return 1
-        poss_steps = [q for q in p.adjacent() if int(map[q]) == int(map[p]) + 1]
-        return sum(rating(q) for q in poss_steps)
+    for i in input:
+        result += descendants(i, STEPS)
 
-    for start in starts:
-        result += rating(start)
     logger.close()
     return str(result)
 
