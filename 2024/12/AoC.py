@@ -29,10 +29,35 @@ class Logger:
 logger = Logger("log", write_to_log=False)
 
 
+def find_region(map: Frame, p: MapPosition):
+    ret: set[MapPosition] = {p}
+    incumbent = {p}
+    label = map[p]
+    perimeter = 0
+    while len(incumbent) > 0:
+        curr = incumbent.pop()
+        perimeter += 4
+        for q in curr.adjacent():
+            if map[q] == label:
+                perimeter -= 1
+                if q not in ret:
+                    ret.add(q)
+                    incumbent.add(q)
+    return (ret, perimeter)
+
+
 def solve_p1(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+    map = Frame(input_reader.lines())
+
+    visited: set[MapPosition] = set()
+    for p in map.get_map_position():
+        if p not in visited:
+            (ret, per) = find_region(map, p)
+            visited.update(ret)
+            result += len(ret) * per
 
     logger.close()
     return str(result)
@@ -42,6 +67,41 @@ def solve_p2(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+    map = Frame(input_reader.lines())
+
+    visited: set[MapPosition] = set()
+    regions: list[set[MapPosition]] = []
+    for p in map.get_map_position():
+        if p not in visited:
+            (ret, _) = find_region(map, p)
+            visited.update(ret)
+            regions.append(ret)
+
+    def findSide(p: MapPosition, region: set[MapPosition], dir: int):
+        perp = VectorDir(dir)
+        along = VectorDir(dir + 1)
+        if p not in region or p + perp in region:
+            return None
+        side = {(p, dir)}
+        for along in [VectorDir(dir + 1), VectorDir(dir + 3)]:
+            q = p + along
+            while q in region and q + perp not in region:
+                side.add((q, dir))
+                q = q + along
+        return side
+
+    for region in regions:
+        numSides = 0
+        visitedSides: set[tuple[MapPosition, int]] = set()
+        for p in region:
+            for dir in range(4):
+                if (p, dir) in visitedSides:
+                    continue
+                side = findSide(p, region, dir)
+                if side is not None:
+                    numSides += 1
+                    visitedSides.update(side)
+        result += numSides * len(region)
 
     logger.close()
     return str(result)

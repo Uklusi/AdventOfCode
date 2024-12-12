@@ -11,7 +11,7 @@ def main():
     parser.add_argument("-l", "--language", default="py", type=str)
     parser.add_argument("-y", "--year", default=today.year, type=int)
     parser.add_argument("-d", "--day", default=today.day, type=int)
-    parser.add_argument("-p", "--part", default=1, type=int)
+    parser.add_argument("-p2", "--only_part_2", action="store_true")
     parser.add_argument("-e", "--example", action="store_true")
 
     args = parser.parse_args()
@@ -19,13 +19,20 @@ def main():
     language: str = args.language
     year: int = args.year
     day: int = args.day
-    part: int = args.part
+    only_part_2: bool = args.only_part_2
     example: bool = args.example
 
     if example:
-        switch = "--example"
+        example_flag = "--example"
     else:
-        switch = ""
+        example_flag = ""
+
+    if only_part_2:
+        p2_flag = "-p2"
+        part = 2  # Legacy code
+    else:
+        p2_flag = ""
+        part = 1
 
     original_folder = os.getcwd()
     if year < 2022:
@@ -36,12 +43,14 @@ def main():
     try:
         os.chdir(folder)
         if language == "cs":
-            os.system(f"dotnet run -- {part} {switch}")
+            os.system(f"dotnet run -- {part} {example_flag}")
         else:
             if year < 2022:
-                os.system(f"python part{part}.py {switch}")
+                os.system(f"python part{part}.py {example_flag}")
+            elif (year, day) < (2024, 12):  # giuro che lo tolgo
+                os.system(f"python AoC.py {part} {example_flag}")
             else:
-                os.system(f"python AoC.py {part} {switch}")
+                os.system(f"python AoC.py {p2_flag} {example_flag}")
     finally:
         os.chdir(original_folder)
 
