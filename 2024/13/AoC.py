@@ -5,6 +5,8 @@ from io import TextIOWrapper
 import re
 from typing import Any
 
+# import pdb
+
 
 class Logger:
     def __init__(self, log_file_name: str, write_to_log: bool = False):
@@ -33,6 +35,26 @@ def solve_p1(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+    input = input_reader.paragraph_ints()
+
+    for claw_machine in input:
+        a_data = claw_machine[0]
+        b_data = claw_machine[1]
+        prize_data = claw_machine[2]
+        a = Vector(a_data[0], a_data[1])
+        b = Vector(b_data[0], b_data[1])
+        prize = Vector(prize_data[0], prize_data[1])
+        na = 0
+        nb = 0
+
+        winning = inf
+        for na, nb in product(range(100), range(100)):
+            if na * a + nb * b == prize:
+                new = 3 * na + nb
+                if new < winning:
+                    winning = new
+        if winning != inf:
+            result += winning
 
     logger.close()
     return str(result)
@@ -40,8 +62,53 @@ def solve_p1(useExample: bool = False) -> str:
 
 def solve_p2(useExample: bool = False) -> str:
     result = 0
+    STEPS_ADDED = 10000000000000
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+    input = input_reader.paragraph_ints()
+
+    def solve_division(dividend: int, divisor: int, m: int):
+        d = gcd(divisor, m)
+        if dividend % d != 0:
+            return None
+        dividend1 = dividend // d
+        divisor1 = divisor // d
+        m1 = m // d
+        inverse = pow(divisor1, -1, m1)
+        return (inverse * dividend1) % m1
+
+    for claw_machine in input:
+        a_data = claw_machine[0]
+        b_data = claw_machine[1]
+        prize_data = claw_machine[2]
+        a = Vector(a_data[0], a_data[1])
+        b = Vector(b_data[0], b_data[1])
+        prize = Vector(prize_data[0] + STEPS_ADDED, prize_data[1] + STEPS_ADDED)
+        na = 0
+        nb = min(prize.vx // b.vx, prize.vy // b.vy)
+        rem = prize - nb * b
+        # pdb.set_trace()
+        if rem.vx != 0:
+            k = solve_division(rem.vx, a.vx, b.vx)
+            if k is None:
+                continue
+            na += k
+            rem = prize - na * a - nb * b
+            nb += rem.vx // b.vx
+            rem = prize - na * a - nb * b
+        # pdb.set_trace()
+        if rem.vy != 0:
+            d = gcd(a.vx, b.vx)
+            nb1 = a.vx // d
+            na1 = b.vx // d
+            changey = a.vy * na1 - b.vy * nb1
+            if rem.vy % changey != 0:
+                continue
+            d1 = rem.vy // changey
+            nb -= nb1 * d1
+            na += na1 * d1
+        # pdb.set_trace()
+        result += 3 * na + nb
 
     logger.close()
     return str(result)
@@ -62,7 +129,7 @@ class InputReader:
         return self.data.split("\n")
 
     def paragraphs(self):
-        return [paragraph.split("\n") for paragraph in self.data.split("\n")]
+        return [paragraph.split("\n") for paragraph in self.data.split("\n\n")]
 
     def ints(self):
         return [
