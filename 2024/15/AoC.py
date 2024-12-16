@@ -26,21 +26,117 @@ class Logger:
             self.log_file.close()
 
 
-logger = Logger("log", write_to_log=False)
+logger = Logger("log", write_to_log=True)
+
+
+def calc_move(p: Position, frame: Frame, dir: Vector) -> tuple[bool, list[Position]]:
+    q = p + dir
+    if frame[q] == "#":
+        return (False, [])
+    elif frame[q] == ".":
+        return (True, [p])
+    else:
+        t = calc_move(q, frame, dir)
+        return (t[0], t[1] + [p])
 
 
 def solve_p1(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+    input = input_reader.paragraphs()
+
+    frame = Frame(input[0])
+    robot = [p for p in frame.get_iterator() if frame[p] == "@"][0]
+
+    moves = "".join(input[1])
+
+    for d in moves:
+        dir = VectorDir(d)
+        can_move, moved = calc_move(robot, frame, dir)
+        if can_move:
+            for p in moved:
+                frame[p + dir] = frame[p]
+            frame[robot] = "."
+            robot = robot + dir
+
+    for p in frame.get_iterator():
+        if frame[p] == "O":
+            result += 100 * p.y + p.x
 
     return str(result)
+
+
+def calc_move_p2(
+    starts: set[Position], frame: Frame, dir: Vector
+) -> tuple[bool, list[set[Position]]]:
+    left = VectorDir("L")
+    right = VectorDir("R")
+
+    if dir in (left, right):
+        q = list(starts)[0] + dir
+        if frame[q] == "#":
+            return (False, [])
+        elif frame[q] == ".":
+            return (True, [starts])
+        t = calc_move_p2({q}, frame, dir)
+        return (t[0], t[1] + [starts])
+
+    nexts_naive = {p + dir for p in starts}
+    if any([frame[q] == "#" for q in nexts_naive]):
+        return (False, [])
+    elif all([frame[q] == "." for q in nexts_naive]):
+        return (True, [starts])
+    nexts = copy(nexts_naive)
+    for q in nexts_naive:
+        if frame[q] == "[":
+            other = q + right
+            nexts.add(other)
+        elif frame[q] == "]":
+            other = q + left
+            nexts.add(other)
+        elif frame[q] == '.':
+            nexts.discard(q)
+        else:
+            raise ValueError(f"Unknown object {frame[q]} in target at {q}")
+
+    t = calc_move_p2(nexts, frame, dir)
+    return (t[0], t[1] + [starts])
 
 
 def solve_p2(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+    input = input_reader.paragraphs()
+    strFrame = input[0]
+    for i in range(len(strFrame)):
+        strFrame[i] = (
+            strFrame[i]
+            .replace("#", "##")
+            .replace(".", "..")
+            .replace("@", "@.")
+            .replace("O", "[]")
+        )
+
+    frame = Frame(strFrame)
+    robot = [p for p in frame.get_iterator() if frame[p] == "@"][0]
+
+    moves = "".join(input[1])
+
+    for d in moves:
+        dir = VectorDir(d)
+        can_move, moved = calc_move_p2({robot}, frame, dir)
+        if can_move:
+            for s in moved:
+                for p in s:
+                    frame[p + dir] = frame[p]
+                    frame[p] = '.'
+            robot = robot + dir
+
+    for p in frame.get_iterator():
+        if frame[p] == "[":
+            result += 100 * p.y + p.x
 
     return str(result)
 
