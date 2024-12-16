@@ -1220,7 +1220,9 @@ class Frame:
             for x in range(self.x):
                 yield Position(x, y)
 
-    def get_map_position(self, occupied: Callable[[Position], bool] | None = None):
+    def get_map_position(
+        self, occupied: Callable[[Position], bool] | None = None, only_empty=True
+    ):
         def occupied_ok(p: Position):
             if occupied is None:
                 return self[p] == "#"
@@ -1229,7 +1231,9 @@ class Frame:
 
         for y in range(self.y):
             for x in range(self.x):
-                yield MapPosition(x, y, frame=self.frame, occupied=occupied_ok)
+                q = MapPosition(x, y, frame=self.frame, occupied=occupied_ok)
+                if q.isEmpty() or not only_empty:
+                    yield q
 
     def where(
         self,
