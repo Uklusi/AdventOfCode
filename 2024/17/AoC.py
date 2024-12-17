@@ -3,8 +3,8 @@ from argparse import ArgumentParser
 import time
 from io import TextIOWrapper
 import re
-from typing import Any, TypeAlias
-import networkx as nx
+from typing import Any
+from dataclasses import dataclass, field
 
 
 class Logger:
@@ -29,115 +29,109 @@ class Logger:
 
 logger = Logger("log", write_to_log=False)
 
-PosDir: TypeAlias = tuple[MapPosition, int]
+
+@dataclass
+class Interpreter:
+    a: int
+    b: int
+    c: int
+    tape: list[int]
+    i: int = field(default=0, init=False)
+
+    def step(self, skip_jump: bool = False) -> int | None:
+        if self.i + 1 > len(self.tape):
+            raise StopIteration()
+
+        def interpret_param(i: int):
+            match i:
+                case 0 | 1 | 2 | 3:
+                    return i
+                case 4:
+                    return self.a
+                case 5:
+                    return self.b
+                case 6:
+                    return self.c
+                case _:
+                    raise ValueError(f"Invalid combo param {i}")
+
+        opcode, param = self.tape[self.i : self.i + 2]
+        self.i += 2
+        match opcode:
+            case 0:
+                self.a = self.a // 2 ** (interpret_param(param))
+            case 1:
+                self.b = self.b ^ param
+            case 2:
+                self.b = interpret_param(param) % 8
+            case 3:
+                if self.a != 0 and not skip_jump:
+                    self.i = param
+            case 4:
+                self.b = self.b ^ self.c
+            case 5:
+                return interpret_param(param) % 8
+            case 6:
+                self.b = self.a // 2 ** (interpret_param(param))
+            case 7:
+                self.c = self.a // 2 ** (interpret_param(param))
+
+    def run(self, skip_jump: bool = False):
+        ret: list[int] = []
+        try:
+            while True:
+                r = self.step(skip_jump=skip_jump)
+                if r is not None:
+                    ret.append(r)
+        except StopIteration:
+            return ret
 
 
 def solve_p1(useExample: bool = False) -> str:
-    result = inf
+    result = ""
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
-    frame = Frame(input_reader.lines())
+    input = input_reader.paragraph_ints()
 
-    start = frame.where_single(lambda s: s == "S")
-    end = frame.where_single(lambda s: s == "E")
+    regs = [input[0][i][0] for i in range(3)]
+    (a, b, c) = regs
+    tape = input[1][0]
 
-    def dijkstra(start: PosDir) -> dict[PosDir, int]:
+    program = Interpreter(a, b, c, tape)
 
-        openSet: PriorityQueue[tuple[int, PosDir]] = PriorityQueue()
-        distance: dict[PosDir, int] = {start: 0}
-        openSet.put((distance[start], start))
+    ret = program.run()
 
-        def distanceFunction(t1: PosDir, t2: PosDir) -> int:
-            p1 = t1[0]
-            d1 = t1[1]
-            p2 = t2[0]
-            d2 = t2[1]
-            if d1 == d2:
-                assert (p2 - p1).distance() == 1
-                return 1
-            assert (d1 + 1) % 4 == d2 or (d2 + 1) % 4 == d1
-            return 1000
-
-        while not openSet.empty():
-            (_, current) = openSet.get()
-            (p, d) = current
-
-            adj: list[PosDir] = [
-                (q, d) for q in p.adjacent() if (q - p).directionIndicator() == d
-            ] + [(p, (d + 1) % 4), (p, (d + 3) % 4)]
-
-            for a in adj:
-                tentativeDistance = distance[current] + distanceFunction(current, a)
-                if a not in distance or distance[a] > tentativeDistance:
-                    distance[a] = tentativeDistance
-                    openSet.put((distance[a], a))
-        return distance
-
-    distance = dijkstra((start, dirToNum("E")))
-    for k in distance:
-        if k[0] == end:
-            result = min(result, distance[k])
+    result = ",".join([str(i) for i in ret])
 
     return str(result)
+
+
+def check_head(a: int, tape: list[int], head: list[int]) -> tuple[bool, int]:
+    if len(head) == 0:
+        return (True, a)
+    for i in range(8):
+        a1 = 8 * a + i
+        program = Interpreter(a1, 0, 0, tape=tape)
+        if program.run(skip_jump=True)[0] == head[-1]:
+            (r, newa) = check_head(a1, tape, head[:-1])
+            if r:
+                return (True, newa)
+    return (False, -1)
 
 
 def solve_p2(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
-    frame = Frame(input_reader.lines())
+    input = input_reader.paragraph_ints()
 
-    start = frame.where_single(lambda s: s == "S")
-    end = frame.where_single(lambda s: s == "E")
-    graph = nx.DiGraph()
-    graph.add_nodes_from(
-        product(frame.get_map_position(occupied=lambda p: frame[p] == "#"), range(4))
-    )
+    regs = [input[0][i][0] for i in range(3)]
+    (a, b, c) = regs
+    tape = input[1][0]
 
-    graph.add_weighted_edges_from(
-        (
-            ((p, d), (p, (d + 1) % 4), 1000)
-            for (p, d) in product(
-                frame.get_map_position(occupied=lambda p: frame[p] == "#"), range(4)
-            )
-        )
-    )
-    graph.add_weighted_edges_from(
-        (
-            ((p, d), (p, (d + 3) % 4), 1000)
-            for (p, d) in product(
-                frame.get_map_position(occupied=lambda p: frame[p] == "#"), range(4)
-            )
-        )
-    )
-    graph.add_weighted_edges_from(
-        (
-            ((p, d), (q, d), 1)
-            for (p, d) in product(
-                frame.get_map_position(occupied=lambda p: frame[p] == "#"), range(4)
-            )
-            for q in p.adjacent()
-            if (q - p).directionIndicator() == d
-        )
-    )
-    # final edge
-    graph.add_node((end, -1))
-    graph.add_weighted_edges_from(((end, i), (end, -1), 0) for i in range(4))
-    east = dirToNum("E")
-    # lenght = cast(
-    #     int,
-    #     nx.shortest_path_length(
-    #         graph, source=(start, east), target=(end, -1), weight="weight"
-    #     ),
-    # )
-    # result = lenght
-
-    all_paths = nx.all_shortest_paths(
-        graph, source=(start, east), target=(end, -1), weight="weight"
-    )
-    all_tiles = {p for path in all_paths for (p, _) in path}
-    result = len(all_tiles)
-
+    t = check_head(0, tape, tape)
+    if t[0]:
+        result = t[1]
     return str(result)
 
 
