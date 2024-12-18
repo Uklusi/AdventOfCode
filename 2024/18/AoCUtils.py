@@ -1209,7 +1209,7 @@ class Frame:
 
     def __setitem__(self, key: Position, value: str):
         s = self.frame[key.y]
-        self.frame[key.y] = s[:key.x] + value + s[key.x + 1:]
+        self.frame[key.y] = s[: key.x] + value + s[key.x + 1 :]
 
     @property
     def y(self):
