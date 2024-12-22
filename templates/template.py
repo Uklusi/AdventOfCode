@@ -16,7 +16,7 @@ class Logger:
 
     def log(self, *t: Any, end: str = "\n"):
         if self.log_file is None:
-            print(*t, end=end)
+            print(" ".join([str(o) for o in t]) + end)
         else:
             self.log_file.write(" ".join([str(o) for o in t]) + end)
             self.log_file.flush()
@@ -45,10 +45,16 @@ def solve_p2(useExample: bool = False) -> str:
     return str(result)
 
 
+def run_debug(useExample: bool = False) -> None:
+    input_reader = InputReader(useExample=useExample)  # noqa: F841
+
+    return
+
+
 class InputReader:
     def __init__(self, useExample: bool):
-        self.data = ""
-        inputFile = "example.txt" if useExample else "input.txt"
+        self.data: str = ""
+        inputFile: str = "example.txt" if useExample else "input.txt"
 
         with open(inputFile, "r") as f:
             self.data = f.read().rstrip()
@@ -139,10 +145,19 @@ def main():
     parser = ArgumentParser(prog="AoC")
     parser.add_argument("-p2", "--only_part_2", action="store_true")
     parser.add_argument("-e", "--example", action="store_true")
+    parser.add_argument("-d", "--debug", action="store_true")
 
     args = parser.parse_args()
     only_part_2: bool = args.only_part_2
     useExample: bool = args.example
+    debug: bool = args.debug
+
+    if debug:
+        run_debug(useExample)
+
+        logger.close()
+
+        return
 
     for part in [1, 2]:
         if part != 2 and only_part_2:

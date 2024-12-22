@@ -18,10 +18,12 @@ from typing import (
 from copy import copy, deepcopy
 from math import gcd, prod  # noqa: F401
 from functools import partial, cache  # noqa: F401
-from itertools import product, starmap  # noqa: F401
+from itertools import product, starmap, chain  # noqa: F401
 from queue import PriorityQueue
 from collections import defaultdict  # noqa: F401
 import re
+from io import TextIOWrapper
+import time
 
 import numpy as np
 from numpy.typing import NDArray
@@ -71,6 +73,10 @@ def rangeFrame(frame: Sequence[Sequence[Any]]):
     return product(range(len(frame[0])), range(len(frame)))
 
 
+def flatten(input: Iterable[Iterable[T]]) -> list[T]:
+    return list(chain.from_iterable(input))
+
+
 # Useful variables
 inf: int = 2**64
 false = False
@@ -80,6 +86,118 @@ solid = "\u2588"
 full = solid
 empty = " "
 path = "·"
+
+# classes for problem execution and debug
+
+
+class Logger:
+    def __init__(self, log_file_name: str, write_to_log: bool = False):
+        self.log_file: TextIOWrapper | None
+        if write_to_log:
+            self.log_file = open(log_file_name + ".log", "w", encoding="utf8")
+        else:
+            self.log_file = None
+
+    def log(self, *t: Any, end: str = "\n"):
+        if self.log_file is None:
+            print(" ".join([str(o) for o in t]) + end)
+        else:
+            self.log_file.write(" ".join([str(o) for o in t]) + end)
+            self.log_file.flush()
+
+    def close(self):
+        if self.log_file is not None:
+            self.log_file.close()
+
+
+class InputReader:
+    def __init__(self, useExample: bool):
+        self.data: str = ""
+        inputFile: str = "example.txt" if useExample else "input.txt"
+
+        with open(inputFile, "r") as f:
+            self.data = f.read().rstrip()
+
+    def read(self):
+        return self.data
+
+    def lines(self):
+        return self.data.split("\n")
+
+    def paragraphs(self):
+        return [paragraph.split("\n") for paragraph in self.data.split("\n\n")]
+
+    def ints(self):
+        return [
+            [int(n) for n in re.findall(r"(?:\b|-)\d+\b", par)] for par in self.lines()
+        ]
+
+    def paragraph_ints(self):
+        return [
+            [[int(n) for n in re.findall(r"(?:\b|-)\d+\b", line)] for line in par]
+            for par in self.paragraphs()
+        ]
+
+    def words(self, additional_chars="", skip_blank_rows=True) -> list[list[str]]:
+        """
+        All words made by contiguous alphanum or additional_chars
+        """
+        return [
+            re.findall(r"[a-zA-Z0-9" + additional_chars + r"]+", par)
+            for par in self.lines()
+            if (par != "" or skip_blank_rows)
+        ]
+
+
+class Timer:
+    def __init__(self, name: str = "Timer"):
+        now_wall, now_cpu = time.perf_counter(), time.process_time()
+
+        self.name = name
+        self.start_wall = now_wall
+        self.start_cpu = now_cpu
+        self.last_wall = now_wall
+        self.last_cpu = now_cpu
+        self.lap_number = 0
+
+    # Shamelessly stolen from mebeim (https://github.com/mebeim/aoc/blob/master/utils/timer.py)
+    @classmethod
+    def seconds_to_most_relevant_unit(cls, s: float):
+        s *= 1e6
+        if s < 1000:
+            return "{:.3f}µs".format(s)
+
+        s /= 1000
+        if s < 1000:
+            return "{:.3f}ms".format(s)
+
+        s /= 1000
+        if s < 60:
+            return "{:.3f}s".format(s)
+
+        m = int(s / 60)
+        return "{:d}m {:.3f}s".format(m, (s - m * 60))
+
+    def lap(self):
+        now_wall, now_cpu = time.perf_counter(), time.process_time()
+
+        dt_wall = Timer.seconds_to_most_relevant_unit(now_wall - self.last_wall)
+        dt_cpu = Timer.seconds_to_most_relevant_unit(now_cpu - self.last_cpu)
+
+        self.last_wall = now_wall
+        self.last_cpu = now_cpu
+
+        self.lap_number += 1
+
+        return f"{self.name}, lap #{self.lap_number}: {dt_wall} wall, {dt_cpu} CPU"
+
+    def stop(self):
+        now_wall, now_cpu = time.perf_counter(), time.process_time()
+
+        dt_wall = Timer.seconds_to_most_relevant_unit(now_wall - self.start_wall)
+        dt_cpu = Timer.seconds_to_most_relevant_unit(now_cpu - self.start_cpu)
+
+        return f"{self.name}: {dt_wall} wall, {dt_cpu} CPU"
 
 
 # Positioning classes
@@ -1209,7 +1327,7 @@ class Frame:
 
     def __setitem__(self, key: Position, value: str):
         s = self.frame[key.y]
-        self.frame[key.y] = s[:key.x] + value + s[key.x + 1:]
+        self.frame[key.y] = s[: key.x] + value + s[key.x + 1 :]
 
     @property
     def y(self):
