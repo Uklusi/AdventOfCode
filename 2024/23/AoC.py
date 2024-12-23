@@ -1,6 +1,7 @@
 ﻿from AoCUtils import *  # noqa: F401
 from argparse import ArgumentParser
 from typing import Any  # noqa: F401
+import networkx as nx
 
 
 logger = Logger("log", write_to_log=False)
@@ -10,6 +11,23 @@ def solve_p1(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+    input = input_reader.words()
+    nodes: set[str] = set()
+    edges: defaultdict[str, set[str]] = defaultdict(set)
+    for a, b in input:
+        nodes.add(a)
+        nodes.add(b)
+        edges[a].add(b)
+        edges[b].add(a)
+
+    all_triangles: set[frozenset[str]] = set()
+    for node in nodes:
+        if node[0] == "t":
+            for connected in edges[node]:
+                thirds = edges[connected] & edges[node]
+                for third in thirds:
+                    all_triangles.add(frozenset([node, connected, third]))
+    result = len(all_triangles)
 
     return str(result)
 
@@ -18,6 +36,17 @@ def solve_p2(useExample: bool = False) -> str:
     result = 0
 
     input_reader = InputReader(useExample=useExample)  # noqa: F841
+    input = input_reader.words()
+
+    graph = nx.Graph()
+    for edge in input:
+        graph.add_nodes_from(edge)
+        graph.add_edge(*edge)
+
+    cliques: list[list[str]] = list(nx.find_cliques(graph))
+    max_size = max(len(c) for c in cliques)
+    clique = [c for c in cliques if len(c) == max_size][0]
+    result = ",".join(sorted(clique))
 
     return str(result)
 
